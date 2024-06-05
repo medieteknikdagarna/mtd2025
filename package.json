@@ -1,0 +1,52 @@
+{
+  "name": "mtd2023v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-spring/web": "^9.7.2",
+    "@react-three/drei": "^9.88.0",
+    "@react-three/fiber": "^8.14.5",
+    "axios": "^1.4.0",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "firebase": "^9.22.1",
+    "framer-motion": "^10.16.4",
+    "google-spreadsheet": "^3.3.0",
+    "maath": "^0.10.4",
+    "mp4": "^0.5.2",
+    "next": "13.4.3",
+    "next-fonts": "^1.5.1",
+    "next-seo": "^6.0.0",
+    "next-videos": "^1.4.1",
+    "nodemailer": "^6.9.3",
+    "pigeon-maps": "^0.21.3",
+    "react": "18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "18.2.0",
+    "react-dom-confetti": "^0.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-icons": "^4.9.0",
+    "react-image-gallery": "^1.2.11",
+    "react-parallax-tilt": "^1.7.172",
+    "react-pdf": "^7.1.2",
+    "react-simple-typewriter": "^5.0.1",
+    "react-spring": "^9.7.1",
+    "sass": "^1.62.1",
+    "sharp": "^0.32.6",
+    "styled-components": "^6.0.7"
+  },
+  "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
+    "@svgr/webpack": "^8.0.1",
+    "file-loader": "^6.2.0"
+  }
+}

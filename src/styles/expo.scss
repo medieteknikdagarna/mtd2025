@@ -1,0 +1,85 @@
+.expo-title {
+  padding-top: 25vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 1000px) {
+  }
+}
+
+.expo-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin: 6vh 8vw 5vh 8vw;
+  place-items: center;
+  @media (max-width: 1000px) {
+  }
+}
+.expo-card {
+  height: 23rem;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  margin-bottom: 3vh;
+  background: linear-gradient(
+    90deg,
+    rgba(29, 44, 52, 0.8) 0%,
+    rgba(29, 44, 52, 0.8) 46%,
+    rgba(22, 29, 33, 0.8) 100%
+  );
+  padding: 2vh 2vw 2vh 2vw;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.expo-card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0vh 4vw 2vh 4vw;
+  max-width: 50%;
+  h3,
+  h2 {
+    color: white;
+  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: 2vh;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  span {
+    font-size: 1rem;
+  }
+}
+
+.expo-card-picture {
+  position: relative;
+  display: flex;
+  min-width: 20rem;
+}
+
+.expo-card-icon {
+  display: flex;
+  align-items: center;
+}
+
+.expo-stars {
+  position: fixed;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+}
+
+.expo-type {
+  font-size: 2rem;
+}

@@ -1,0 +1,206 @@
+{
+  "sv": {
+    "companies": {
+      "gold": [
+        {
+          "company": "Upsales",
+          "partner": "GULDSPONSOR",
+          "information": [
+            "Vi är ett renodlat mjukvaruföretag med ett tydligt tillväxtfokus. Med ett globalt team om ca 100 personer bygger vi ett snabbväxande och effektivt företag. Upsales är en arbetsplats där vi tror på stort personligt ansvar och gillar när det händer saker, samtidigt som man är en lagspelare som lämnar prestigen bakom sig."
+          ],
+          "logo": "upsales-logo-white.svg",
+          "offer": [
+            "Exjobb",
+            "Sommarjobb",
+            "Anställning"
+          ]
+        },
+        {
+          "company": "Gaia System AB",
+          "partner": "GULDSPONSOR",
+          "information": [
+            "Gaia är mjukvaruföretaget som gör kollektivt resande hållbart, tillgängligt och attraktivt. Vi bygger Gaia Public Transport för hela världens trafikföretag med hjälp av cutting-edge moln- och IoT-plattformar. Det gör vi genom att jobba tätt tillsammans i våra team och nyttja varje individs olika styrkor och kunskaper."
+          ],
+          "logo": "gaia_purple.svg",
+          "offer": [
+            "Exjobb",
+            "Sommarjobb",
+            "Anställning"
+          ]
+        }
+      ],
+      "silver": [
+        {
+          "company": "Axis Communications",
+          "partner": "SILVERSPONSOR",
+          "information": [
+            "Innovating for a smarter, safer world. By combining intelligent technology and human imagination, we offer solutions based on sight, sound and analytics to improve security and optimize business performance"
+          ],
+          "logo": "axis_white.svg"
+        },
+        {
+          "company": "Voyado AB",
+          "partner": "SILVERSPONSOR",
+          "information": [
+            "Voyado is the ultimate solution for personalization and relevance across all channels—online and offline. Used by retailers and e-commerce companies worldwide, the Voyado customer experience cloud makes it possible for every brand to engage customers, elevate shopping experiences, and evolve their own businesses."
+          ],
+          "logo": "Voyado_white.png"
+        },
+        {
+          "company": "Sectra AB",
+          "partner": "SILVERSPONSOR",
+          "information": [
+            "Sectra erbjuder lösningar för medicinsk IT och cybersäkerhet. Vi hjälper sjukhus och de som utbildar framtidens vårdpersonal att öka sin effektivitet så att patienter kan få bättre vård. Vi stöttar även försvar, andra myndigheter och olika kritiska samhällsfunktioner. Vi hjälper dem att säkra sin kommunikation mot avlyssning och skydda sina system mot intrång. Det är på så sätt vi skapar förutsättningar för friskare och tryggare samhällen."
+          ],
+          "logo": "Sectra-logo-white.svg"
+        },
+        {
+          "company": "SMHI",
+          "partner": "SILVERSPONSOR",
+          "information": [
+            "SMHI är en svensk expertmyndighet med globalt perspektiv och en livsviktig uppgift i att förutse förändringar i väder, vatten och klimat. Med vetenskaplig grund och genom kunskap, forskning och tjänster bidrar vi till att öka hela samhällets hållbarhet. Varje dag, dygnet runt, året om."
+          ],
+          "logo": "SMHI.svg"
+        }
+      ],
+      "bronze": [
+        {
+          "company": "Sveriges Ingenjörer",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Fackförbund för alla blivande teknologer och ingenjörer"
+          ],
+          "logo": "Sveriges-ingenjorer.png"
+        },
+        {
+          "company": "HiQ",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "I livets alla aspekter är begreppet enkelhet oslagbart. Att förenkla människors liv i mån om att frigöra tid till att njuta av det som är viktigt. Säg den som inte önskar saker lätta att förstå och använda. Att förbättra världen genom att göra den enkel, hållbar och rolig att leva i – Det är precis vad vi på HiQ gör, varje dag. Med design, strategi, kreativitet, innovation och djupt tekniskt kunnande bygger vi fantastiska digitala lösningar. – Flyga jetplan utan att lämna marken? Ja! – Köra en artonhjuling förarlöst? Ja! – Betala utan kontanter? Ja! – Beställa mat med Lego? Ja! Eller helt enkelt nyttja snabbare integrationer som 5G, AL, ML, AM och många andra akronymer. Vill du vara med? Ja!"
+          ],
+          "logo": "HiQ_white.png"
+        },
+        {
+          "company": "Softube AB",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Softube develops both hardware and software for musicians, producers, and engineers, often in partnership with big-brand partners such as Marshall, Universal Audio, and Solid State Logic, with an intense focus on sound quality."
+          ],
+          "logo": "softube.svg"
+        },
+        {
+          "company": "LEAD",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "LEAD är Östergötlands företagsinkubator som hjälper och stöttar innovativa startup-bolag att skala upp säkrare och snabbare."
+          ],
+          "logo": "lead_vit_rgb.svg"
+        },
+        {
+          "company": "TaxiCaller Nordic AB",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Belägna i hjärtat av Linköping Science Park finns vi – ett team av passionerade problemlösare på uppdrag att revolutionera transportbranschen globalt! Det är en mäktig uppgift, men oj så spännande, och vi är kända som en av de bästa i branschen. Här hos oss står de senaste teknologierna i centrum när vi utvecklar vårt banbrytande trafikledningssystem. Varje kodrad vi skriver syftar till ökad användarvänlighet, effektivitet och lönsamhet för våra kunder. Vi uppmuntrar innovativt tänkande och levererar kontinuerligt nya, förbättrade funktioner som möter kundernas behov eller öppnar nya dörrar till expansion. Vi har en stark närvaro på marknader som Nord- och Sydamerika, Storbritannien och nu, med vår senaste funktionalitet för skolskjuts och färdtjänst, är vi redo att erövra Norden. Vår molntjänst sträcker sig över 70 länder, och vår drivkraft är att utveckla globala lösningar som förenklar vardagen för människor världen över. Vill du vara med och göra skillnad? Kom förbi vår monter och låt oss tillsammans utforska framtidens möjligheter!"
+          ],
+          "logo": "TaxiCaller.svg"
+        },
+        {
+          "company": "Xamera",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Image Systems Motion Analysis är experter på bildanalys och matematik för test- och mättillämpningar. Vi bygger världsledande mjukvaror för att ge kunderna snabba, exakta och värdefulla mätresultat från bilder där rörelse eller deformation förekommer. Våra mjukvarulösningar TEMA och TrackEye används i hundratals applikationer där ett objekts rörelse, orientering eller form ska mätas och analyseras. Företaget finns i Sverige, USA, Frankrike, Israel och Kina."
+          ],
+          "logo": "Xamera.webp"
+        },
+        {
+          "company": "Norrköping Science Park",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "NOSP creates waves of growth, competitiveness, and attractiveness in Norrköping with entrepreneurship, research-driven solutions, and societal impact at heart."
+          ],
+          "logo": "Nosp_logo-vit.svg"
+        },
+        {
+          "company": "Cygni part of Accenture",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Redan från starten hade vi på Cygni en tydlig vision, vi ville vara den bästa arbetsgivaren för skickliga och ambitiösa systemutvecklare! Våra konsulter är fullstackutvecklare, frontendare, mobilutvecklare, UX-designers, embeddedutvecklare, digitala designers, och projektledare. Vi har alla kompetenser som krävs för att hjälpa våra kunder med att bygga de bästa digitala lösningarna. På vår kundlista finns företag och organisationer inom ett flertal branscher såsom media, finans, telekom, spel och retail. De flesta är ledande i sin bransch men vi jobbar även med mindre företag och organisationer. Idag finns vi i Stockholm, Göteborg, Linköping, Luleå, Malmö, Östersund, Umeå och Köpenhamn. Vid sju tillfällen har vi vunnit den fantastiskt fina utmärkelsen Sveriges Bästa Arbetsplats av Great Place To Work. Utmärkelsen baseras på världens största medarbetarundersökning som omfattar 10 miljoner personer i 50 länder."
+          ],
+          "logo": "CYGNI_white.svg"
+        },
+        {
+          "company": "CTEK",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "www.ctek.com"
+          ],
+          "logo": "CTEK.png"
+        },
+        {
+          "company": "Bonnier News",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "As the Nordic region's largest media company, our mission is to help citizens and organizations function in a democratic society. Our journalists report, review and tell about the important issues of our time. We inspire and create business through meetings, products and services. At Bonnier News, we safeguard free speech and make a difference through journalism that reaches and touches many. We are Sweden's leading media house and with brands such as Dagens Nyheter, Expressen and Dagens industri, we reach millions of readers and users every day. Through Bonnier News Local, we have a large local presence. In addition to this, we also publish industry-specific magazines such as Dagens Media, Resumé, Dagens medicin and Fastighetsnytt, and also a number of lifestyle magazines such as Damernas Värld, Sköna Hem and Allt om Mat. By constantly driving digital development forward, we are constantly reaching further - and as an employee, you can influence the direction."
+          ],
+          "logo": "bonnier_news_logo_vit.svg"
+        },
+        {
+          "company": "Voysys AB",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Software for safe teleoperation. Video communication solutions over unreliable public 4G/LTE networks. For monitoring and remote control of autonomous vehicles, machines and robots."
+          ],
+          "logo": "VoysysLogo.png"
+        },
+        {
+          "company": "Sogeti",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Sogeti Sverige, en del av Capgemini-koncernen, med 21 kontor och 1300 medarbetare, skapar affärsvärde med teknologi för organisationer som behöver införa innovation snabbt och som vill ha en lokal partner med global skalbarhet. Med en hands-on-kultur och närhet till kunderna, implementerar Sogeti lösningar som hjälper organisationer att arbeta snabbare, bättre och smartare. Genom att kombinera agilitet och snabb implementation via en DevOps-ansats, levererar Sogeti innovativa lösningar inom test- och kvalitetssäkring, molnet och systemutveckling, förstärkta av AI, data och automation. Capgemini -koncernen är en världsledande samarbetspartner som stöttar kunder att driva och utveckla sina verksamheter genom den potential och de möjligheter som skapas av teknologi. Koncernen har som ledstjärna att med teknikens hjälp frigöra mänsklig energi som kan användas till att bygga en hållbar och inkluderande framtid. Organisationen präglas av mångfald och ansvar och har över 350 000 medarbetare i ca 50 länder. Vision Vår vision är att vi varje dag skapar värden som hämtas från morgondagen. För våra kunder, våra partners och oss själva."
+          ],
+          "logo": "sogeti-logo.svg"
+        },
+        {
+          "company": "Polismyndigheten, NFC",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Polismyndigheten tillsammans med övriga myndigheter inom och utom rättsväsendet bidrar genom sina insatser till målet för kriminalpolitiken – att minska brottsligheten och öka människors trygghet. Vid Nationellt forensiskt centrum bedrivs forensik och IT-forensik."
+          ],
+          "logo": "polis.svg"
+        },
+        {
+          "company": "EA Digital Illusions CE AB",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "We are DICE, the award-winning studio with locations in Stockholm and Gothenburg, Sweden, best known for creating the phenomenally successful Battlefield franchise. We are now part of a set of global studios building a connected Battlefield universe, developing Battlefield's one-of-a-kind multiplayer suite, while also building a team to support our new Seattle-based studio, Ridgeline Games, who are leading the development of a single-player narrative campaign. Our people are the backbone and driving force to our creative products, and are always looking for diverse game creators to join us in Stockholm, Gothenburg, or working remotely, to help us build the best Battlefield experiences and make our studio the best in the industry."
+          ],
+          "logo": "DICE.svg"
+        },
+        {
+          "company": "Migrationsverket",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "På Migrationsverket arbetar vi med en av vår tids stora samhällsfrågor, och med uppgifter som rör människors liv och framtid. Varje dag söker sig människor till Sverige för att arbeta, studera, bo eller söka skydd här. Migrationsverkets uppdrag är att pröva ansökningar för dem som vill stanna i Sverige. Vi är drygt 400 personer som arbetar med IT inom myndigheten och vårt jobb är att underlätta för dem som söker sig hit i att använda våra tjänster – oavsett vilka de är eller var i världen de befinner sig. Arbetet sker i takt med omvärlden och är varierat och utvecklande. Vi arbetar i tvärfunktionella team och med agil utvecklingsmetodik för att ta fram de bästa lösningarna. Ambitionen är att vara en myndighet i framkant när det gäller digitalisering, e-förvaltning och teknikval. I det större perspektivet bidrar vi till att migrationen till Sverige fungerar och därmed fyller vi en viktig roll i samhället."
+          ],
+          "logo": "Migrationsverket_VIT.svg"
+        },
+        {
+          "company": "SICK IVP AB",
+          "partner": "SILVERSPONSOR",
+          "information": [
+            "SICK is an innovation center for Machine Vision, and we are 90 committed employees with a big interest in image processing and visualization. For more than 35 years, our team at SICK Linköping has successfully developed and delivered software for technically leading products within the field of 2D and 3D vision, as well as system solutions, e.g. robot guidance and quality control."
+          ],
+          "logo": "SICK_white.svg"
+        },
+        {
+          "company": "Image Systems Motion Analysis",
+          "partner": "BRONSSPONSOR",
+          "information": [
+            "Image Systems Motion Analysis är experter på bildanalys och matematik för test- och mättillämpningar. Vi bygger världsledande mjukvaror för att ge kunderna snabba, exakta och värdefulla mätresultat från bilder där rörelse eller deformation förekommer. Våra mjukvarulösningar TEMA och TrackEye används i hundratals applikationer där ett objekts rörelse, orientering eller form ska mätas och analyseras. Företaget finns i Sverige, USA, Frankrike, Israel och Kina."
+          ],
+          "logo": "IMSA.png"
+        }
+      ]
+    }
+  }
+}
