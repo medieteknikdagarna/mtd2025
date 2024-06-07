@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import * as animationData from "../../public/animation_success.json";
 import { languageContext } from "../pages/_app";
+
 const content = require("../../public/content/thankyou.json");
+
+
 export default function ThankYou() {
   const [lang, setLang] = useContext(languageContext);
 

@@ -5,7 +5,12 @@ import { useContext } from "react";
 import { languageContext } from "./_app";
 import ResponsiveContainer from "../components/ResponsiveContainer";
 import { NextSeo } from "next-seo";
+
 const data = require("../../public/content/privacy-policy.json");
+
+// Sida: https://www.medieteknikdagen.se/policy
+// koppla samman info mejl med någon person
+// andra text om vi ändrar databas 
 export default function Policy() {
   const [lang] = useContext(languageContext);
 

@@ -4,7 +4,10 @@ import Button from "./Button";
 import Link from "next/dist/client/link";
 import { useTransition, animated, config } from "react-spring";
 import { languageContext } from "../pages/_app";
+
 const content = require("../../public/content/cookies.json");
+
+// används inte just nu, används i app
 export default function AcceptPolicy() {
   const [lang, setLang] = useContext(languageContext);
 

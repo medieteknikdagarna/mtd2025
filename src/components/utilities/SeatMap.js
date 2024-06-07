@@ -8,6 +8,7 @@ import { languageContext } from "../../pages/_app";
 import styles from "./seatMap.module.scss";
 import Image from "next/image";
 
+// används inte längre, används i seatbooker
 export function isReserved(seat, listOfReserved) {
   let isReserved = false;
   listOfReserved.forEach((booking) => {

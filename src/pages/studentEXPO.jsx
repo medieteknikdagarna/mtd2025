@@ -5,6 +5,7 @@ import StarsCanvas from "@/components/EXPO-components/StarsCanvas";
 import { useTypewriter, Typewriter } from "react-simple-typewriter";
 import { useState } from "react";
 
+// Används inte längre (?)
 const StudentEXPO = () => {
   //console.log(Content.sv.uställare[0]);
   const [doneTyping, setDoneTyping] = useState(false);

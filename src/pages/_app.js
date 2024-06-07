@@ -61,6 +61,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import StickyContact from "../components/StickyContact";
 
+// Används inte just nu
 export const languageContext = React.createContext();
 
 function MyApp({ Component, pageProps }) {

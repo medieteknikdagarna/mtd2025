@@ -24,6 +24,10 @@ export function importAll(r) {
   return images;
 }
 
+// Sida: https://www.medieteknikdagen.se/massan
+// fixa animation för TheFair delen
+// fixa css för Gallery - 1 col pixel går att se
+// fixa css för infoSection - min height - ta med 2022 och 2023
 export default function About() {
   const [lang, setLang] = useContext(languageContext);
 

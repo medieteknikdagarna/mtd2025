@@ -3,7 +3,10 @@ import { languageContext } from "../pages/_app";
 import MTDSvg from "../../public/images/mtd.svg";
 import MTSvg from "../../public/images/mt_logo.svg";
 import Image from "next/image";
+
 const content = require("../../public/content/fair.json");
+
+
 export default function AboutInfo() {
   const [lang, setLang] = useContext(languageContext);
 

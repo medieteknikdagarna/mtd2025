@@ -9,6 +9,7 @@ import {
 } from "@react-three/drei";
 import CanvasLoader from "./CanvasLoader.jsx";
 
+// används inte just nu, ska användas i index.js
 const Sphere = () => {
   //const fbxLoader = new FBXLoader();
   const group = useRef();

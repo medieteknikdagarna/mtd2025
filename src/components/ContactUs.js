@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import ContactMap from "../components/ContactMap";
 import ContactCard from "../components/ContactCard";
 import { languageContext } from "../pages/_app";
+
 const content = require("../../public/content/contact-us.json");
 
+// dubbelkolla allt sen
 export default function ContactUs({ className }) {
   const [lang, setLang] = useContext(languageContext);
 
@@ -13,32 +15,32 @@ export default function ContactUs({ className }) {
         <ContactCard
           title={content[lang].small_titles[0]}
           body={content[lang].bodys[0]}
-          textToCopy="sebastian.lindgren@medieteknikdagen.se"
+          textToCopy="isak.karlsson@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[1]}
           body={content[lang].bodys[1]}
-          textToCopy="marcus.sjoblom@medieteknikdagen.se"
+          textToCopy="tove.tangring@medieteknikdagen.se" 
         />
         <ContactCard
           title={content[lang].small_titles[1]}
           body={content[lang].bodys[1]}
-          textToCopy="joel.hellberg@medieteknikdagen.se"
+          textToCopy="simon.henriksson@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[2]}
           body={content[lang].bodys[2]}
-          textToCopy="andreas.ekberg@medieteknikdagen.se"
+          textToCopy="max.wiklundh@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[3]}
           body={content[lang].bodys[3]}
-          textToCopy="gustav.johansson@medieteknikdagen.se"
+          textToCopy="albin.kjellberg@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[4]}
           body={content[lang].bodys[4]}
-          textToCopy="molly.bengtsson@medieteknikdagen.se"
+          textToCopy="kristian.houe.gustafsson@medieteknikdagen.se"
         />
       </div>
 

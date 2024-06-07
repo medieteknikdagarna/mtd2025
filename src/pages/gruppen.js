@@ -9,6 +9,7 @@ import { NextSeo } from "next-seo";
 
 const content = require("../../public/content/contact-us.json");
 
+// Sida: https://www.medieteknikdagen.se/gruppen
 export default function ContactPage() {
   const [lang, setLang] = useContext(languageContext);
 
@@ -16,7 +17,7 @@ export default function ContactPage() {
     <>
       <NextSeo
         title="Gruppen"
-        description="Kontaktuppgifter till alla 14 gruppmedlemmar i MTD2022"
+        description="Kontaktuppgifter till alla 14 gruppmedlemmar i MTD2024"
         canonical="https://www.medieteknikdagen.se/gruppen"
       />
       <Header changeOnScroll />

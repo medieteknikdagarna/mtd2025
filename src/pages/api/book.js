@@ -11,6 +11,7 @@ import {
 //const db = getStorage(firebaseApp);
 const db = getFirestore(firebaseApp);
 
+// Query the database and return all reservations
 export async function getReservations() {
   try {
     const q = query(collection(db, "companies"));
@@ -30,6 +31,7 @@ export async function getReservations() {
   }
 }
 
+// Add a company reservation to the database
 export async function addRegistration(data) {
   try {
     //Add logo
@@ -49,10 +51,12 @@ export async function addRegistration(data) {
   }
 }
 
+// Handles a request to reserve a seat
 export default async function handler(req, res) {
   const data = await getReservations();
   if (req.method === "POST") {
     let foundDuplicate = false;
+    // Check if the seat is already reserved
     data.data.forEach((booking) => {
       //console.log(req.body.sponsor);
 

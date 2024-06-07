@@ -3,6 +3,8 @@ import { set, useForm } from "react-hook-form";
 import CompanyList from "@/components/admin-components/CompanyList";
 import CompanyDetails from "@/components/admin-components/CompanyDetails";
 import SponsorType from "@/components/admin-components/SponsorType";
+
+// Fixa antal guld, silver och brons företag
 export default function AdminPage() {
   const [totalNumberOfCompanies, setNumber] = useState(0);
   const [currentComp, setCurrentComp] = useState([]);
@@ -42,7 +44,7 @@ export default function AdminPage() {
       ) : (
         <>
           <div className="admin_title">
-            <h1 style={{ fontSize: "5rem" }}>MTD 2023</h1>
+            <h1 style={{ fontSize: "5rem" }}>MTD 2024</h1>
             <div style={{ display: "flex", alignItems: "baseline" }}>
               <h2>Antal företag - </h2>
               <span>{totalNumberOfCompanies}</span>

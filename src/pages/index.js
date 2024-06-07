@@ -22,6 +22,8 @@ import Image from "next/image";
 
 const content = require("../../public/content/landing.json");
 
+// Startsida https://www.medieteknikdagen.se/
+// Fixa mer exakt datum
 export default function LandingPage() {
   const [lang, setLang] = useContext(languageContext);
   const fbVideoUrl =
@@ -29,7 +31,7 @@ export default function LandingPage() {
   return (
     <>
       <NextSeo
-        title="Medieteknikdagen 2023"
+        title="Medieteknikdagen 2024"
         description="Medieteknikdagen är medieteknikstudenternas årliga arbetsmarknadsdag på Linköpings Universitet, Campus Norrköping. Säkra er plats genom att lämna en intresseanmälan!"
         canonical="https://www.medieteknikdagen.se/"
       />
@@ -49,7 +51,7 @@ export default function LandingPage() {
                   <h1>MTD</h1>
                   <div className="date-landing">
                     <span>
-                      {lang === "sv" ? "6:e December" : "December 6th"} 2023
+                      {lang === "sv" ? "6:e December" : "December 6th"} 2024
                     </span>
                   </div>
                   <div className="welcome">
@@ -97,7 +99,7 @@ export default function LandingPage() {
                   <div className="landing-fair-info-row-container">
                     <div className="landing-fair-info--row">
                       <FontAwesomeIcon size="2x" icon={faCalendar} />
-                      <span>{lang === "sv" ? "6:e Dec" : "Dec 6th"} 2023</span>
+                      <span>{lang === "sv" ? "6:e Dec" : "Dec 6th"} 2024</span>
                     </div>
                     <div className="landing-fair-info--row">
                       <FontAwesomeIcon

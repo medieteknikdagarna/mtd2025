@@ -14,6 +14,7 @@ import CompanyText from "@/public/content/company_information.json";
 import Image from "next/image";
 import Modal from "@/components/foretag-components/ForetagModal";
 
+// Komponent för att visa företagskort - exempelvis på /foretag
 const CompanyCard = ({ name, index, type }) => {
   const [currentComp, setCurrentComp] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -47,9 +48,12 @@ const CompanyCard = ({ name, index, type }) => {
     }
     fetchDetails(name);
   };
+  // kanske ändra så att den inte är så extrem
+  // fixa så att det är tydligare att silver och bronze också har mer info
+  // fixa css
   return (
     <>
-      <Tilt>
+      <Tilt> 
         <motion.div
           options={{ max: 45, scale: 1, speed: 450 }}
           className="card_container"
@@ -128,7 +132,7 @@ const CompanyCard = ({ name, index, type }) => {
     </>
   );
 };
-
+// används inte - få in eller ta bort?
 export default function ForetagV2() {
   const [goldCompanies, setGoldCompanies] = useState();
   const [silverCompanies, setSilverCompanies] = useState();
@@ -173,7 +177,7 @@ export default function ForetagV2() {
       />
 
       <div className="container">
-        <h1>Företag Medieteknikdagen 2023</h1>
+        <h1>Företag Medieteknikdagen 2024</h1>
         <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3>
         {doneLoading ? (
           <>

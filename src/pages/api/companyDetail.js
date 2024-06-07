@@ -11,6 +11,7 @@ import {
 
 const db = getFirestore(firebaseApp);
 
+// Query the database and return a specific company's reservations
 export async function getReservations(companyName) {
   console.log(companyName);
   try {
@@ -29,6 +30,7 @@ export async function getReservations(companyName) {
   }
 }
 
+// Handler to get the data of a specific company
 export default async function handler(req, res) {
   if (req.method === "GET") {
     //console.log("GETTING DATA");

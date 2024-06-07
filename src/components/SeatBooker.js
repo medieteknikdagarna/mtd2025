@@ -21,7 +21,7 @@ const floor4_all = require("../../public/content/seat-info/floor4.json");
 const floor5_all = require("../../public/content/seat-info/floor5.json");
 
 export const selectedContext = React.createContext();
-
+// används inte längre
 export default function SeatBooker({ type, setType }) {
   const [activeSeats, setActiveSeats] = useState(floor5_all);
   const [floor4_res, setFloor4] = useState([]);

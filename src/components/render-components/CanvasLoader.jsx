@@ -1,5 +1,6 @@
 import { useProgress, Html } from "@react-three/drei";
 
+// används i SphereCanvas
 const Loader = () => {
   const { progress } = useProgress();
 

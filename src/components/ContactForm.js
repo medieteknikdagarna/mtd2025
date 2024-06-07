@@ -5,7 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import ThankYou from "../components/ThankYou";
 import { languageContext } from "../pages/_app";
+
 const content = require("../../public/content/form.json");
+
+// används inte just nu, används i stickycontact
 export default function ContactForm() {
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);

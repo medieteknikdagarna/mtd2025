@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 
 const db = getFirestore(firebaseApp);
-
+// Query the database and return all companies
 export async function getReservations() {
   try {
     const q = query(collection(db, "companies"));
@@ -27,6 +27,7 @@ export async function getReservations() {
   }
 }
 
+// Handler to get all of the data
 export default async function handler(req, res) {
   if (req.method === "GET") {
     //console.log("GETTING DATA");

@@ -7,7 +7,11 @@ import ResponsiveContainer from "../components/ResponsiveContainer";
 import { languageContext } from "./_app";
 import { NextSeo } from "next-seo";
 import PressAndMedia from "../components/PressAndMedia";
+
 const content = require("../../public/content/contact-us.json");
+
+// Sida: https://www.medieteknikdagen.se/press-och-media
+// Fixa bild på PR ansvarig
 export default function ContactPage() {
   const [lang, setLang] = useContext(languageContext);
   return (

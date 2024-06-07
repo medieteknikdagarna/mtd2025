@@ -6,6 +6,7 @@ import * as animationData from "../../public/animation_success.json";
 import { languageContext } from "../pages/_app";
 const content = require("../../public/content/register_complete.json");
 
+// används inte längre enbart i seatbooker
 export default function ReservSucces({ name, company }) {
   const [shouldExlpode, setExplode] = useState(false);
   const [lang, setLang] = useContext(languageContext);

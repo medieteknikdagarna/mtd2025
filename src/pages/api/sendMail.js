@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 
+// Create a SMTP transporter object 
 export const transporter = nodemailer.createTransport({
   host: "smtp01.binero.se",
   port: 587,
@@ -13,3 +14,6 @@ export const transporter = nodemailer.createTransport({
 export const mailOptions = {
   from: "webb@medieteknikdagarna.se",
 };
+
+
+// this file might be deprecated

@@ -11,7 +11,9 @@ import LanguageFlag from "./LanguageFlag";
 import Link from "next/link";
 import { useTransition, animated } from "react-spring";
 import { useRouter } from "next/router";
+
 const content = require("../../public/content/menu.json");
+
 export default function Menu({ onExit, style, className, show }) {
   const [lang, setLang] = useContext(languageContext);
   const [subMenuActive, setSubMenuActive] = useState(false);

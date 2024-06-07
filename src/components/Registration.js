@@ -10,6 +10,8 @@ import { languageContext } from "../pages/_app";
 import Image from "next/image";
 const content = require("../../public/content/register.json");
 const formContent = require("../../public/content/form.json");
+
+// används inte längre 
 export default function Registration() {
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);

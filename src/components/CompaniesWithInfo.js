@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { languageContext } from "../pages/_app";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
+// används inte just nu
 export function CompanyInformationCard({
   company,
   showText = true,

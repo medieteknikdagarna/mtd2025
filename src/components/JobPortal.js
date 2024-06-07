@@ -7,6 +7,8 @@ import Link from "next/link";
 import ReservationSuccess from "./ReservationSuccess";
 import SignSVG from "../../public/images/sign.svg";
 import { languageContext } from "../pages/_app";
+
+// används inte just nu
 export default function JobPortal() {
   return (
     <ResponsiveContainer className="jobportal">

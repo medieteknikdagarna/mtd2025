@@ -26,12 +26,12 @@ export default function PressAndMedia() {
       </div>
 
       <MemberCard
-        name="Ivar Gavelin"
+        name="Ebba Johansson"
         post="PR"
-        email="ivar.gavelin@medieteknikdagen.se"
-        phone="+46 707 66 68 52"
-        src={`/images/members/ivr.png`}
-        linkedin={"https://www.linkedin.com/in/victor-persson-0335a7259/"}
+        email="ebba.johansson@medieteknikdagen.se"
+        phone="+46 707 66 68 52" // INTE FIXAT
+        src={'/images/members/ivr.png'} // INTE FIXAT
+        linkedin={"https://www.linkedin.com/in/victor-persson-0335a7259/"} // INTE FIXAT
       />
     </div>
   );

@@ -10,6 +10,8 @@ import ContactUs from "../components/ContactUs";
 
 const content = require("../../public/content/contact-us.json");
 
+// Sida: https://www.medieteknikdagen.se/kontakt
+// fixa länkar till nya mtd
 export default function ContactPage() {
   const [lang, setLang] = useContext(languageContext);
 
@@ -17,7 +19,7 @@ export default function ContactPage() {
     <>
       <NextSeo
         title={"Kontakta oss"}
-        description="Vi älskar att snacka! Skriv till oss du har frågor om mässan, partnerskap, allmäna frågor - eller bara vill säga hej!"
+        description="Vi älskar att snacka! Skriv till oss om du har frågor om mässan, partnerskap, allmänna frågor - eller bara vill säga hej!"
         canonical="https://www.medieteknikdagen.se/kontakt"
       />
       <Header changeOnScroll />

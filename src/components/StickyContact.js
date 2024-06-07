@@ -4,6 +4,8 @@ import { faPaperPlane, faTimes } from '@fortawesome/free-solid-svg-icons'
 import {useSpring, animated} from 'react-spring'
 import ContactForm from '../components/ContactForm'
 import useWindowDimensions from '../components/utilities/useWindowDimensions'
+
+// används inte just nu
 export default function StickyContact() {
 
 

@@ -4,7 +4,10 @@ import ResponsiveContainer from "./ResponsiveContainer";
 import PodiumSVG from "../../public/images/podium.svg";
 import ShakeSVG from "../../public/images/shake_hand.svg";
 import { languageContext } from "../pages/_app";
+
 const content = require("../../public/content/landing.json");
+
+// Block med info efter välkommen blocket och innan after movie 2020
 export default function InfoWithStars() {
   const [lang, setLang] = useContext(languageContext);
   return (
