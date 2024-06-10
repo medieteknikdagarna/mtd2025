@@ -59,7 +59,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import Head from "next/head";
 
 import { useRouter } from "next/router";
-import StickyContact from "../components/StickyContact";
+//import StickyContact from "../components/StickyContact";
 
 // Används inte just nu
 export const languageContext = React.createContext();
