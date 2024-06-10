@@ -29,6 +29,7 @@
     "next-videos": "^1.4.1",
     "nodemailer": "^6.9.3",
     "pigeon-maps": "^0.21.3",
+    "pocketbase": "^0.21.3",
     "react": "18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
