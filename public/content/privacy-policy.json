@@ -20,7 +20,7 @@
     },
     "thirdParty": {
       "title": "Datahanterare från tredje part",
-      "body": "Vi använder ett antal tjänster i vår verksamhet som underlättar den dagliga driften av Medieteknikdagen. Dessa tredje parter har valts ut noggrant och de har bekräftat att de följer GDPR reglerna.  <br/><br/><b>Google</b><br/> Tillhandahållande av epost, kalender och arbetsverktyg så som Google Docs, Google Drive, Google Sheets samt Firebase. <br/><br/><b>Facebook / Instagram / LinkedIn</b><br/> Leverantör av digital plattform Medieteknikdagen använder sig av för att marknadsföra sig till företag samt marknadsföra mässan. <br/><br/><b>Github</b><br/> Leverantör av kommunikation på Medieteknikdagens hemsida. <br/><br/><b>Slack:</b><br/> Leverantör av intern kommunikation. För mer information om användingen av cookies på medieteknikdagen.se, se \"Cookies\"."
+      "body": "Vi använder ett antal tjänster i vår verksamhet som underlättar den dagliga driften av Medieteknikdagen. Dessa tredje parter har valts ut noggrant och de har bekräftat att de följer GDPR reglerna.  <br/><br/><b>Google</b><br/> Tillhandahållande av epost, kalender och arbetsverktyg så som Google Docs, Google Drive, Google Sheets samt Pocketbase. <br/><br/><b>Facebook / Instagram / LinkedIn</b><br/> Leverantör av digital plattform Medieteknikdagen använder sig av för att marknadsföra sig till företag samt marknadsföra mässan. <br/><br/><b>Github</b><br/> Leverantör av kommunikation på Medieteknikdagens hemsida. <br/><br/><b>Slack:</b><br/> Leverantör av intern kommunikation. För mer information om användingen av cookies på medieteknikdagen.se, se \"Cookies\"."
     },
     "cookies": {
       "title": "Cookies",
@@ -86,7 +86,7 @@
     },
     "thirdParty": {
       "title": "Third party data manager",
-      "body": "<p>We use a number of services in our operations that facilitate the day-to-day operation of Media Technology Day. These third parties have been carefully chosen and they have confirmed that they comply with the GDPR rules. <b>Google:</b> Providing email, calendar and work tools such as Google Docs, Google Drive, Google Sheets. <b>Facebook/Instagram/LinkedIn:</b> Digital platform supplier that Media Technology Day use to market themselves to companies as well as to market the event. <b>Github:</b> Supplier of communication on the Media Technology Day website. <b>Slack:</b> Supplier of internal communications. For more information about the use of cookies on medieteknikdagen.se, see \"Cookies\".</p>"
+      "body": "<p>We use a number of services in our operations that facilitate the day-to-day operation of Media Technology Day. These third parties have been carefully chosen and they have confirmed that they comply with the GDPR rules. <b>Google:</b> Providing email, calendar and work tools such as Google Docs, Google Drive, Google Sheets and Pocketbase. <b>Facebook/Instagram/LinkedIn:</b> Digital platform supplier that Media Technology Day use to market themselves to companies as well as to market the event. <b>Github:</b> Supplier of communication on the Media Technology Day website. <b>Slack:</b> Supplier of internal communications. For more information about the use of cookies on medieteknikdagen.se, see \"Cookies\".</p>"
     },
     "cookies": {
       "title": "Cookies",
