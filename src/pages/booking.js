@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import Header from "../components/Header";
 //import SeatBooker from "@/components/SeatBooker";
-import BookingFormV2 from "@/components/BookingFormV2";
+//import BookingFormV2 from "@/components/BookingFormV2";
 import Footer from "@/components/Footer";
-//import BookingFormV3 from "@/components/BookingFormV3";
+import BookingFormV3 from "@/components/BookingFormV3";
 
 
 // Sida: https://www.medieteknikdagen.se/booking
@@ -30,8 +30,8 @@ export default function BookingPage() {
     <>
       <NextSeo noindex={true} />
       <Header changeOnScroll />
-      <BookingFormV2 /> 
-      {/* <BookingFormV3 /> */}
+      {/* <BookingFormV2 />  */}
+      <BookingFormV3 />
       <Footer />
     </>
   );

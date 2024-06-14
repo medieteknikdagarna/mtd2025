@@ -15,7 +15,7 @@ import SeatMap from "@/utilities/SeatMap";
 //import { ref, uploadBytes } from "firebase/storage";
 //import { getStorage } from "firebase/storage";
 //import { firebaseApp } from "@/firebase/clientApp";
-import { pocketbaseClient } from "./pocketbase/pockethost";
+import { pb } from "./pocketbase/pockethost";
 
 const floor4_all = require("../../public/content/seat-info/floor4.json");
 const floor5_all = require("../../public/content/seat-info/floor5.json");
@@ -27,6 +27,7 @@ export default function BookingFormV3() {
   const [loading, setLoading] = useState(false);
   const [bookSuccess, setBookSuccess] = useState(false);
   const [bookFailed, setBookFailed] = useState(false);
+  // varför är floor en string?
   const { register, handleSubmit, control, formState, watch, setValue } =
     useForm({
       defaultValues: {
@@ -74,58 +75,109 @@ export default function BookingFormV3() {
     alert("Tack för din anmälan!");
   };
 
-  const onSubmit = (formValues) => {
+  const onSubmit = async (formValues) => {
     setLoading(true);
 
+    const formData = new FormData();
+
     console.log(formValues);
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        TV: formValues.TV,
-        antalpåmässa: formValues.antalpåmässa,
-        bankettbiljetter: formValues.bankettbiljetter,
-        bankettkost: formValues.bankettkost,
-        company: formValues.company,
-        companyadress: formValues.companyadress,
-        contact: formValues.contact,
-        description: formValues.description,
-        elenhet: formValues.elenhet,
-        email: formValues.email,
-        extrabord: formValues.extrabord,
-        extrastol: formValues.extrastol,
-        fakturering: formValues.fakturering,
-        firmatecknare: formValues.firmateknare,
-        floor: formValues.floor,
-        seat: selectedSeat.seat,
-        mässkost: formValues.mässkost,
-        persontransport: formValues.persontransport,
-        sponsor: formValues.sponsor,
-        tel: formValues.tel,
-        tjänst: formValues.tjänst,
-        montertransport: formValues.transport,
-        trådlösaenheter: formValues.trådlösaenheter,
-        organisationsnummer: formValues.organisationsnummer,
-        signed: false,
-      }),
-    };
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     TV: formValues.TV,
+    //     antalpåmässa: formValues.antalpåmässa,
+    //     bankettbiljetter: formValues.bankettbiljetter,
+    //     bankettkost: formValues.bankettkost,
+    //     company: formValues.company,
+    //     companyadress: formValues.companyadress,
+    //     contact: formValues.contact,
+    //     description: formValues.description,
+    //     elenhet: formValues.elenhet,
+    //     email: formValues.email,
+    //     extrabord: formValues.extrabord,
+    //     extrastol: formValues.extrastol,
+    //     fakturering: formValues.fakturering,
+    //     firmatecknare: formValues.firmateknare,
+    //     floor: formValues.floor,
+    //     seat: selectedSeat.seat,
+    //     mässkost: formValues.mässkost,
+    //     persontransport: formValues.persontransport,
+    //     sponsor: formValues.sponsor,
+    //     tel: formValues.tel,
+    //     tjänst: formValues.tjänst,
+    //     montertransport: formValues.transport,
+    //     trådlösaenheter: formValues.trådlösaenheter,
+    //     organisationsnummer: formValues.organisationsnummer,
+    //     signed: false,
+    //   }),
+    // };
+    formData.append("data", {
+      TV: formValues.TV,
+      antalpåmässa: formValues.antalpåmässa,
+      bankettbiljetter: formValues.bankettbiljetter,
+      bankettkost: formValues.bankettkost,
+      company: formValues.company,
+      companyadress: formValues.companyadress,
+      contact: formValues.contact,
+      description: formValues.description,
+      elenhet: formValues.elenhet,
+      email: formValues.email,
+      extrabord: formValues.extrabord,
+      extrastol: formValues.extrastol,
+      fakturering: formValues.fakturering,
+      firmatecknare: formValues.firmateknare,
+      floor: formValues.floor,
+      seat: selectedSeat.seat,
+      mässkost: formValues.mässkost,
+      persontransport: formValues.persontransport,
+      sponsor: formValues.sponsor,
+      tel: formValues.tel,
+      tjänst: formValues.tjänst,
+      montertransport: formValues.transport,
+      trådlösaenheter: formValues.trådlösaenheter,
+      organisationsnummer: formValues.organisationsnummer,
+      signed: false,
+    });
+    // fixa path
+    formData.append("logotyp_farg", formValues.logotyp[0]);
+    formData.append("logotyp_svart", formValues.logotyp[1]);
+
+    
+
+    try {
+      const createdRecord = await pb.collection('Companies').create(formData);
+      console.log(createdRecord);
+      setLoading(false);
+      successMessage();
+    } catch (error) {
+      setBookFailed(true);
+      alert("Valda platsen är redan tagen!");
+    }
+
+    
+
+    
+
     // rewrite to pocketbase
-    const logoRef = ref(storage, `logotype/${formValues.logotyp[0].name}`);
-    uploadBytes(logoRef);
-    fetch("/api/book", requestOptions)
-      .then((response) => response.json())
-      .then((res_data) => {
-        if (res_data.success) {
-          console.log("sucsess");
-          setTimeout(() => {
-            setLoading(false);
-            successMessage();
-          }, 1000);
-        } else {
-          setBookFailed(true);
-          alert("Valda platsen är redan tagen!");
-        }
-      });
+    // const logoRef = ref(storage, `logotype/${formValues.logotyp[0].name}`);
+    // uploadBytes(logoRef);
+    // fetch("/api/book", requestOptions)
+    //   .then((response) => response.json())
+    //   .then((res_data) => {
+    //     if (res_data.success) {
+    //       console.log("sucsess");
+    //       setTimeout(() => {
+    //         setLoading(false);
+    //         successMessage();
+    //       }, 1000);
+    //     } else {
+    //       setBookFailed(true);
+    //       alert("Valda platsen är redan tagen!");
+    //     }
+    //   });
+
+
   };
 
   const {
@@ -204,25 +256,73 @@ export default function BookingFormV3() {
       }
     }
   };
-  const fetchData = async () => {
-    fetch("/api/book")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setFloor4(
-          data.filter((seat) => {
-            return seat.floor == 4;
-          })
-        );
-        setFloor5(
-          data.filter((seat) => {
-            return seat.floor == 5;
-          })
-        );
-      });
+  // loads the seat information from the database
+  // rewrite to pocketbase
+  // const fetchData = async () => {
+  //   fetch("/api/book")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setFloor4(
+  //         data.filter((seat) => {
+  //           return seat.floor == 4;
+  //         })
+  //       );
+  //       setFloor5(
+  //         data.filter((seat) => {
+  //           return seat.floor == 5;
+  //         })
+  //       );
+  //     });
+  // };
+  const fetchSeats = async () => {
+    // const companyInformation = await pb.collection('Companies').getFullList(100,{
+    //   sort: 'floor'
+    // });
+    //const authData = await pb.collection('users').authWithPassword('Test', 'database1TestPass');
+
+    pb.autoCancellation(false);
+
+    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
+
+    console.log(authData);
+
+    const companyInformation = await pb.collection('Companies').getFullList({
+         filter: pb.filter("floor = {:floor}", { floor: 4 })
+    });
+    console.log(companyInformation);
+
+    setFloor4(
+      await pb.collection('Companies').getFullList({
+        filter: pb.filter("floor = {:floor}", { floor: 4 })
+      })
+    );
+
+    setFloor5(
+      await pb.collection('Companies').getFullList({
+        filter: pb.filter("floor = {:floor}", { floor: 5 })
+      })
+    );
+    // seat är en siffra som börjar på 1 -> antalet platser på våningen
+    // hitta varför vissa är reserverade?
+
+
+    // setFloor4(
+    //   companyInformation.filter((seat) => {
+    //     return seat.floor == 4;
+    //   })
+    // );
+    // setFloor5(
+    //   companyInformation.filter((seat) => {
+    //     return seat.floor == 5;
+    //   })
+    // );
   };
+
+  // is called once during the first render
   useEffect(() => {
-    fetchData();
+    // fetchData();
+    fetchSeats();
   }, []);
 
   return (
