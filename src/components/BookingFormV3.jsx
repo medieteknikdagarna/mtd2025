@@ -85,10 +85,50 @@ export default function BookingFormV3() {
     const formData = new FormData();
 
     console.log(formValues);
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
+
+    formData.append("data", JSON.stringify({   
+      TV: formValues.TV,
+      antalpåmässa: formValues.antalpåmässa,
+      bankettbiljetter: formValues.bankettbiljetter,
+      bankettkost: formValues.bankettkost,
+      company: formValues.company,
+      companyadress: formValues.companyadress,
+      contact: formValues.contact,
+      description: formValues.description,
+      elenhet: formValues.elenhet,
+      email: formValues.email,
+      extrabord: formValues.extrabord,
+      extrastol: formValues.extrastol,
+      fakturering: formValues.fakturering,
+      firmatecknare: formValues.firmateknare,
+      floor: formValues.floor,
+      seatID: selectedSeat.seat,
+      mässkost: formValues.mässkost,
+      persontransport: formValues.persontransport,
+      sponsor: formValues.sponsor,
+      tel: formValues.tel,
+      tjänst: formValues.tjänst,
+      montertransport: formValues.transport,
+      trådlösaenheter: formValues.trådlösaenheter,
+      organisationsnummer: formValues.organisationsnummer,
+      signed: false,
+  }));
+    
+    formData.append("logotyp_farg", formValues.logotypFarg[0]);
+    formData.append("logotyp_svart", formValues.logotypSvart[0]);
+    // console.log("floor", formValues.floor);
+    formData.append("floor", formValues.floor)
+    // console.log("seatID", selectedSeat.seatID);
+    formData.append("seatID", selectedSeat.seatID)
+
+    console.log("formData", formData);
+
+    const createdRecord = await pb.collection('Companies').create(formData);
+    console.log(createdRecord);
+
+    // example create data
+    // const dataBlock = {
+    //   "data": {
     //     TV: formValues.TV,
     //     antalpåmässa: formValues.antalpåmässa,
     //     bankettbiljetter: formValues.bankettbiljetter,
@@ -104,7 +144,7 @@ export default function BookingFormV3() {
     //     fakturering: formValues.fakturering,
     //     firmatecknare: formValues.firmateknare,
     //     floor: formValues.floor,
-    //     seat: selectedSeat.seat,
+    //     seatID: selectedSeat.seat,
     //     mässkost: formValues.mässkost,
     //     persontransport: formValues.persontransport,
     //     sponsor: formValues.sponsor,
@@ -114,92 +154,21 @@ export default function BookingFormV3() {
     //     trådlösaenheter: formValues.trådlösaenheter,
     //     organisationsnummer: formValues.organisationsnummer,
     //     signed: false,
-    //   }),
+    //   },
+    //   "floor": formValues.floor,
+    //   "seatID": selectedSeat.seatID
     // };
 
-    // example create data
-    const dataBlock = {
-      "data": {
-        TV: formValues.TV,
-        antalpåmässa: formValues.antalpåmässa,
-        bankettbiljetter: formValues.bankettbiljetter,
-        bankettkost: formValues.bankettkost,
-        company: formValues.company,
-        companyadress: formValues.companyadress,
-        contact: formValues.contact,
-        description: formValues.description,
-        elenhet: formValues.elenhet,
-        email: formValues.email,
-        extrabord: formValues.extrabord,
-        extrastol: formValues.extrastol,
-        fakturering: formValues.fakturering,
-        firmatecknare: formValues.firmateknare,
-        floor: formValues.floor,
-        seatID: selectedSeat.seat,
-        mässkost: formValues.mässkost,
-        persontransport: formValues.persontransport,
-        sponsor: formValues.sponsor,
-        tel: formValues.tel,
-        tjänst: formValues.tjänst,
-        montertransport: formValues.transport,
-        trådlösaenheter: formValues.trådlösaenheter,
-        organisationsnummer: formValues.organisationsnummer,
-        signed: false,
-      },
-      "floor": formValues.floor,
-      "seatID": selectedSeat.seatID
-    };
+    // const record = await pb.collection('Companies').create(dataBlock);
+    // console.log(record);
 
-    const record = await pb.collection('Companies').create(dataBlock);
-    console.log(record);
+    // formData.append("logotyp_farg", formValues.logotypFarg[0]);
+    // formData.append("logotyp_svart", formValues.logotypSvart[0]);
 
-    formData.append("logotyp_farg", formValues.logotypFarg[0]);
-    formData.append("logotyp_svart", formValues.logotypSvart[0]);
-
-    const logotypFargRecord = await pb.collection('Companies').update(record.id, formData);
+    // const logotypFargRecord = await pb.collection('Companies').update(record.id, formData);
     
-    console.log(logotypFargRecord);
-    // formData.set("data", {
-    //   TV: formValues.TV,
-    //   antalpåmässa: formValues.antalpåmässa,
-    //   bankettbiljetter: formValues.bankettbiljetter,
-    //   bankettkost: formValues.bankettkost,
-    //   company: formValues.company,
-    //   companyadress: formValues.companyadress,
-    //   contact: formValues.contact,
-    //   description: formValues.description,
-    //   elenhet: formValues.elenhet,
-    //   email: formValues.email,
-    //   extrabord: formValues.extrabord,
-    //   extrastol: formValues.extrastol,
-    //   fakturering: formValues.fakturering,
-    //   firmatecknare: formValues.firmateknare,
-    //   floor: formValues.floor,
-    //   seatID: selectedSeat.seat,
-    //   mässkost: formValues.mässkost,
-    //   persontransport: formValues.persontransport,
-    //   sponsor: formValues.sponsor,
-    //   tel: formValues.tel,
-    //   tjänst: formValues.tjänst,
-    //   montertransport: formValues.transport,
-    //   trådlösaenheter: formValues.trådlösaenheter,
-    //   organisationsnummer: formValues.organisationsnummer,
-    //   signed: false,
-    // });
-    // // fixa path
-    // console.log("logotyp", formValues.logotypFarg);
-    // console.log("logotyp2", formValues.logotypSvart);
-    // //formData.append("logotyp_farg", formValues.logotyp[0]);
-    // //formData.append("logotyp_svart", formValues.logotyp[1]);
-    // console.log("floor", formValues.floor);
-    // formData.set("floor", formValues.floor)
-    // console.log("seatID", selectedSeat.seatID);
-    // formData.set("seatID", selectedSeat.seatID)
-
-    // console.log("formData", formData);
-
-    // const createdRecord = await pb.collection('Companies').create(formData);
-    // console.log(createdRecord);
+    // console.log(logotypFargRecord);
+    
     setLoading(false);
     successMessage();
 
