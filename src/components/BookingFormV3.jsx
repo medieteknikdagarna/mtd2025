@@ -17,6 +17,7 @@ import SeatMap from "@/utilities/SeatMap";
 //import { firebaseApp } from "@/firebase/clientApp";
 import { pb } from "./pocketbase/pockethost";
 
+// all floor data used to have "status": "available",   not used right now
 const floor4_all = require("../../public/content/seat-info/floor4.json");
 const floor5_all = require("../../public/content/seat-info/floor5.json");
 
@@ -59,7 +60,7 @@ export default function BookingFormV3() {
   const [lang, setLang] = useContext(languageContext);
 
   const [type, setType] = useState("Brons");
-  const [activeLevel, setLevel] = useState(5);
+  const [activeFloor, setFloor] = useState(5);
   const [activeSeats, setActiveSeats] = useState(floor5_all);
   const [floor4_res, setFloor4] = useState([]);
   const [floor5_res, setFloor5] = useState([]);
@@ -69,7 +70,7 @@ export default function BookingFormV3() {
 
   const changeFloor = (floor) => {
     setActiveSeats(floor === 5 ? floor5_all : floor4_all);
-    setLevel(floor);
+    setFloor(floor);
   };
   const successMessage = () => {
     alert("Tack för din anmälan!");
@@ -128,7 +129,7 @@ export default function BookingFormV3() {
       fakturering: formValues.fakturering,
       firmatecknare: formValues.firmateknare,
       floor: formValues.floor,
-      seat: selectedSeat.seat,
+      seatID: selectedSeat.seat,
       mässkost: formValues.mässkost,
       persontransport: formValues.persontransport,
       sponsor: formValues.sponsor,
@@ -143,7 +144,7 @@ export default function BookingFormV3() {
     formData.append("logotyp_farg", formValues.logotyp[0]);
     formData.append("logotyp_svart", formValues.logotyp[1]);
     formData.append("floor", formValues.floor)
-    formData.append("seat", selectedSeat.seat)
+    formData.append("seat", selectedSeat.seatID)
 
     
 
@@ -277,6 +278,8 @@ export default function BookingFormV3() {
   //       );
   //     });
   // };
+
+  // tar lite tid att ladda in, kasnke fixa
   const fetchSeats = async () => {
     // const companyInformation = await pb.collection('Companies').getFullList(100,{
     //   sort: 'floor'
@@ -292,7 +295,7 @@ export default function BookingFormV3() {
     const companyInformation = await pb.collection('Companies').getFullList({
          filter: pb.filter("floor = {:floor}", { floor: 4 })
     });
-    console.log(companyInformation[0].seat);
+    console.log(companyInformation[0]);
 
     setFloor4(
       await pb.collection('Companies').getFullList({
@@ -332,16 +335,16 @@ export default function BookingFormV3() {
       <SplitScreen>
         <div>
           <h2 style={{ fontSize: "4rem", color: "white" }}>
-            {lang === "sv" ? "Plan" : "Floor"} {activeLevel}
+            {lang === "sv" ? "Plan" : "Floor"} {activeFloor}
           </h2>
           <div className={styles.floorContainer}>
             <selectedContext.Provider value={[selectedSeat, setSelected]}>
               <SeatMap
                 type={type}
-                key={activeLevel}
-                activeFloor={activeLevel}
+                key={activeFloor}
+                activeFloor={activeFloor}
                 seats={activeSeats}
-                reservations={activeLevel == 5 ? floor5_res : floor4_res}
+                reservations={activeFloor == 5 ? floor5_res : floor4_res}
                 selected={selectedSeat}
               />
             </selectedContext.Provider>

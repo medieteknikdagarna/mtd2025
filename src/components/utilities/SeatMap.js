@@ -9,12 +9,23 @@ import { languageContext } from "../../pages/_app";
 import styles from "./seatMap.module.scss";
 import Image from "next/image";
 
+//const colorSelected = "#b9b9b9";
+const colorInactive = "#b9b9b9"; // grå
+const colorSelected = "#FFF068"; // gul
+const colorReserved = "#E07979"; // röd
+const colorAssigned = "#345f80"; // blå
+const colorAvailable = "#89E17B"; // grön
+
 // används inte längre, används i seatbooker
 export function isReserved(seat, listOfReserved) {
   let isReserved = false;
+  //console.log(listOfReserved);
+  //console.log(seat);
   listOfReserved.forEach((booking) => {
-    if (seat.seat == booking.seat && seat.level == booking.level) {
+    
+    if (seat.seatID == booking.seatID && seat.floor == booking.floor) { // seat.level == booking.level
       isReserved = true;
+      console.log(seat);
     }
   });
   return isReserved;
@@ -35,8 +46,10 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
     leave: { y: travelDst, opacity: 0 },
   });
 
+  // type = "Brons", "Silver", "Guld"
   useEffect(() => {
     assignSeats();
+    console.log("selectedSeat: " + selectedSeat.type);
     selectedSeat.type !== type ? setSelected([]) : null;
   }, [type]);
 
@@ -50,25 +63,30 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
         console.error("Cant get element from id: " + seat.id);
         return;
       }
+      // handle inactive seats
       if (seat.type !== type) {
         element.classList.add("seat-inactive");
-        var color = "#b9b9b9";
+        var color = colorInactive;
+      // handle selected seat
       } else if (seat.id === selectedSeat.id) {
         element.classList.add("seat-active");
-        var color = "#FFF068";
+        var color = colorSelected;
+      // handle reserved seats
       } else if (isReserved(seat, reservations)) {
-        var color = "#E07979";
+        var color = colorReserved;
         element.classList.remove("seat-active");
+      // handle assigned seats
       } else if (seat.type === "Brons") {
-        var color = "#345f80";
+        var color = colorAssigned;
         element.classList.remove("seat-active");
+      // handle available seats
       } else {
-        var color = "#89E17B";
+        var color = colorAvailable;
         element.classList.remove("seat-active");
       }
-
+      // set color and make seat clickable
       element.style.fill = color;
-      if (seat.type === type && type !== "Brons") {
+      if (seat.type === type && type !== "Brons" && !isReserved(seat, reservations)) {
         element.addEventListener("click", handleClick);
         element.classList.add("seat-animation");
       } else {
