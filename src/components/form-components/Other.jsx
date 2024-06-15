@@ -11,12 +11,34 @@ export default function Other({ register, lang, errors }) {
             ? "Infoga logotyp för app och webb (.eps eller .svg)"
             : "Attach logo for usage in the app or on the website (.eps or .svg)"}
         </span>
-        <label htmlFor="logotyp" />
+        <label htmlFor="logotypFarg" />
         <input
           style={{ color: "#fff" }}
           type="file"
-          id="logotyp"
-          {...register("logotyp", {
+          id="logotypFarg"
+          {...register("logotypFarg", {
+            required: {
+              value: true,
+              message: `${
+                lang === "sv" ? "Obligatoriskt" : "Must be filled in"
+              }`,
+            },
+          })}
+        />
+        <p className={styles.error}>{errors.logotyp?.message}</p>
+      </div>
+      <div style={{ display: "flex", flexFlow: "column" }}>
+        <span>
+          {lang === "sv"
+            ? "Infoga logotyp för app och webb (.eps eller .svg)"
+            : "Attach logo for usage in the app or on the website (.eps or .svg)"}
+        </span>
+        <label htmlFor="logotypSvart" />
+        <input
+          style={{ color: "#fff" }}
+          type="file"
+          id="logotypSvart"
+          {...register("logotypSvart", {
             required: {
               value: true,
               message: `${
