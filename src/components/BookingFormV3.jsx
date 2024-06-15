@@ -142,6 +142,8 @@ export default function BookingFormV3() {
     // fixa path
     formData.append("logotyp_farg", formValues.logotyp[0]);
     formData.append("logotyp_svart", formValues.logotyp[1]);
+    formData.append("floor", formValues.floor)
+    formData.append("seat", selectedSeat.seat)
 
     
 
@@ -290,7 +292,7 @@ export default function BookingFormV3() {
     const companyInformation = await pb.collection('Companies').getFullList({
          filter: pb.filter("floor = {:floor}", { floor: 4 })
     });
-    console.log(companyInformation);
+    console.log(companyInformation[0].seat);
 
     setFloor4(
       await pb.collection('Companies').getFullList({
