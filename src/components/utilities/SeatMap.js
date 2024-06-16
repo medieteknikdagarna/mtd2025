@@ -25,7 +25,7 @@ export function isReserved(seat, listOfReserved) {
     
     if (seat.seatID == booking.seatID && seat.floor == booking.floor) { // seat.level == booking.level
       isReserved = true;
-      console.log(seat);
+      //console.log(seat);
     }
   });
   return isReserved;
@@ -46,12 +46,12 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
     leave: { y: travelDst, opacity: 0 },
   });
 
-  // type = "Brons", "Silver", "Guld"
+  // the selected type = "Brons", "Silver", "Guld"
   useEffect(() => {
     assignSeats();
     console.log("selectedSeat: " + selectedSeat.type);
-    selectedSeat.type !== type ? setSelected([]) : null;
-  }, [type]);
+    selectedSeat.type !== type || isReserved(selectedSeat, reservations) ? setSelected([]) : null;
+  }, [type, reservations]);
 
   // useEffect(() => {}, [type]);
 
@@ -86,9 +86,14 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
       }
       // set color and make seat clickable
       element.style.fill = color;
-      if (seat.type === type && type !== "Brons" && !isReserved(seat, reservations)) {
+      if(seat.type === type && seat.id === selectedSeat.id){
+        element.addEventListener("click", handleDeselectClick);
+        element.classList.add("seat-animation");
+      } else if (seat.type === type && type !== "Brons" && !isReserved(seat, reservations)) {
         element.addEventListener("click", handleClick);
         element.classList.add("seat-animation");
+      } else if(seat.type === type && type === "Brons") { // ser till att bronsplatserna studsar upp och ner
+        element.classList.add("seat-active");
       } else {
         element.classList.remove("seat-active");
       }
@@ -102,6 +107,10 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
 
     setSelected(newSeat[0]);
   };
+
+  const handleDeselectClick = (e) => {
+    setSelected([]);
+  }
 
   useEffect(() => {
     assignSeats();

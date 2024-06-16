@@ -16,6 +16,7 @@ import SeatMap from "@/utilities/SeatMap";
 //import { getStorage } from "firebase/storage";
 //import { firebaseApp } from "@/firebase/clientApp";
 import { pb } from "./pocketbase/pockethost";
+//import { transporter } from "./utilities/email";
 
 // all floor data used to have "status": "available",   not used right now
 const floor4_all = require("../../public/content/seat-info/floor4.json");
@@ -57,6 +58,7 @@ export default function BookingFormV3() {
         transport: "takeWithUs",
         trådlösaenheter: 0,
         organisationsnummer: "",
+        annaninformation: "",
       },
     });
   const { errors } = formState;
@@ -77,6 +79,23 @@ export default function BookingFormV3() {
   };
   const successMessage = () => {
     alert("Tack för din anmälan!");
+  };
+
+  const emailMessage = () => {
+    var mailOptions = {
+      from: 'info@medieteknikdagarna.se',
+      to: formValues.email,
+      subject: 'MTD2024 Anmälan',
+      text: 'Hej, tack för din anmälan till Medieteknikdagarna 2024! Vi kommer att kontakta dig inom kort för att bekräfta din anmälan och hantera underskrift. Med vänliga hälsningar, Medieteknikdagarna 2024'
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
   };
 
   const onSubmit = async (formValues) => {
@@ -111,6 +130,7 @@ export default function BookingFormV3() {
       montertransport: formValues.transport,
       trådlösaenheter: formValues.trådlösaenheter,
       organisationsnummer: formValues.organisationsnummer,
+      annaninformation: formValues.annaninformation,
       signed: false,
   }));
     
@@ -173,7 +193,11 @@ export default function BookingFormV3() {
     successMessage();
 
     try {
-      
+      const createdRecord = await pb.collection('Companies').create(formData);
+      console.log(createdRecord);
+      setLoading(false);
+      successMessage();
+      //emailMessage();
     } catch (error) {
       setBookFailed(true);
       alert("Valda platsen är redan tagen!");

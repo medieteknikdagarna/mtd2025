@@ -78,10 +78,12 @@ export default function Sponsor({
         </div>
         <p className="seat-information-p">
           {lang === "sv"
-            ? "Mässan tar plats på våning 4 samt 5 i Täppan, Campus Norrköping. Ni bokar genom att välja en plats och våning i vår platskarta."
-            : "The fair will take place on floor 4 and 5 in Täppan at Campus Norrköping. Book your spot by choosing floor and seat in the figure."}
+            ? "Mässan tar plats på våning 5 i Täppan, Campus Norrköping. Ni bokar genom att välja en plats och våning i vår platskarta."
+            : "The fair will take place on floor 5 in Täppan at Campus Norrköping. Book your spot by choosing floor and seat in the figure."}
         </p>
+        
         <div className={styles.floorSelect}>
+          {/* Kör bara med plan 5 just nu
           <input
             type="radio"
             id="floor-op1"
@@ -96,9 +98,11 @@ export default function Sponsor({
             value="5"
             onClick={() => changeFloor(5)}
             {...register("floor", {})}
-          />
+          /> 
           <label htmlFor="floor-op2">Plan 5</label>
+          */}
         </div>
+        
         <div className={styles.paket}>
           <h2>
             {lang === "sv" ? "Välj Sponsorpaket" : "Chose Sponsor Package"}

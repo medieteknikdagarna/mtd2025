@@ -8,8 +8,8 @@ export default function Other({ register, lang, errors }) {
       <div style={{ display: "flex", flexFlow: "column" }}>
         <span>
           {lang === "sv"
-            ? "Infoga logotyp för app och webb (.eps eller .svg)"
-            : "Attach logo for usage in the app or on the website (.eps or .svg)"}
+            ? "Infoga färgad logotyp för app och webb (.eps eller .svg)"
+            : "Attach colored logo for usage in the app or on the website (.eps or .svg)"}
         </span>
         <label htmlFor="logotypFarg" />
         <input
@@ -30,8 +30,8 @@ export default function Other({ register, lang, errors }) {
       <div style={{ display: "flex", flexFlow: "column" }}>
         <span>
           {lang === "sv"
-            ? "Infoga logotyp för app och webb (.eps eller .svg)"
-            : "Attach logo for usage in the app or on the website (.eps or .svg)"}
+            ? "Infoga svartvit logotyp för app och webb (.eps eller .svg)"
+            : "Attach black and white logo for usage in the app or on the website (.eps or .svg)"}
         </span>
         <label htmlFor="logotypSvart" />
         <input
@@ -49,6 +49,7 @@ export default function Other({ register, lang, errors }) {
         />
         <p className={styles.error}>{errors.logotyp?.message}</p>
       </div>
+
       <div style={{ display: "flex", flexFlow: "column" }}>
         <h3 style={{ color: "white" }}>
           {lang === "sv" ? "Fakturerinsuppgifter" : "Billing information"}
@@ -80,6 +81,7 @@ export default function Other({ register, lang, errors }) {
           />
           <p className={styles.error}>{errors.fakturering?.message}</p>
         </div>
+
         <h3 style={{ color: "white" }}>
           {lang === "sv"
             ? "Eventuell Firmatecknare"
@@ -107,6 +109,7 @@ export default function Other({ register, lang, errors }) {
           />
           <p className={styles.error}>{errors.firmateknare?.message}</p>
         </div>
+
         <h3 style={{ color: "white" }}>
           {lang === "sv" ? "Organisationsnummer" : "Organization number"}
         </h3>
@@ -131,6 +134,33 @@ export default function Other({ register, lang, errors }) {
             })}
           />
           <p className={styles.error}>{errors.organisationsnummer?.message}</p>
+        </div>
+
+        <h3 style={{ color: "white" }}>
+          {lang === "sv" ? "Övrig information" : "Other information"}
+        </h3>
+        <span>
+          {lang === "sv"
+            ? "Fyll i övrig information som vi potentiellt skulle kunna behöva."
+            : "Enter any other information which we might need."}
+        </span>
+        <div className={styles.textinput}>
+          <label htmlFor="annaninformation" />
+          <input
+            type="text"
+            id="annaninformation"
+            placeholder=" "
+            {...register("annaninformation", {
+              required: {
+                value: false,
+                message: `${
+                  lang === "sv" ? "Obligatoriskt" : "Must be filled in"
+                }`,
+              },
+            })}
+          />
+          <p className={styles.error}>{errors.annaninformation?.message}</p> 
+          {/* FIXA ERROR */}
         </div>
       </div>
     </div>
