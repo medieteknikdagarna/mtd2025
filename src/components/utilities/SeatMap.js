@@ -87,7 +87,7 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
       // set color and make seat clickable
       element.style.fill = color;
       if(seat.type === type && seat.id === selectedSeat.id){
-        element.addEventListener("click", handleDeselectClick);
+        //element.addEventListener("click", handleDeselectClick); // the site crashes if you press a space to fast
         element.classList.add("seat-animation");
       } else if (seat.type === type && type !== "Brons" && !isReserved(seat, reservations)) {
         element.addEventListener("click", handleClick);
