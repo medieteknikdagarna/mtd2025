@@ -12,9 +12,7 @@ import styles from "./form.module.scss";
 const formContent = require("@/public/content/form.json");
 import Link from "next/link";
 import SeatMap from "@/utilities/SeatMap";
-//import { ref, uploadBytes } from "firebase/storage";
-//import { getStorage } from "firebase/storage";
-//import { firebaseApp } from "@/firebase/clientApp";
+
 import { pb } from "./pocketbase/pockethost";
 //import { transporter } from "./utilities/email";
 
@@ -24,6 +22,8 @@ const floor5_all = require("../../public/content/seat-info/floor5.json");
 
 // css problem när man laddar om sidan
 // plan är inte vald i början
+// kolla kostnad
+// testa email live
 
 export const selectedContext = React.createContext();
 //const storage = getStorage(firebaseApp);
@@ -178,19 +178,16 @@ export default function BookingFormV3() {
     //   "floor": formValues.floor,
     //   "seatID": selectedSeat.seatID
     // };
-
+    //
     // const record = await pb.collection('Companies').create(dataBlock);
     // console.log(record);
-
+    //
     // formData.append("logotyp_farg", formValues.logotypFarg[0]);
     // formData.append("logotyp_svart", formValues.logotypSvart[0]);
-
+    //
     // const logotypFargRecord = await pb.collection('Companies').update(record.id, formData);
-    
+    //
     // console.log(logotypFargRecord);
-    
-    setLoading(false);
-    successMessage();
 
     try {
       const createdRecord = await pb.collection('Companies').create(formData);
@@ -202,30 +199,6 @@ export default function BookingFormV3() {
       setBookFailed(true);
       alert("Valda platsen är redan tagen!");
     }
-
-    
-
-    
-
-    // rewrite to pocketbase
-    // const logoRef = ref(storage, `logotype/${formValues.logotyp[0].name}`);
-    // uploadBytes(logoRef);
-    // fetch("/api/book", requestOptions)
-    //   .then((response) => response.json())
-    //   .then((res_data) => {
-    //     if (res_data.success) {
-    //       console.log("sucsess");
-    //       setTimeout(() => {
-    //         setLoading(false);
-    //         successMessage();
-    //       }, 1000);
-    //     } else {
-    //       setBookFailed(true);
-    //       alert("Valda platsen är redan tagen!");
-    //     }
-    //   });
-
-
   };
 
   const {
