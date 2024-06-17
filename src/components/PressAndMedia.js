@@ -7,6 +7,7 @@ const content = require("../../public/content/contact-press.json");
 
 export default function PressAndMedia() {
   const [lang, setLang] = useContext(languageContext);
+ 
 
   return (
     <div className="press-and-media-section">
@@ -30,8 +31,9 @@ export default function PressAndMedia() {
         post="PR"
         email="ebba.johansson@medieteknikdagen.se"
         phone="+46 707 66 68 52" // INTE FIXAT
-        src={'/images/members/ivr.png'} // INTE FIXAT
+        src={'/images/members/ebba.png'} // INTE FIXAT
         linkedin={"https://www.linkedin.com/in/victor-persson-0335a7259/"} // INTE FIXAT
+        alt={lang === "sv" ? "En bild på Ebba Johansson" : "An image of Ebba Johansson"}
       />
     </div>
   );

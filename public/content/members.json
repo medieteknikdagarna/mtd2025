@@ -8,7 +8,7 @@
     "email": "isak.karlsson@medieteknikdagen.se",
     "tel": "705 13 47 32",
     "linkedin": "https://www.linkedin.com/in/isak-karlsson-394791250/",
-    "img": "/images/members/bess.webp"
+    "img": "/images/members/isak.jpg"
   },
   {
     "namn": "Max Wiklundh",
@@ -19,7 +19,7 @@
     "email": "andreas.ekberg@medieteknikdagen.se",
     "tel": "722 03 67 69",
     "linkedin": "https://www.linkedin.com/in/max-wiklundh-51a76122b/",
-    "img": "/images/members/andreas.webp"
+    "img": "/images/members/max.png"
   },
   {
     "namn": "Simon Henriksson",
@@ -30,7 +30,7 @@
     "email": "simon.henriksson@medieteknikdagen.se",
     "tel": "708 82 61 63",
     "linkedin": "https://www.linkedin.com/in/simon-henriksson-61758b259/",
-    "img": "/images/members/joel.webp"
+    "img": "/images/members/simon.png"
   },
   {
     "namn": "Mira Bjerkhagen",
@@ -41,7 +41,7 @@
     "email": "mira.bjerkhagen@medieteknikdagen.se",
     "tel": "708 39 42 42",
     "linkedin": "https://www.linkedin.com/in/mirabjerkhagen473/",
-    "img": "/images/members/rickard.webp"
+    "img": "/images/members/mira.png"
   },
   {
     "namn": "Oscar Fyrk",
@@ -52,7 +52,7 @@
     "email": "oscar.fyrk@medieteknikdagen.se",
     "tel": "761 41 28 33",
     "linkedin": "https://www.linkedin.com/in/oscar-fyrk-559139261/",
-    "img": "/images/members/jovan.webp"
+    "img": "/images/members/oscar.png"
   },
   {
     "namn": "Daniel Laesker",
@@ -63,7 +63,7 @@
     "email": "daniel.laesker@medieteknikdagen.se",
     "tel": "FIXA",
     "linkedin": "https://www.linkedin.com/in/daniel-laesker-7658011a4/",
-    "img": "/images/members/emilW.webp"
+    "img": "/images/members/laesker.png"
   },
   {
     "namn": "Ebba Johansson",
@@ -74,7 +74,7 @@
     "email": "ebba.johansson@medieteknikdagen.se",
     "tel": "FIXA",
     "linkedin": "FIXA",
-    "img": "/images/members/ivr.webp"
+    "img": "/images/members/ebba.png"
   },
   {
     "namn": "Andrea Belin",
@@ -85,7 +85,7 @@
     "email": "andrea.belin@medieteknikdagen.se",
     "tel": "706 12 05 20",
     "linkedin": "https://www.linkedin.com/in/andrea-belin-2585a5259/",
-    "img": "/images/members/vicke.webp"
+    "img": "/images/members/andrea.png"
   },
   {
     "namn": "Kristian Houe Gustafsson",
@@ -96,7 +96,7 @@
     "email": "kristian.houe.gustafsson@medieteknikdagen.se",
     "tel": "FIXA",
     "linkedin": "FIXA",
-    "img": "/images/members/molly.png"
+    "img": "/images/members/kristian.png"
   },
   {
     "namn": "Emil Djurson",
@@ -105,9 +105,9 @@
       "en": "Technology"
     },
     "email": "emil.djurson@medieteknikdagen.se",
-    "tel": "FIXA",
-    "linkedin": "FIXA",
-    "img": "/images/members/tillas.webp"
+    "tel": "725 29 29 38",
+    "linkedin": "",
+    "img": "/images/members/emil.png"
   },
   {
     "namn": "Albin Kjellberg",
@@ -118,7 +118,7 @@
     "email": "albin.kjellberg@medieteknikdagen.se",
     "tel": "722 46 68 12",
     "linkedin": "https://www.linkedin.com/in/albin-kjellberg-b3367b163/",
-    "img": "/images/members/johansson.png"
+    "img": "/images/members/albin.png"
   },
   {
     "namn": "Rebecka Sahlin",
@@ -129,7 +129,7 @@
     "email": "rebecka.sahlin@medieteknikdagen.se",
     "tel": "723 18 50 50",
     "linkedin": "https://www.linkedin.com/in/rebecka-sahlin-27311b2a2/",
-    "img": "/images/members/emil.webp"
+    "img": "/images/members/rebecka.png"
   },
   {
     "namn": "Tove Tångring",
@@ -140,7 +140,7 @@
     "email": "tove.tangring@medieteknikdagen.se",
     "tel": "760 17 61 43",
     "linkedin": "https://www.linkedin.com/in/tovetangring/",
-    "img": "/images/members/markus.webp"
+    "img": "/images/members/tove.png"
   },
   {
     "namn": "Elin Bergström",
@@ -149,8 +149,8 @@
       "en": "Banquet"
     },
     "email": "elin.bergstrom@medieteknikdagen.se",
-    "tel": "FIXA",
+    "tel": "702 51 27 17",
     "linkedin": "https://www.linkedin.com/in/elin-bergstr%C3%B6m-998361268/",
-    "img": "/images/members/åstrand.webp"
+    "img": "/images/members/elin.png"
   }
 ]

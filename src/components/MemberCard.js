@@ -36,11 +36,19 @@ export default function MemberCard({
             </a>
           </div>
           <div className="member-card--spacer"></div>
-          <div className="member-card--linked-in">
+            {/* If linkedin is not provided, don't show the icon */
+            linkedin === "" ? null : (
+              <div className="member-card--linked-in">
+                <a href={linkedin} target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </div>
+            )}
+          {/* <div className="member-card--linked-in">
             <a href={linkedin} target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
