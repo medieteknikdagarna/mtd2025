@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import pic from "public/images/members/andreas.webp";
+//import pic from "public/images/members/andreas.webp";
 import Image from "next/image";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
@@ -19,7 +19,7 @@ const Hover = {
 };
 
 const ExpoCard = ({ exhibitor, delay }) => {
-  const imageSrc = `/content/EXPO-content/${exhibitor.bild}`;
+  const imageSrcExpo = `/content/EXPO-content/${exhibitor.bild}`;
   const handleClick = () => {
     const url = exhibitor.link;
     window.open(url, "_blank");
@@ -38,7 +38,7 @@ const ExpoCard = ({ exhibitor, delay }) => {
     >
       <div className="expo-card-picture">
         <Image
-          src={imageSrc}
+          src={imageSrcExpo}
           alt="hej"
           fill
           style={{ objectFit: "scale-down" }}

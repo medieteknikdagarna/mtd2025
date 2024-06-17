@@ -1,18 +1,18 @@
+import { useContext } from "react";
+import { NextSeo } from "next-seo";
 import Header from "../components/Header";
 import InfoSection from "../components/InfoSection";
-import Button from "../components/Button";
 import AboutInfo from "../components/AboutInfo";
 import { languageContext } from "./_app";
 import Footer from "../components/Footer";
-import { useContext } from "react";
 import TheFair from "../components/TheFair";
 import ResponsiveContainer from "../components/ResponsiveContainer";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Carousel from "../components/Carousel";
 import Gallery from "../components/Gallery";
 const content = require("../../public/content/fair.json");
-import { NextSeo } from "next-seo";
-import EmbeddedVideo from "../components/AfterMovie";
+//import Button from "../components/Button";
+//import EmbeddedVideo from "../components/AfterMovie";
 export function importAll(r) {
   let images = [];
   if (!r) {

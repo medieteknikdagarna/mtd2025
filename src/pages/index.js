@@ -51,7 +51,7 @@ export default function LandingPage() {
                   <h1>MTD</h1>
                   <div className="date-landing">
                     <span>
-                      {lang === "sv" ? "6:e December" : "December 6th"} 2024
+                      {lang === "sv" ? "11:e December" : "December 11th"} 2024
                     </span>
                   </div>
                   <div className="welcome">
@@ -99,7 +99,7 @@ export default function LandingPage() {
                   <div className="landing-fair-info-row-container">
                     <div className="landing-fair-info--row">
                       <FontAwesomeIcon size="2x" icon={faCalendar} />
-                      <span>{lang === "sv" ? "6:e Dec" : "Dec 6th"} 2024</span>
+                      <span>{lang === "sv" ? "11:e Dec" : "Dec 11th"} 2024</span>
                     </div>
                     <div className="landing-fair-info--row">
                       <FontAwesomeIcon
