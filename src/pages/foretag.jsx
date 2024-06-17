@@ -10,29 +10,33 @@ import {
   useAnimation,
 } from "framer-motion";
 import axios from "axios";
-import CompanyText from "@/public/content/company_information.json";
+//import CompanyText from "@/public/content/company_information.json";
 import Image from "next/image";
 import Modal from "@/components/foretag-components/ForetagModal";
+import { pb } from "@/components/pocketbase/pockethost";
 
 // Komponent för att visa företagskort - exempelvis på /foretag
-const CompanyCard = ({ name, index, type }) => {
+const CompanyCard = ( companyData ) => {
   const [currentComp, setCurrentComp] = useState(null);
   const [loading, setLoading] = useState(false);
   const fetchDetails = async (companyName) => {
-    try {
-      const response = await axios.get("/api/companyDetail", {
-        params: { currentComp: companyName },
-      });
-      setCurrentComp(response.data);
-      setLoading(true);
-    } catch (error) {
-      // Handle any potential errors here
-      console.error("Error fetching details:", error);
-    }
+    
+    // try {
+    //   const response = await axios.get("/api/companyDetail", {
+    //     params: { currentComp: companyName },
+    //   });
+    //   setCurrentComp(response.data);
+    //   setLoading(true);
+    // } catch (error) {
+    //   // Handle any potential errors here
+    //   console.error("Error fetching details:", error);
+    // }
+    
   };
-  const imageSrc = `/images/companies/${type}/${CompanyText.sv.companies[type][index].logo}`;
+  console.log("1", companyData);
+  const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionID + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_farg;
   let imgSize = "";
-  if (type === "gold") {
+  if (companyData.type === "gold") {
     imgSize = "20rem";
   } else {
     imgSize = "18rem";
@@ -46,7 +50,7 @@ const CompanyCard = ({ name, index, type }) => {
     } else {
       open();
     }
-    fetchDetails(name);
+    //fetchDetails(name);
   };
   // kanske ändra så att den inte är så extrem
   // fixa så att det är tydligare att silver och bronze också har mer info
@@ -57,7 +61,7 @@ const CompanyCard = ({ name, index, type }) => {
         <motion.div
           options={{ max: 45, scale: 1, speed: 450 }}
           className="card_container"
-          id={type}
+          id={companyData.id}
           onClick={HandleOpen}
           variants={{
             hidden: { opacity: 0, y: 75 },
@@ -81,29 +85,30 @@ const CompanyCard = ({ name, index, type }) => {
               />
             </div>
             <div className="card_info">
-              <h2 style={{ wordBreak: "break-word" }}>{name}</h2>
+              {console.log("2", companyData)}
+              <h2 style={{ wordBreak: "break-word" }}>{companyData.companyInformation.data.company}</h2>
               <h3
                 style={{
                   color:
-                    type === "bronze"
+                  companyData.type === "bronze"
                       ? "#804a00"
-                      : type === "silver"
+                      : companyData.type === "silver"
                       ? "#c0c0c0"
-                      : type === "gold"
+                      : companyData.type === "gold"
                       ? "#b3a34d"
                       : "white",
                 }}
               >
-                {CompanyText.sv.companies[type][index].partner}
+                {companyData.type.toUpperCase() + "SPONSOR"}
               </h3>
-              {type === "gold" && (
+              {companyData.type === "gold" && (
                 <div>
                   <span>
-                    {CompanyText.sv.companies[type][index].information}
+                    {companyData.companyInformation.data.description}
                   </span>
 
                   <div className="foretag_card_offer">
-                    {CompanyText.sv.companies[type][index].offer.map(
+                    {companyData.companyInformation.data.tjänst.map(
                       (data, index) => (
                         <div className="offer_circle" key={index}>
                           <p>{data}</p>
@@ -140,23 +145,47 @@ export default function ForetagV2() {
   const [doneLoading, setDoneLoading] = useState(false);
 
   const fetchData = async () => {
-    axios.get("/api/company").then((response) => {
-      const guld = response.data.filter(
-        (company) => company.sponsor === "Guld"
-      );
-      setGoldCompanies(guld);
+    // axios.get("/api/company").then((response) => {
+    //   const guld = response.data.filter(
+    //     (company) => company.sponsor === "Guld"
+    //   );
+    //   setGoldCompanies(guld);
 
-      const silver = response.data.filter(
-        (company) => company.sponsor === "Silver"
-      );
-      setSilverCompanies(silver);
-      const brons = response.data.filter(
-        (company) => company.sponsor === "Brons"
-      );
-      setBronsCompanies(brons);
+    //   const silver = response.data.filter(
+    //     (company) => company.sponsor === "Silver"
+    //   );
+    //   setSilverCompanies(silver);
+    //   const brons = response.data.filter(
+    //     (company) => company.sponsor === "Brons"
+    //   );
+    //   setBronsCompanies(brons);
 
-      setDoneLoading(true);
+    //   setDoneLoading(true);
+    // });
+
+    pb.autoCancellation(false);
+
+    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
+
+    console.log(authData);
+
+    const companyInformationGuld = await pb.collection('Companies').getFullList({
+         filter: pb.filter("type = {:type}", { type: "Guld" })
     });
+    setGoldCompanies(companyInformationGuld);
+    const companyInformationSilver = await pb.collection('Companies').getFullList({
+      filter: pb.filter("type = {:type}", { type: "Silver" })
+    });
+    setSilverCompanies(companyInformationSilver);
+    const companyInformationBrons = await pb.collection('Companies').getFullList({
+      filter: pb.filter("type = {:type}", { type: "Brons" })
+    });
+    setBronsCompanies(companyInformationBrons);
+
+
+    console.log(companyInformationGuld);
+    console.log(companyInformationSilver);
+    setDoneLoading(true);
   };
 
   useEffect(() => {
@@ -184,9 +213,8 @@ export default function ForetagV2() {
             <div className="card_div">
               {goldCompanies.map((företag, index) => (
                 <CompanyCard
-                  key={företag.name}
-                  index={index}
-                  name={företag.name}
+                  key={företag.id}
+                  companyInformation={företag}
                   type="gold"
                   width="30vw"
                   height="70vh"
@@ -196,9 +224,11 @@ export default function ForetagV2() {
             <div className="card_div_silver">
               {silverCompanies.map((företag, index) => (
                 <CompanyCard
-                  key={företag.name}
-                  index={index}
-                  name={företag.name}
+                  // key={företag.name}
+                  // index={index}
+                  // name={företag.name}
+                  key={företag.id}
+                  companyInformation={företag}
                   type="silver"
                   width="20vw"
                   height="25rem"
@@ -208,9 +238,11 @@ export default function ForetagV2() {
             <div className="card_div_silver">
               {bronsCompanies.map((företag, index) => (
                 <CompanyCard
-                  key={företag.name}
-                  index={index}
-                  name={företag.name}
+                  // key={företag.name}
+                  // index={index}
+                  // name={företag.name}
+                  key={företag.id}
+                  companyInformation={företag}
                   type="bronze"
                   width="20vw"
                   height="20rem"
@@ -226,7 +258,7 @@ export default function ForetagV2() {
               marginTop: "20vh",
             }}
           >
-            <div class="lds-ring">
+            <div className="lds-ring">
               <div></div>
               <div></div>
               <div></div>

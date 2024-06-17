@@ -137,9 +137,10 @@ export default function BookingFormV3() {
     formData.append("logotyp_farg", formValues.logotypFarg[0]);
     formData.append("logotyp_svart", formValues.logotypSvart[0]);
     // console.log("floor", formValues.floor);
-    formData.append("floor", formValues.floor)
+    formData.append("floor", formValues.floor);
     // console.log("seatID", selectedSeat.seatID);
-    formData.append("seatID", selectedSeat.seatID)
+    formData.append("seatID", selectedSeat.seatID);
+    formData.append("type", formValues.sponsor);
 
     console.log("formData", formData);
 

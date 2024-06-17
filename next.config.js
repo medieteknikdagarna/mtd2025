@@ -32,4 +32,14 @@ module.exports = withVideos({
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'mtd2024-databas.pockethost.io',
+        port: '',
+        pathname: '/api/files/**',
+      },
+    ],
+  }
 });
