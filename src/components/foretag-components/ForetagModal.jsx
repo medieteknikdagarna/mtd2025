@@ -85,7 +85,7 @@ const Modal = ({ handleClose, currentComp, imageLink, isLoaded }) => {
               height: "20vh",
             }}
           >
-            <div class="lds-ring">
+            <div className="lds-ring">
               <div></div>
               <div></div>
               <div></div>

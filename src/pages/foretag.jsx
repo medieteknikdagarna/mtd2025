@@ -34,7 +34,7 @@ const CompanyCard = ( companyData ) => {
     
   };
   console.log("1", companyData);
-  const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionID + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_farg;
+  const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionId + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_farg;
   let imgSize = "";
   if (companyData.type === "gold") {
     imgSize = "20rem";
@@ -49,6 +49,7 @@ const CompanyCard = ( companyData ) => {
       close();
     } else {
       open();
+      setLoading(true);
     }
     //fetchDetails(name);
   };
