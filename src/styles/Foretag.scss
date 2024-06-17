@@ -126,8 +126,11 @@
   z-index: 999;
 }
 .foretag_modal {
+  overflow-x: hidden;
+  //overflow-y: hidden;
   position: relative;
   width: clamp(50%, 900px, 90%);
+  max-width: 90%;
   //height: min(50%, 300px);
   background: linear-gradient(
     -45deg,
@@ -143,7 +146,8 @@
   flex-direction: column;
   //align-items: center;
   z-index: 999;
-  overflow: scroll;
+  //overflow: scroll;
+  overflow-wrap: break-word;
   max-height: 80vh;
 }
 .foretag_modal_image {

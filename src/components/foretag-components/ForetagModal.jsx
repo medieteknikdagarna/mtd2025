@@ -17,7 +17,7 @@ const dropIn = {
   exit: { scale: 0, opacity: 0 },
 };
 
-const Modal = ({ handleClose, currentComp, imageLink, isLoaded }) => {
+const Modal = ({ handleClose, data, imageLink, isLoaded }) => {
   return (
     <ForetagBackdrop onClick={handleClose}>
       <motion.div
@@ -51,7 +51,7 @@ const Modal = ({ handleClose, currentComp, imageLink, isLoaded }) => {
               />
             </div>
 
-            {currentComp.map((data, index) => {
+            {/* {currentComp.map((data, index) => {
               return (
                 <div className="foretag_modal_info" key={index}>
                   <h2> {data.data.company}</h2>
@@ -74,7 +74,36 @@ const Modal = ({ handleClose, currentComp, imageLink, isLoaded }) => {
                   <span>{data.data.description}</span>
                 </div>
               );
-            })}
+            })} */}
+
+            <h2 style={{ wordBreak: "break-word" }}>{data.companyInformation.data.company}</h2>
+            <h3
+              style={{
+                color:
+                  data.type === "bronze"
+                    ? "#804a00"
+                    : data.type === "silver"
+                      ? "#c0c0c0"
+                      : data.type === "gold"
+                        ? "#b3a34d"
+                        : "white",
+              }}
+            >
+              {data.type.toUpperCase() + "SPONSOR"}
+            </h3>
+            <div className="foretag_card_offer">
+              {data.companyInformation.data.tjänst.map(
+                (offer, index) => (
+                  <div className="offer_circle" key={index}>
+                    <p>{offer}</p>
+                  </div>
+                )
+              )}
+            </div>
+            <span>
+              {data.companyInformation.data.description}
+            </span>
+
           </motion.div>
         ) : (
           <div

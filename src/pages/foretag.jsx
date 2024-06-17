@@ -129,7 +129,7 @@ const CompanyCard = ( companyData ) => {
           <Modal
             modalOpen={modalOpen}
             handleClose={close}
-            currentComp={currentComp}
+            data={companyData}
             imageLink={imageSrc}
             isLoaded={loading}
           />
