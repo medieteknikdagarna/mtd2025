@@ -14,7 +14,7 @@ import Link from "next/link";
 import SeatMap from "@/utilities/SeatMap";
 
 import { pb } from "./pocketbase/pockethost";
-//import { transporter } from "./utilities/email";
+import { transporter } from "./utilities/email";
 
 // all floor data used to have "status": "available",   not used right now
 const floor4_all = require("../../public/content/seat-info/floor4.json");
@@ -195,7 +195,7 @@ export default function BookingFormV3() {
       console.log(createdRecord);
       setLoading(false);
       successMessage();
-      //emailMessage();
+      emailMessage();
     } catch (error) {
       setBookFailed(true);
       alert("Valda platsen är redan tagen!");
