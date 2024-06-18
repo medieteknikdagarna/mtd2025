@@ -49,8 +49,9 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
   // the selected type = "Brons", "Silver", "Guld"
   useEffect(() => {
     assignSeats();
-    console.log("selectedSeat: " + selectedSeat.type);
+    setSelected([]);
     selectedSeat.type !== type || isReserved(selectedSeat, reservations) ? setSelected([]) : null;
+    console.log("selectedSeat: " + selectedSeat.type);
   }, [type, reservations]);
 
   // useEffect(() => {}, [type]);
@@ -64,32 +65,31 @@ export default function SeatMap({ seats, reservations, activeFloor, type }) {
         return;
       }
       // handle inactive seats
+      element.classList.remove("seat-active");
+      element.classList.add("seat-inactive");
       if (seat.type !== type) {
-        element.classList.add("seat-inactive");
+        //element.classList.add("seat-inactive");
         var color = colorInactive;
       // handle selected seat
       } else if (seat.id === selectedSeat.id) {
         element.classList.add("seat-active");
+        element.classList.remove("seat-inactive");
         var color = colorSelected;
       // handle reserved seats
       } else if (isReserved(seat, reservations)) {
         var color = colorReserved;
-        element.classList.remove("seat-active");
       // handle assigned seats
       } else if (seat.type === "Brons") {
         var color = colorAssigned;
-        element.classList.remove("seat-active");
+        //element.classList.remove("seat-active");
       // handle available seats
       } else {
         var color = colorAvailable;
-        element.classList.remove("seat-active");
+        //element.classList.remove("seat-active");
       }
       // set color and make seat clickable
       element.style.fill = color;
-      if(seat.type === type && seat.id === selectedSeat.id){
-        //element.addEventListener("click", handleDeselectClick); // the site crashes if you press a space to fast
-        element.classList.add("seat-animation");
-      } else if (seat.type === type && type !== "Brons" && !isReserved(seat, reservations)) {
+       if (seat.type === type && type !== "Brons" && (!isReserved(seat, reservations))) {
         element.addEventListener("click", handleClick);
         element.classList.add("seat-animation");
       } else if(seat.type === type && type === "Brons") { // ser till att bronsplatserna studsar upp och ner
