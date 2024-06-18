@@ -31,6 +31,19 @@
   animation-timing-function: ease-in-out;
 }
 
+.brons-highlight {
+  stroke: #804a00;
+  stroke-width: 3px;
+}
+.silver-highlight{
+  stroke: #696969;
+  stroke-width: 5px;
+}
+.guld-highlight{
+  stroke: #756921;
+  stroke-width: 7px;
+}
+
 .booker-animation {
   grid-column: 1/2;
 }

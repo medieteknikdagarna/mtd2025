@@ -5,6 +5,7 @@ import Header from "../components/Header";
 //import BookingFormV2 from "@/components/BookingFormV2";
 import Footer from "@/components/Footer";
 import BookingFormV3 from "@/components/BookingFormV3";
+import BookingFormV4 from "@/components/newFormStuff/BookingFormV4";
 
 
 // Sida: https://www.medieteknikdagen.se/booking
@@ -32,6 +33,7 @@ export default function BookingPage() {
       <Header changeOnScroll />
       {/* <BookingFormV2 />  */}
       <BookingFormV3 />
+      {/* <BookingFormV4/> */}
       <Footer />
     </>
   );
