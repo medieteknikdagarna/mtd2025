@@ -144,8 +144,19 @@ export default function BookingFormV3() {
 
     console.log("formData", formData);
 
-    const createdRecord = await pb.collection('Companies').create(formData);
-    console.log(createdRecord);
+    //const createdRecord = await pb.collection('Companies').create(formData);
+    //console.log(createdRecord);
+
+    try {
+      const createdRecord = await pb.collection('Companies').create(formData);
+      console.log(createdRecord);
+      setLoading(false);
+      successMessage();
+      //emailMessage();
+    } catch (error) {
+      setBookFailed(true);
+      alert("Valda platsen är redan tagen!");
+    }
 
     // example create data
     // const dataBlock = {
@@ -188,18 +199,7 @@ export default function BookingFormV3() {
     //
     // const logotypFargRecord = await pb.collection('Companies').update(record.id, formData);
     //
-    // console.log(logotypFargRecord);
-
-    try {
-      const createdRecord = await pb.collection('Companies').create(formData);
-      console.log(createdRecord);
-      setLoading(false);
-      successMessage();
-      //emailMessage();
-    } catch (error) {
-      setBookFailed(true);
-      alert("Valda platsen är redan tagen!");
-    }
+    // console.log(logotypFargRecord);  
   };
 
   const {
