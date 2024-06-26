@@ -30,9 +30,9 @@ export default function PressAndMedia() {
         name="Ebba Johansson"
         post="PR"
         email="ebba.johansson@medieteknikdagen.se"
-        phone="+46 707 66 68 52" // INTE FIXAT
-        src={'/images/members/ebba.png'} // INTE FIXAT
-        linkedin={"https://www.linkedin.com/in/victor-persson-0335a7259/"} // INTE FIXAT
+        phone="+46 723 18 52 03"
+        src={'/images/members/ebba.jpg'}
+        linkedin={""} 
         alt={lang === "sv" ? "En bild på Ebba Johansson" : "An image of Ebba Johansson"}
       />
     </div>
