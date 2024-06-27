@@ -6,7 +6,7 @@ import Floor5 from "../../../public/images/platsbokning_p5.svg";
 import { selectedContext } from "./BookingFormV4";
 import { useTransition, animated } from "react-spring";
 import { languageContext } from "../../pages/_app";
-import styles from "../utilities/SeatMap.module.scss";
+import styles from "../utilities/seatMap.module.scss";
 import Image from "next/image";
 
 //const colorSelected = "#b9b9b9";
