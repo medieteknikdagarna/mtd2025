@@ -83,7 +83,7 @@ export default function BookingFormV3() {
 
   const emailMessage = () => {
     var mailOptions = {
-      from: 'info@medieteknikdagarna.se',
+      from: process.env.NEXT_PUBLIC_EMAIL_USER,
       to: formValues.email,
       subject: 'MTD2024 Anmälan',
       text: 'Hej, tack för din anmälan till Medieteknikdagarna 2024! Vi kommer att kontakta dig inom kort för att bekräfta din anmälan och hantera underskrift. Med vänliga hälsningar, Medieteknikdagarna 2024'
@@ -307,7 +307,7 @@ export default function BookingFormV3() {
 
     pb.autoCancellation(false);
 
-    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
+    const authData = await pb.admins.authWithPassword(NEXT_PUBLIC_POCKETHOST_ADMIN, NEXT_PUBLIC_POCKETHOST_PASS);
 
     console.log(authData);
 

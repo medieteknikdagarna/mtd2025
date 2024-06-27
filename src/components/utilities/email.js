@@ -7,11 +7,12 @@ export const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "info@medieteknikdagarna.se",
-    pass: "g/fx!qK>uz1JBTI/e`b(",
+    user: process.env.NEXT_PUBLIC_EMAIL_USER,
+    pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
   },
 });
 
 
+// process.env.NEXT_PUBLIC_EMAIL_USER
+// vercek variable
 
-// this file might be deprecated
