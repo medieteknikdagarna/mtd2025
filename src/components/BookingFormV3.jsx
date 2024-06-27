@@ -307,6 +307,7 @@ export default function BookingFormV3() {
 
     pb.autoCancellation(false);
     console.log(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN);
+    console.log(process.env.NEXT_PUBLIC_POCKETHOST_PASS);
     //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
     const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
 
