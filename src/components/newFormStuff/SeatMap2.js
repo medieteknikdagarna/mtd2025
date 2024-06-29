@@ -98,8 +98,8 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       element.classList.remove("brons-highlight");
       element.classList.remove("silver-highlight");
       element.classList.remove("guld-highlight");
-      element.classList.remove("seat-inactive");
-      element.classList.remove("seat-active");
+      element.classList.remove("seat-inactive");  // does not do anything important
+      element.classList.remove("seat-active");   // does not do anything important
       element.classList.remove("seat-animation");
 
       if(type === "Brons" && seat.type === "Brons"){
@@ -118,10 +118,10 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       
       //element.classList.remove("seat-active");
       if(selectedSeat.type === "Brons" && seat.type === "Brons") { // alla brons ska va aktiva
-        element.classList.add("seat-active");
+        //element.classList.add("seat-active");
         color = colorSelected; 
       } else if(seat.id === selectedSeat.id){   // vanligt aktiverar en plats
-        element.classList.add("seat-active");
+        //element.classList.add("seat-active");
         color = colorSelected;
       } else if (isReserved(seat, reservations)) { // reserved blir röda och kan inte väljas 
         color = colorReserved;
@@ -137,6 +137,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
         element.addEventListener("click", handleClick);
         element.classList.add("seat-animation");
       } else if(isReserved(seat, reservations)){
+        element.removeEventListener("click", handleClick);
         element.addEventListener("click", reservedClick);
       } else {
         //element.classList.remove("seat-active");
