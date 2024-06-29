@@ -101,8 +101,8 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       element.classList.remove("seat-inactive");  // does not do anything important
       element.classList.remove("seat-active");   // does not do anything important
       element.classList.remove("seat-animation");
-      element.removeEventListener("click", handleClick, true);
-      element.removeEventListener("click", handleClick, false);
+      element.removeEventListener("click", handleClick);
+      element.removeEventListener("click", handleClick);
 
       if(type === "Brons" && seat.type === "Brons"){
         element.classList.add("brons-highlight");
