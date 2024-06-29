@@ -107,6 +107,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       // element.removeEventListener("click", handleClick);
       // element.removeEventListener("click", handleClick);
       // element.removeEventListener("click", handleClick);
+      element.removeEventListener("click", handleClick, { once: true });
 
       if(type === "Brons" && seat.type === "Brons"){
         element.classList.add("brons-highlight");
