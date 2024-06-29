@@ -107,7 +107,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       // element.removeEventListener("click", handleClick);
       // element.removeEventListener("click", handleClick);
       // element.removeEventListener("click", handleClick);
-      element.removeEventListener("click", handleClick, { once: true });
+      element.removeEventListener("click", handleClick, true);
 
       if(type === "Brons" && seat.type === "Brons"){
         element.classList.add("brons-highlight");
@@ -141,7 +141,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       // set color and make seat clickable
       element.style.fill = color;
       if (!isReserved(seat, reservations)) {
-        element.addEventListener("click", handleClick, { once: true });
+        element.addEventListener("click", handleClick, true);
         element.classList.add("seat-animation");
       } else if(isReserved(seat, reservations)){
         
@@ -151,8 +151,8 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       }
     });
   };
-
-  const handleClick = (e) => {
+  // useCallBack is used to prevent the function from being recreated on every render
+  const handleClick = useCallback((e) => {
     const newSeat = seats.filter((seat) => {
       return seat.id === e.composedPath()[0].id;
     });
@@ -161,7 +161,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
     //console.log("newSeat",newSeat[0]);
     type = newSeat[0].type;
     setType(type);
-  };
+  });
 
   const handleDeselectClick = (e) => {
     setSelected([]);
