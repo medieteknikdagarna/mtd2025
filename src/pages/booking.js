@@ -32,8 +32,8 @@ export default function BookingPage() {
       <NextSeo noindex={true} />
       <Header changeOnScroll />
       {/* <BookingFormV2 />  */}
-      <BookingFormV3 />
-      {/* <BookingFormV4/> */}
+      {/* <BookingFormV3 /> */}
+      <BookingFormV4/>
       <Footer />
     </>
   );

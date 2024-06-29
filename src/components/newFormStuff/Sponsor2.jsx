@@ -66,7 +66,7 @@ export default function Sponsor({
 
           <Indicator
             color={"#89E17B"}
-            text={lang === "sv" ? "Ledig" : "Empty"}
+            text={lang === "sv" ? "Ledig" : "Available"}
           />
           {type !== "Brons" && 
             <Indicator
@@ -77,7 +77,7 @@ export default function Sponsor({
           {type === "Brons" && 
             <Indicator
               color={"#FFF068"}
-              text={lang === "sv" ? "Tilldelas" : "Assigns"}
+              text={lang === "sv" ? "Tilldelas" : "Assigned"}
             />
           }
           
@@ -88,30 +88,35 @@ export default function Sponsor({
 
           <Indicator
             color={"#E07979"}
-            text={lang === "sv" ? "Reserverad" : "Resarverad"}
+            text={lang === "sv" ? "Reserverad" : "Reserved"}
           />
 
         </div>
         <div className={styles.floorText} style={{ marginTop: "1rem" }}>
+
           {type === "Brons" ? (
             <>
-              <span style={{ color: "white" }}> Bronssponsorer får </span>
-              <span style={{ color: "red" }}>inte välja en plats </span>
+              <span style={{ color: "white" }}> {lang === "sv" ? ("Bronssponsorer får") : ("Bronze sponsors do")} </span>
+              <span style={{ color: "red" }}>{lang === "sv" ? ("inte välja en plats") : ("not get to choose a seat")} </span>
               <span style={{ color: "white" }}>
-                utan blir tilldelad en av de blå platserna. Det finns få
-                bronsplatser kvar!
+              {lang === "sv" ? ("utan blir tilldelad en av de blå platserna.") : ("but will be allocated one of the blue seats.")}
               </span>
             </>
           ) : (
             <span style={{ color: "white" }}>
-              Klicka på en ledig ruta för att välja plats.
+              {lang === "sv" ? ("Klicka på en ledig ruta för att välja plats.") : ("Click on an empty box to select a location.")}
             </span>
           )}
+
+          
+
+          
+
         </div>
         <p className="seat-information-p">
           {lang === "sv"
-            ? "Mässan tar plats på våning 5 i Täppan, Campus Norrköping. Ni bokar genom att välja en plats och våning i vår platskarta."
-            : "The fair will take place on floor 5 in Täppan at Campus Norrköping. Book your spot by choosing floor and seat in the figure."}
+            ? "Mässan tar plats på våning 5 i Täppan, Campus Norrköping. Ni bokar genom att välja en plats i vår platskarta."
+            : "The fair will take place on floor 5 in Täppan at Campus Norrköping. Book your spot by choosing a seat in the figure."}
         </p>
 
         <div className={styles.floorSelect}>
@@ -184,14 +189,14 @@ export default function Sponsor({
           </div>
         </div>
         <span>
-          För mer information om vad som ingår i paketen ladda ner vårt
+          {lang === "sv" ? " För mer information om vad som ingår i paketen ladda ner vårt " : " For more information on what is included in the packages download our "}
         </span>
         <a
           href="/content/MTDSamarbetspaket.pdf"
           download
           style={{ color: "#ec6610" }}
         >
-          {lang === "sv" ? " samarbetspaket" : " partnership package"}
+          {lang === "sv" ? "samarbetspaket" : "partnership package"}
         </a>
       </div>
     </>

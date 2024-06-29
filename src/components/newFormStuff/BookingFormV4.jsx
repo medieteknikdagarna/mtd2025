@@ -102,6 +102,15 @@ export default function BookingFormV4() {
   const onSubmit = async (formValues) => {
     setLoading(true);
 
+    // no seat has been selected
+    if(selectedSeat.length == 0) {
+      setBookFailed(true);
+      setLoading(false);
+      alert(lang === "sv" ? "Vänligen välj en plats!" : "Please choose a seat!");
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      return;
+    }
+
     const formData = new FormData();
 
     console.log(formValues);
@@ -157,50 +166,7 @@ export default function BookingFormV4() {
     } catch (error) {
       setBookFailed(true);
       alert("Valda platsen är redan tagen!");
-    }
-
-    // example create data
-    // const dataBlock = {
-    //   "data": {
-    //     TV: formValues.TV,
-    //     antalpåmässa: formValues.antalpåmässa,
-    //     bankettbiljetter: formValues.bankettbiljetter,
-    //     bankettkost: formValues.bankettkost,
-    //     company: formValues.company,
-    //     companyadress: formValues.companyadress,
-    //     contact: formValues.contact,
-    //     description: formValues.description,
-    //     elenhet: formValues.elenhet,
-    //     email: formValues.email,
-    //     extrabord: formValues.extrabord,
-    //     extrastol: formValues.extrastol,
-    //     fakturering: formValues.fakturering,
-    //     firmatecknare: formValues.firmateknare,
-    //     floor: formValues.floor,
-    //     seatID: selectedSeat.seat,
-    //     mässkost: formValues.mässkost,
-    //     persontransport: formValues.persontransport,
-    //     sponsor: formValues.sponsor,
-    //     tel: formValues.tel,
-    //     tjänst: formValues.tjänst,
-    //     montertransport: formValues.transport,
-    //     trådlösaenheter: formValues.trådlösaenheter,
-    //     organisationsnummer: formValues.organisationsnummer,
-    //     signed: false,
-    //   },
-    //   "floor": formValues.floor,
-    //   "seatID": selectedSeat.seatID
-    // };
-    //
-    // const record = await pb.collection('Companies').create(dataBlock);
-    // console.log(record);
-    //
-    // formData.append("logotyp_farg", formValues.logotypFarg[0]);
-    // formData.append("logotyp_svart", formValues.logotypSvart[0]);
-    //
-    // const logotypFargRecord = await pb.collection('Companies').update(record.id, formData);
-    //
-    // console.log(logotypFargRecord);  
+    } 
   };
 
   const {
@@ -279,31 +245,9 @@ export default function BookingFormV4() {
       }
     }
   };
-  // loads the seat information from the database
-  // rewrite to pocketbase
-  // const fetchData = async () => {
-  //   fetch("/api/book")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setFloor4(
-  //         data.filter((seat) => {
-  //           return seat.floor == 4;
-  //         })
-  //       );
-  //       setFloor5(
-  //         data.filter((seat) => {
-  //           return seat.floor == 5;
-  //         })
-  //       );
-  //     });
-  // };
 
   // tar lite tid att ladda in, kasnke fixa
   const fetchSeats = async () => {
-    // const companyInformation = await pb.collection('Companies').getFullList(100,{
-    //   sort: 'floor'
-    // });
     //const authData = await pb.collection('users').authWithPassword('Test', 'database1TestPass');
 
     pb.autoCancellation(false);
@@ -341,7 +285,7 @@ export default function BookingFormV4() {
     <div className={styles.container}>
       <SplitScreen>
         <div>
-          <h2 style={{ fontSize: "4rem", color: "white" }}>
+          <h2 style={{ fontSize: "4rem", color: "white" }} id="topOfPage">
             {lang === "sv" ? "Plan" : "Floor"} {activeFloor}
           </h2>
           <div className={styles.floorContainer}>
