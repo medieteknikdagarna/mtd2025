@@ -143,12 +143,11 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       if (!isReserved(seat, reservations)) {
         element.addEventListener("click", handleClick, true);
         element.classList.add("seat-animation");
-      } else if(isReserved(seat, reservations)){
-        
-        //element.addEventListener("click", reservedClick);
       } else {
-        //element.classList.remove("seat-active");
-      }
+        element.removeEventListener("click", handleClick, true);
+
+        //element.addEventListener("click", reservedClick);
+      } 
     });
   };
   // useCallBack is used to prevent the function from being recreated on every render
