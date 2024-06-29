@@ -101,12 +101,12 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       element.classList.remove("seat-inactive");  // does not do anything important
       element.classList.remove("seat-active");   // does not do anything important
       element.classList.remove("seat-animation");
-      element.removeEventListener("click", handleClick, false);
-      element.removeEventListener("click", handleClick);
-      element.removeEventListener("click", handleClick);
-      element.removeEventListener("click", handleClick);
-      element.removeEventListener("click", handleClick);
-      element.removeEventListener("click", handleClick);
+      // element.removeEventListener("click", handleClick, false);
+      element.removeEventListener("click", handleClick, true);
+      // element.removeEventListener("click", handleClick);
+      // element.removeEventListener("click", handleClick);
+      // element.removeEventListener("click", handleClick);
+      // element.removeEventListener("click", handleClick);
 
       if(type === "Brons" && seat.type === "Brons"){
         element.classList.add("brons-highlight");
@@ -140,7 +140,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       // set color and make seat clickable
       element.style.fill = color;
       if (!isReserved(seat, reservations)) {
-        element.addEventListener("click", handleClick);
+        element.addEventListener("click", handleClick, true);
         element.classList.add("seat-animation");
       } else if(isReserved(seat, reservations)){
         
