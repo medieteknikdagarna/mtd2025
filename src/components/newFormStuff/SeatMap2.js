@@ -160,7 +160,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
     //console.log("newSeat",newSeat[0]);
     type = newSeat[0].type;
     setType(type);
-  });
+  }, []);
 
   const handleDeselectClick = (e) => {
     setSelected([]);
