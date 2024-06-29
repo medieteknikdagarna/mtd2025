@@ -100,6 +100,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       element.classList.remove("guld-highlight");
       element.classList.remove("seat-inactive");
       element.classList.remove("seat-active");
+      element.classList.remove("seat-animation");
 
       if(type === "Brons" && seat.type === "Brons"){
         element.classList.add("brons-highlight");
@@ -125,7 +126,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       } else if (isReserved(seat, reservations)) { // reserved blir röda och kan inte väljas 
         color = colorReserved;
         element.classList.remove("seat-active");
-        element.classList.add("seat-inactive");
+        //element.classList.add("seat-inactive");
       // handle assigned seats
       }
 
