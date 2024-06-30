@@ -115,6 +115,8 @@ export default function BookingFormV4() {
 
     console.log(formValues);
 
+
+
     formData.append("data", JSON.stringify({   
       TV: formValues.TV,
       antalpåmässa: formValues.antalpåmässa,
@@ -131,7 +133,7 @@ export default function BookingFormV4() {
       fakturering: formValues.fakturering,
       firmatecknare: formValues.firmateknare,
       floor: formValues.floor,
-      seatID: selectedSeat.seat,
+      seatID: type ==="Brons" ? 0 : selectedSeat.seatID,
       mässkost: formValues.mässkost,
       persontransport: formValues.persontransport,
       sponsor: type,
