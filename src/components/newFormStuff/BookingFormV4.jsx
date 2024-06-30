@@ -52,6 +52,7 @@ export default function BookingFormV4() {
         fakturering: "",
         firmateknare: "",
         floor: 5,
+        seatID: 0,
         mässkost: [],
         persontransport: "Nej",
         sponsor: "Brons",
@@ -151,7 +152,7 @@ export default function BookingFormV4() {
     // console.log("floor", formValues.floor);
     formData.append("floor", formValues.floor);
     // console.log("seatID", selectedSeat.seatID);
-    formData.append("seatID", selectedSeat.seatID);
+    formData.append("seatID", formValues.sponsor ==="Brons" ? 0 : selectedSeat.seatID);
     formData.append("type", formValues.sponsor);
 
     console.log("formData", formData);
