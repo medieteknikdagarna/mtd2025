@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useState, useContext, useEffect, useCallback, use } from "react";
 import BookerSVG from "../../../public/images/platsbokaren.svg";
 import Floor4 from "../../../public/images/platsbokning.svg";
 import Floor5 from "../../../public/images/platsbokning_p5.svg";
@@ -8,6 +8,7 @@ import { useTransition, animated } from "react-spring";
 import { languageContext } from "../../pages/_app";
 import styles from "../utilities/seatMap.module.scss";
 import Image from "next/image";
+import { set } from "react-hook-form";
 
 //const colorSelected = "#b9b9b9";
 const colorInactive = "#b9b9b9"; // grå
@@ -22,6 +23,8 @@ const defaultSeat = {
   "floor": 5,
   "type": "Brons"
 };
+
+
 
 // används inte längre, används i seatbooker
 export function isReserved(seat, listOfReserved) {
@@ -40,7 +43,8 @@ export function isReserved(seat, listOfReserved) {
 
 export default function SeatMap({ seats, setType, reservations, activeFloor, type }) {
   const [lang, setLang] = useContext(languageContext);
-
+  const [isLoading, setLoading] = useState(false);
+  let counter = 0;
   const travelDst = 500;
   const floor5Transition = useTransition(activeFloor === 5, {
     from: { y: -travelDst, opacity: 0 },
@@ -61,7 +65,41 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
     type === "Brons" ? setSelected(defaultSeat) : null;
     assignSeats();
     console.log("useEffect: " + type);
+    moveLoading();
   }, [type, reservations]);
+
+  useEffect(() => {
+    //setLoading(false);
+    counter++;
+    console.log("useEffectLoading: " + isLoading);
+    console.log("useEffectCounter: " + counter);
+    if(counter > 1){
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+    if(reservations.length > 0){
+      setLoading(false);
+    }
+    //window.addEventListener('resize', moveLoading, true);
+  }, [reservations]);
+
+
+
+  const moveLoading = () => {
+    console.log("moveLoading");
+    const loadingDiv = document.getElementById("loadingDiv");
+    const floorDiv = document.getElementById("floorDiv");
+    console.log("loadingDiv: " + loadingDiv);
+    console.log("floorDiv: " + floorDiv);
+
+    if(loadingDiv && floorDiv){
+      let floorDivHeight = floorDiv.clientHeight - 60;
+      let floorDivWidth = floorDiv.clientWidth;
+      loadingDiv.style.height = floorDivHeight + "px";
+      loadingDiv.style.width = floorDivWidth + "px";
+    }
+  }
 
   // useEffect(() => {}, [type]);
 
@@ -73,26 +111,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
         console.error("Cant get element from id: " + seat.id);
         return;
       }
-      // handle inactive seats
-    //   if (seat.type !== type) {
-    //     element.classList.add("seat-inactive");
-    //     var color = colorInactive;
-    //   // handle selected seat
-    //   } else if (seat.id === selectedSeat.id) {
-    //     element.classList.add("seat-active");
-    //     var color = colorSelected;
-    //   // handle reserved seats
-    //   } else if (isReserved(seat, reservations)) {
-    //     var color = colorReserved;
-    //     element.classList.remove("seat-active");
-    //   // handle assigned seats
-    //   } else if (seat.type === "Brons") {
-    //     var color = colorAssigned;
-    //     element.classList.remove("seat-active");
-    //   // handle available seats
-    //   } else {
-    //     var color = colorAvailable;
-    //     element.classList.remove("seat-active");
+
     //   }
       // fix highlighting
       element.classList.remove("brons-highlight");
@@ -101,12 +120,7 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
       element.classList.remove("seat-inactive");  // does not do anything important
       element.classList.remove("seat-active");  
       element.classList.remove("seat-animation");
-      // element.removeEventListener("click", handleClick, false);
-      //element.removeEventListener("click", handleClick, true);
-      // element.removeEventListener("click", handleClick);
-      // element.removeEventListener("click", handleClick);
-      // element.removeEventListener("click", handleClick);
-      // element.removeEventListener("click", handleClick);
+
       element.removeEventListener("click", handleClick, true);
 
       if(type === "Brons" && seat.type === "Brons"){
@@ -132,9 +146,6 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
         color = colorSelected;
       } else if (isReserved(seat, reservations)) { // reserved blir röda och kan inte väljas 
         color = colorReserved;
-        //element.classList.remove("seat-active");
-        //element.classList.add("seat-inactive");
-      // handle assigned seats
       }
 
 
@@ -174,8 +185,41 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
     assignSeats();
   }, [selectedSeat]);
 
+  let displaySetting = "flex";
+  useEffect(() => {
+    console.log("isLoading: " + isLoading);
+    if(isLoading){
+      displaySetting = "flex";
+    } else {
+      displaySetting = "hidden";
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    moveLoading();
+  }, [selectedSeat]);
+
+
   return (
-    <div className={styles.seatmap}>
+    <div id="floorDiv">
+      {isLoading ? (
+      <div id="loadingDiv"
+      style={{
+        display: displaySetting,
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+      }}
+      >
+        <div className="lds-ring">
+          <div></div>
+        </div>
+      </div>
+        ) : null}
+      
+    
+    
+
       {floor4Transition(
         (styles, item) =>
           item && (
