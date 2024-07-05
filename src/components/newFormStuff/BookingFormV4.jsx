@@ -152,8 +152,8 @@ export default function BookingFormV4() {
     // console.log("floor", formValues.floor);
     formData.append("floor", formValues.floor);
     // console.log("seatID", selectedSeat.seatID);
-    formData.append("seatID", formValues.sponsor ==="Brons" ? 0 : selectedSeat.seatID);
-    formData.append("type", formValues.sponsor);
+    formData.append("seatID", type ==="Brons" ? 0 : selectedSeat.seatID);
+    formData.append("type", type);
 
     console.log("formData", formData);
 
