@@ -43,7 +43,7 @@ export function isReserved(seat, listOfReserved) {
 
 export default function SeatMap({ seats, setType, reservations, activeFloor, type }) {
   const [lang, setLang] = useContext(languageContext);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   let counter = 0;
   const travelDst = 500;
   const floor5Transition = useTransition(activeFloor === 5, {
