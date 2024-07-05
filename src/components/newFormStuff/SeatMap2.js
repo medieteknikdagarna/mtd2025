@@ -73,11 +73,11 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
     counter++;
     console.log("useEffectLoading: " + isLoading);
     console.log("useEffectCounter: " + counter);
-    if(counter > 1){
-      setLoading(true);
-    } else {
-      setLoading(false);
-    }
+    // if(counter > 1){
+    //   setLoading(true);
+    // } else {
+    //   setLoading(false);
+    // }
     if(reservations.length > 0){
       setLoading(false);
     }
