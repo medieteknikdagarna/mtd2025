@@ -19,20 +19,20 @@ import { pb } from "@/components/pocketbase/pockethost";
 const CompanyCard = ( companyData ) => {
   const [currentComp, setCurrentComp] = useState(null);
   const [loading, setLoading] = useState(false);
-  const fetchDetails = async (companyName) => {
+  // const fetchDetails = async (companyName) => {
     
-    // try {
-    //   const response = await axios.get("/api/companyDetail", {
-    //     params: { currentComp: companyName },
-    //   });
-    //   setCurrentComp(response.data);
-    //   setLoading(true);
-    // } catch (error) {
-    //   // Handle any potential errors here
-    //   console.error("Error fetching details:", error);
-    // }
+  //   // try {
+  //   //   const response = await axios.get("/api/companyDetail", {
+  //   //     params: { currentComp: companyName },
+  //   //   });
+  //   //   setCurrentComp(response.data);
+  //   //   setLoading(true);
+  //   // } catch (error) {
+  //   //   // Handle any potential errors here
+  //   //   console.error("Error fetching details:", error);
+  //   // }
     
-  };
+  // };
   console.log("1", companyData);
   const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionId + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_farg;
   let imgSize = "";
