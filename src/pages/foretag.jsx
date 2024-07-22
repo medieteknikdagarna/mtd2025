@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { NextSeo } from "next-seo";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -14,6 +14,7 @@ import axios from "axios";
 import Image from "next/image";
 import Modal from "@/components/foretag-components/ForetagModal";
 import { pb } from "@/components/pocketbase/pockethost";
+import { languageContext } from "./_app";
 
 // Komponent för att visa företagskort - exempelvis på /foretag
 const CompanyCard = ( companyData ) => {
@@ -140,10 +141,11 @@ const CompanyCard = ( companyData ) => {
 };
 // används inte - få in eller ta bort?
 export default function ForetagV2() {
-  const [goldCompanies, setGoldCompanies] = useState();
-  const [silverCompanies, setSilverCompanies] = useState();
-  const [bronsCompanies, setBronsCompanies] = useState();
+  const [goldCompanies, setGoldCompanies] = useState([]);
+  const [silverCompanies, setSilverCompanies] = useState([]);
+  const [bronsCompanies, setBronsCompanies] = useState([]);
   const [doneLoading, setDoneLoading] = useState(false);
+  const [lang, setLang] = useContext(languageContext);
 
   const fetchData = async () => {
     // axios.get("/api/company").then((response) => {
@@ -207,8 +209,28 @@ export default function ForetagV2() {
       />
 
       <div className="container">
-        <h1>Företag Medieteknikdagen 2024</h1>
-        <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3>
+        {lang === "sv" ? <h1>Företag Medieteknikdagen 2024</h1> : <h1>Companies Medieteknikdagen 2024</h1>}
+        {/* <h1>Företag Medieteknikdagen 2024</h1> */}
+        {lang === "sv" ? <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3> : <h3>Below are all the companies participating in Medieteknikdagen this year.</h3>}
+        {/* <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3> */}
+        {console.log(goldCompanies.length)}
+        {lang === "sv" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && doneLoading ? 
+        <h1 style={{
+          textAlign: "center",
+          fontSize: "2rem",
+          marginTop: "15rem",
+          marginBottom: "5rem",
+        }}>Här kommer snart alla företag på MTD 2024 att synas</h1>
+        : null}
+        {lang === "en" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && doneLoading ? 
+        <h1 style={{
+          textAlign: "center",
+          fontSize: "2rem",
+          marginTop: "15rem",
+          marginBottom: "5rem",
+        }}>All companies at MTD 2024 will soon be visible here</h1>
+        : null}
+
         {doneLoading ? (
           <>
             <div className="card_div">
