@@ -41,7 +41,7 @@ export function isReserved(seat, listOfReserved) {
   return isReserved;
 }
 
-export default function SeatMap({ seats, setType, reservations, activeFloor, type }) {
+export default function SeatMap({ seats, setType, reservations, activeFloor, type, loading }) {
   const [lang, setLang] = useContext(languageContext);
   const [isLoading, setLoading] = useState(true);
   let counter = 0;
@@ -78,9 +78,13 @@ export default function SeatMap({ seats, setType, reservations, activeFloor, typ
     // } else {
     //   setLoading(false);
     // }
-    if(reservations.length > 0){
+    // if(reservations.length > 0){
+    //   setLoading(false);
+    // }
+    if(loading === false){
       setLoading(false);
     }
+
     //window.addEventListener('resize', moveLoading, true);
   }, [reservations]);
 

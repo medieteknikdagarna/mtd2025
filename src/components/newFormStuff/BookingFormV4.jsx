@@ -72,6 +72,7 @@ export default function BookingFormV4() {
   const [floor4_res, setFloor4] = useState([]);
   const [floor5_res, setFloor5] = useState([]);
   const [selectedSeat, setSelected] = useState(floor5_all[0]);
+  const [dataLoading, setDataLoading] = useState(true);
 
   console.log(selectedSeat);
 
@@ -276,6 +277,8 @@ export default function BookingFormV4() {
         filter: pb.filter("floor = {:floor}", { floor: 5 })
       })
     );
+
+    setDataLoading(false);
   };
 
   // is called once during the first render
@@ -301,6 +304,7 @@ export default function BookingFormV4() {
                 seats={activeSeats}
                 reservations={activeFloor == 5 ? floor5_res : floor4_res}
                 selected={selectedSeat}
+                loading={dataLoading}
               />
             </selectedContext.Provider>
           </div>
