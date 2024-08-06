@@ -164,13 +164,14 @@ export default function BookingFormV4() {
     try {
       const createdRecord = await pb.collection('Companies').create(formData);
       console.log(createdRecord);
-      setLoading(false);
+      
       successMessage();
       //emailMessage();
     } catch (error) {
       setBookFailed(true);
       alert("Valda platsen är redan tagen!");
     } 
+    setLoading(false);
   };
 
   const {
@@ -351,7 +352,7 @@ export default function BookingFormV4() {
           )}
           {bookFailed && (
             <p style={{ marginTop: "2rem" }}>
-              {lang === "sv" ? "Bookning misslyckad!" : "Registration failed!"}
+              {lang === "sv" ? "Bookning misslyckad! Var vänlig och försök igen" : "Registration failed! Please try again"}
             </p>
           )}
           <span className={styles.a}>

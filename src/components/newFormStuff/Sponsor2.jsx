@@ -99,7 +99,7 @@ export default function Sponsor({
               <span style={{ color: "white" }}> {lang === "sv" ? ("Bronssponsorer får") : ("Bronze sponsors do")} </span>
               <span style={{ color: "red" }}>{lang === "sv" ? ("inte välja en plats") : ("not get to choose a seat")} </span>
               <span style={{ color: "white" }}>
-              {lang === "sv" ? ("utan blir tilldelad en av de blå platserna.") : ("but will be allocated one of the blue seats.")}
+              {lang === "sv" ? ("utan blir tilldelad en av de gula platserna.") : ("but will be allocated one of the yellow seats.")}
               </span>
             </>
           ) : (

@@ -2,8 +2,12 @@ import React from "react";
 import Wing from "@/components/form-components/Wing";
 import ContactInput from "./ContactInput";
 import styles from "@/components/form-components/other.module.scss";
+import { Resize } from "@react-three/drei";
 
 export default function ContactInfo({ register, lang, errors }) {
+
+
+
   return (
     <>
       <Wing />
@@ -254,8 +258,8 @@ export default function ContactInfo({ register, lang, errors }) {
               : "Description of company for app and websire"}
         </h3>
 
-        <div className={styles.textinput}>
-          <label htmlFor="description" />
+        {/* <div className={styles.textinput}>
+        <label htmlFor="description" />
           <input
             type="text"
             id="description"
@@ -269,7 +273,35 @@ export default function ContactInfo({ register, lang, errors }) {
             })}
           />
           <p className={styles.error}>{errors.description?.message}</p>
+        </div> */}
+        
+        <div className={styles.textinput}>
+        <label htmlFor="description" />
+          <textarea style={
+            {resize: "vertical",
+            height: "100px",
+            paddingTop: "10px"
+            }} 
+            // onInput={(e) => {e.style.height = 'auto'; e.style.height = (e.scrollHeight) + 'px';}}
+            onInput={(e) => {
+              e.target.style.height = 'auto';
+              e.target.style.height = (e.target.scrollHeight+25) + 'px';}}
+            // onInput={(e) => {console.log(e.target.scrollHeight)}}
+            id="description"
+            placeholder=" "
+            {...register("description", {
+              required: {
+                value: false,
+                message: `${lang === "sv" ? "Obligatoriskt" : "Must be filled in"
+                  }`,
+              },
+            })}>
+
+          </textarea>
+          <p className={styles.error}>{errors.description?.message}</p>
         </div>
+        
+        
       </div>
 
     </>
