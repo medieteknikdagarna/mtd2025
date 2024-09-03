@@ -264,17 +264,23 @@ export default function BookingFormV4() {
 
     console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_PASS)
 
-    console.log("auth", authData2);
+    console.log("auth1", authData2);
 
     pb.authStore.clear()
 
-    console.log("pb", pb.authStore)
+    console.log("clear", pb.authStore)
+
+    console.log("clear2", pb.authStore.m)
 
     const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
 
-    console.log("pb", pb.authStore)
+    console.log("pb1", pb.authStore)
 
-    console.log("auth", authData);
+    console.log("pb2", pb.authStore.m)
+
+    console.log("pb3", pb.authStore.m.baseToken)
+
+    console.log("auth2", authData);
 
     const companyInformation = await pb.collection('Companies').getFullList({
          filter: pb.filter("floor = {:floor}", { floor: 4 })
