@@ -270,15 +270,13 @@ export default function BookingFormV4() {
 
     console.log("clear", pb.authStore)
 
-    console.log("clear2", pb.authStore.m)
-
     const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
 
     console.log("pb1", pb.authStore)
 
-    console.log("pb2", pb.authStore.m)
+    console.log("pb2", pb.authStore.isValid)
 
-    console.log("pb3", pb.authStore.m.baseToken)
+    console.log("pb3", pb.authStore.token)
 
     console.log("auth2", authData);
 
