@@ -260,7 +260,13 @@ export default function BookingFormV4() {
     const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
     //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
 
-    console.log(authData);
+    console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_ADMIN)
+
+    console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_PASS)
+
+    console.log("pb", pb.authenticated)
+
+    console.log("auth", authData);
 
     const companyInformation = await pb.collection('Companies').getFullList({
          filter: pb.filter("floor = {:floor}", { floor: 4 })
