@@ -161,7 +161,12 @@ export default function BookingFormV4() {
     //const createdRecord = await pb.collection('Companies').create(formData);
     //console.log(createdRecord);
 
-    try {
+    if(!pb.authStore.isValid){
+      pb.authStore.clear()
+      const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
+    }
+
+    try { 
       const createdRecord = await pb.collection('Companies').create(formData);
       console.log(createdRecord);
       
@@ -260,25 +265,13 @@ export default function BookingFormV4() {
     const authData2 = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
     //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
 
-    console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_ADMIN)
+    // console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_ADMIN)
 
-    console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_PASS)
+    // console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_PASS)
 
-    console.log("auth1", authData2);
+    // console.log("auth1", authData2);
 
-    pb.authStore.clear()
-
-    console.log("clear", pb.authStore)
-
-    const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
-
-    console.log("pb1", pb.authStore)
-
-    console.log("pb2", pb.authStore.isValid)
-
-    console.log("pb3", pb.authStore.token)
-
-    console.log("auth2", authData);
+    
 
     const companyInformation = await pb.collection('Companies').getFullList({
          filter: pb.filter("floor = {:floor}", { floor: 4 })
