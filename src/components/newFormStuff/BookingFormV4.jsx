@@ -264,7 +264,7 @@ export default function BookingFormV4() {
 
     console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_PASS)
 
-    console.log("pb", pb.authenticated)
+    console.log("pb", pb.authStore)
 
     console.log("auth", authData);
 
