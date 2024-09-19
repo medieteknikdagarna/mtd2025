@@ -106,7 +106,7 @@ export default function BookingFormV4() {
 
     // no seat has been selected
     if(selectedSeat.length == 0) {
-      setBookFailed(true);
+      //setBookFailed(true);
       setLoading(false);
       alert(lang === "sv" ? "Vänligen välj en plats!" : "Please choose a seat!");
       document.body.scrollTop = document.documentElement.scrollTop = 0;
