@@ -42,6 +42,9 @@ const CompanyCard = ( companyData ) => {
   } else {
     imgSize = "18rem";
   }
+
+  const classes = "card_container " + companyData.type;
+  console.log(typeof classes)
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
@@ -62,7 +65,7 @@ const CompanyCard = ( companyData ) => {
       <Tilt> 
         <motion.div
           options={{ max: 45, scale: 1, speed: 450 }}
-          className="card_container"
+          className={classes}
           id={companyData.id}
           onClick={HandleOpen}
           variants={{
