@@ -34,7 +34,7 @@ const CompanyCard = ( companyData ) => {
   //   // }
     
   // };
-  console.log("1", companyData);
+  //console.log("1", companyData);
   const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionId + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_svart_png;
   let imgSize = "";
   if (companyData.type === "gold") {
@@ -44,7 +44,7 @@ const CompanyCard = ( companyData ) => {
   }
 
   const classes = "card_container " + companyData.type;
-  console.log(typeof classes)
+  //console.log(typeof classes)
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
@@ -90,7 +90,7 @@ const CompanyCard = ( companyData ) => {
               />
             </div>
             <div className="card_info">
-              {console.log("2", companyData)}
+              {/* {console.log("2", companyData)} */}
               <h2 style={{ wordBreak: "break-word" }}>{companyData.companyInformation.data.company}</h2>
               <h3
                 style={{
@@ -113,14 +113,14 @@ const CompanyCard = ( companyData ) => {
                   </span>
 
                   <div className="foretag_card_offer">
-                    {companyData.companyInformation.data.tjänst.map(
-                      (data, index) => (
+                    {companyData.companyInformation.data.tjänst.map((data, index) => (
                         <div className="offer_circle" key={index}>
                           <p>{data}</p>
                         </div>
                       )
                     )}
                   </div>
+                  
                 </div>
               )}
               {/*  <span>{CompanyText.sv.companies[type][index].information}</span> */}
@@ -171,8 +171,8 @@ export default function ForetagV2() {
 
     pb.autoCancellation(false);
 
-    //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
-    const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
+    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
+    //const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
 
     //console.log(authData);
 

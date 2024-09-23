@@ -91,7 +91,7 @@ const Modal = ({ handleClose, data, imageLink, isLoaded }) => {
             >
               {data.type.toUpperCase() + "SPONSOR"}
             </h3>
-            <div className="foretag_card_offer">
+             {/* <div className="foretag_card_offer">
               {data.companyInformation.data.tjänst.map(
                 (offer, index) => (
                   <div className="offer_circle" key={index}>
@@ -99,7 +99,19 @@ const Modal = ({ handleClose, data, imageLink, isLoaded }) => {
                   </div>
                 )
               )}
-            </div>
+            </div>  */}
+            
+
+             {data.companyInformation.data.tjänst.length != 0 ? 
+                  <div className="foretag_card_offer">
+                     {data.companyInformation.data.tjänst.map((offer, index) => (
+                        <div className="offer_circle" key={index}>
+                          <p>{offer}</p>
+                        </div>
+                      )
+                    )}
+                  </div> 
+                  : ""} 
             <span>
               {data.companyInformation.data.description}
             </span>
