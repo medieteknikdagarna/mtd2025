@@ -35,7 +35,7 @@ const CompanyCard = ( companyData ) => {
     
   // };
   console.log("1", companyData);
-  const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionId + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_farg;
+  const imageSrc = 'https://mtd2024-databas.pockethost.io/api/files/'+ companyData.companyInformation.collectionId + "/" + companyData.companyInformation.id + "/" + companyData.companyInformation.logotyp_farg_png;
   let imgSize = "";
   if (companyData.type === "gold") {
     imgSize = "20rem";
