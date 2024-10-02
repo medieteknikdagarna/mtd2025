@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback, use } from "react";
 import BookerSVG from "../../../public/images/platsbokaren.svg";
 import Floor4 from "../../../public/images/platsbokning.svg";
-import Floor5 from "../../../public/images/platsbokning_p5.svg";
+import Floor5 from "../../../public/images/platsbokning_p5_2.svg";
 //import { selectedContext } from "../BookingFormV2";
 import { selectedContext } from "./BookingFormV4";
 import { useTransition, animated } from "react-spring";

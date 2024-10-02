@@ -115,7 +115,7 @@ export default function Sponsor({
         </div>
         <p className="seat-information-p">
           {lang === "sv"
-            ? "Mässan tar plats på våning 5 i Täppan, Campus Norrköping. " + (type === "Brons" ? "" : "Ni bokar genom att välja en plats i vår platskarta.")
+            ? "Mässan äger rum på våning 5 i Täppan, Campus Norrköping. " + (type === "Brons" ? "" : "Ni bokar genom att välja en plats i vår platskarta.")
             : "The fair will take place on floor 5 in Täppan at Campus Norrköping. " + (type === "Brons" ? "" : "Book your spot by choosing a seat in the figure.")}    
         </p>
 

@@ -1,140 +1,140 @@
 [
   {
-    "id": "platsbokning_p5_svg___29",
+    "id": "platsbokning_p5_2_svg___29",
     "seatID": 1,
     "floor": 5,
     "type": "Silver"
   },
   {
-    "id": "platsbokning_p5_svg___28",
+    "id": "platsbokning_p5_2_svg___28",
     "seatID": 2,
     "floor": 5,
     "type": "Silver"
   },
   {
-    "id": "platsbokning_p5_svg___27",
+    "id": "platsbokning_p5_2_svg___27",
     "seatID": 3,
     "floor": 5,
     "type": "Guld"
   },
   {
-    "id": "platsbokning_p5_svg___26",
+    "id": "platsbokning_p5_2_svg___26",
     "seatID": 4,
     "floor": 5,
     "type": "Guld"
   },
   {
-    "id": "platsbokning_p5_svg___25",
+    "id": "platsbokning_p5_2_svg___25",
     "seatID": 5,
     "floor": 5,
     "type": "Guld"
   },
   {
-    "id": "platsbokning_p5_svg___30",
+    "id": "platsbokning_p5_2_svg___30",
     "seatID": 6,
     "floor": 5,
     "type": "Silver"
   },
   {
-    "id": "platsbokning_p5_svg___47",
+    "id": "platsbokning_p5_2_svg___47",
     "seatID": 7,
     "floor": 5,
     "type": "Silver"
   },
   {
-    "id": "platsbokning_p5_svg___31",
+    "id": "platsbokning_p5_2_svg___31",
     "seatID": 8,
     "floor": 5,
-    "type": "Brons"
+    "type": "Silver"
   },
   {
-    "id": "platsbokning_p5_svg___32",
+    "id": "platsbokning_p5_2_svg___32",
     "seatID": 9,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___33",
+    "id": "platsbokning_p5_2_svg___33",
     "seatID": 10,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___34",
+    "id": "platsbokning_p5_2_svg___34",
     "seatID": 11,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___35",
+    "id": "platsbokning_p5_2_svg___35",
     "seatID": 12,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___36",
+    "id": "platsbokning_p5_2_svg___36",
     "seatID": 13,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___37",
+    "id": "platsbokning_p5_2_svg___37",
     "seatID": 14,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___38",
+    "id": "platsbokning_p5_2_svg___38",
     "seatID": 15,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___39",
+    "id": "platsbokning_p5_2_svg___39",
     "seatID": 16,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___40",
+    "id": "platsbokning_p5_2_svg___40",
     "seatID": 17,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___41",
+    "id": "platsbokning_p5_2_svg___41",
     "seatID": 18,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___42",
+    "id": "platsbokning_p5_2_svg___42",
     "seatID": 19,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___43",
+    "id": "platsbokning_p5_2_svg___43",
     "seatID": 20,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___44",
+    "id": "platsbokning_p5_2_svg___44",
     "seatID": 21,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___45",
+    "id": "platsbokning_p5_2_svg___45",
     "seatID": 22,
     "floor": 5,
     "type": "Brons"
   },
   {
-    "id": "platsbokning_p5_svg___46",
+    "id": "platsbokning_p5_2_svg___46",
     "seatID": 23,
     "floor": 5,
-    "type": "Brons"
+    "type": "Silver"
   }
 ]
