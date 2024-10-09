@@ -15,6 +15,8 @@ export default function SponsorType({ sponsor, setTotal, maxAmount }) {
 
   const [companies, setCompanies] = useState([]);
 
+  const [temp, setTemp] = useState(false);
+
   // const fetchData = async () => {
   //   axios.get(`/api/company`).then((response) => {
   //     const filteredCompanies = response.data.filter(
@@ -30,10 +32,7 @@ export default function SponsorType({ sponsor, setTotal, maxAmount }) {
   const fetchData = async () => {
     pb.autoCancellation(false);
 
-    //const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
-    //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
 
-    //console.log(authData);
 
     const companyInformation = await pb.collection('Companies').getFullList({
       filter: pb.filter("type = {:type}", { type: sponsor })
@@ -56,19 +55,6 @@ export default function SponsorType({ sponsor, setTotal, maxAmount }) {
     fetchData();
   }, []);
 
-  // const fetchDetails = async (companyName) => {
-  //   try {
-  //     const response = await axios.get("/api/companyDetail", {
-  //       params: { currentComp: companyName },
-  //     });
-  //     setCurrentCompany(response.data);
-  //     setShouldShow(true); // Set shouldShow after the response has been received
-  //   } catch (error) {
-  //     // Handle any potential errors here
-  //     console.error("Error fetching details:", error);
-  //   }
-  // };
-
   const fetchDetails = async (companyId) => {
     try {
       const record = await pb.collection('Companies').getOne(companyId);
@@ -83,7 +69,14 @@ export default function SponsorType({ sponsor, setTotal, maxAmount }) {
 
   const handleClose = () => {
     setShouldShow(false);
+    setTemp(!temp);
   };
+
+  useEffect(() => {
+    console.log("wow");
+    fetchData();
+}, [temp]);
+
   return (
     <div className="admin_sponsor">
       <div className="admin_sponsor_top">
@@ -111,7 +104,7 @@ export default function SponsorType({ sponsor, setTotal, maxAmount }) {
             >
               <span>
                 {company.data.company}
-                {company.data.signed && (
+                {company.signed && (
                   <AiOutlineCheck
                     fill="white"
                     style={{ marginLeft: "0.3rem" }}

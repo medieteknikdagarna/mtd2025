@@ -11,10 +11,7 @@ export default function AdminPage() {
   const [totalNumberOfGoldCompanies, setNumberGold] = useState(0);
   const [totalNumberOfSilverCompanies, setNumberSilver] = useState(0);
   const [totalNumberOfBronzeCompanies, setNumberBronze] = useState(0);
-  // const [currentComp, setCurrentComp] = useState([]);
-  // const changeCompany = (name) => {
-  //   setCurrentComp(name);
-  // };
+
   const [logedIn, setlogedIn] = useState(false);
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -24,21 +21,14 @@ export default function AdminPage() {
 
   const submitForm = async (values) => {
     console.log(values.password);
-    if (values.password === process.env.NEXT_PUBLIC_ADMIN_PASS) { // || values.password === "test"
+    if (values.password === process.env.NEXT_PUBLIC_ADMIN_PASS ) { // || values.password === "test"
       pb.autoCancellation(false);
       const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
+      //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
       setlogedIn(true);
       //pbConnection();
     }
   };
-
-  // const pbConnection = async () => {
-    
-  //   //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
-  // }
-
-
-  //console.log(currentComp);
 
   return (
     <>
@@ -47,7 +37,7 @@ export default function AdminPage() {
           <form onSubmit={handleSubmit(submitForm)} noValidate>
             <div className="admin_form">
               <label>Lösenord</label>
-              <input type="text" {...register("password")} />
+              <input id="admin_input" type="text" {...register("password")} />
               <button type="submit" style={{ color: "black" }}>
                 Login
               </button>

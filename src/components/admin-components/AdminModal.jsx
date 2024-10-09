@@ -1,6 +1,25 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { pb } from "../pocketbase/pockethost";
+
+
 
 export default function AdminModal({ currentComp, handleClose }) {
+  async function changeSigned(){
+    //pb.collection('Companies').getOne(currentComp.data.id)
+    console.log("123", currentComp.collectionId)
+    console.log("123", currentComp.id)
+
+    const record = await pb.collection(currentComp.collectionId).update(currentComp.id, {
+      signed: !currentComp.signed,
+    });
+    currentComp.signed = !currentComp.signed;
+    document.getElementById("signed_text").innerHTML = currentComp.signed;
+    console.log(record)
+    
+  }
+
+
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -54,7 +73,8 @@ export default function AdminModal({ currentComp, handleClose }) {
                     <p>{currentComp.data.organisationsnummer}</p>
                   )}
                   <p style={{ color: "orange" }}>Kontrakt</p>
-                  <p> {currentComp.data.signed.toString()}</p>
+                  <p id="signed_text"> {currentComp.signed.toString()}</p>
+                  <button style={{ color: "black"}} onClick={changeSigned}>Change Signed</button>
                 </div>
                 <h2 style={{ marginTop: "1rem" }}>Bankett</h2>
                 <div className="modal_company_info">
