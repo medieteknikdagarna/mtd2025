@@ -21,14 +21,54 @@ export default function AdminPage() {
 
   const submitForm = async (values) => {
     console.log(values.password);
-    if (values.password === process.env.NEXT_PUBLIC_ADMIN_PASS ) { // || values.password === "test"
+    if (values.password === process.env.NEXT_PUBLIC_ADMIN_PASS ) {  //|| values.password === "test"
       pb.autoCancellation(false);
       const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
       //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
       setlogedIn(true);
       //pbConnection();
+      getAllAtMass();
     }
   };
+
+  const getAllAtMass = async () =>{
+    try {
+      const record = await pb.collection('Companies').getFullList();
+
+      //console.log(record)
+      let antal = 0;
+      let largest = 0;
+      let largestCompany = "";
+      let smallest = 100;
+      let smallestCompany = "";
+
+      record.forEach((companyInfo) => {
+        console.log(companyInfo.data.antalpåmässa)
+        antal += companyInfo.data.antalpåmässa;
+
+
+        if(companyInfo.data.antalpåmässa < smallest){
+          smallest = companyInfo.data.antalpåmässa;
+          smallestCompany = companyInfo.data.company;
+        }
+        if(companyInfo.data.antalpåmässa > largest){
+          largest = companyInfo.data.antalpåmässa;
+          largestCompany = companyInfo.data.company;
+        }
+        document.getElementById("Total").innerHTML = "Antal personer på mässan: " + antal;
+
+        document.getElementById("Largest").innerHTML = "Högst antal personer på mässan per företag: " + largest + " : " + largestCompany;
+
+        document.getElementById("Smallest").innerHTML = "Lägst antal personer på mässan per företag: " + smallest + " : " + smallestCompany;
+      })
+
+      console.log("Antal:" + antal)
+    } catch (error) {
+      // Handle any potential errors here
+      console.error("Error fetching details:", error);
+      
+    }
+  }
 
   return (
     <>
@@ -60,7 +100,14 @@ export default function AdminPage() {
             <SponsorType sponsor="Silver" setTotal={setNumberSilver} maxAmount={5} />
             <SponsorType sponsor="Brons" setTotal={setNumberBronze} maxAmount={16} />
           </div>
+          <div>
+            <h1 style={{ fontSize: "5rem" }}>Generell info:</h1>
+            <p id="Total" style={{ fontSize: "2rem" }}>MTD 2024</p>
+            <p id="Largest" style={{ fontSize: "2rem" }}>MTD 2024</p>
+            <p id="Smallest" style={{ fontSize: "2rem" }}>MTD 2024</p>
+          </div>
         </>
+        
       )}
     </>
   );
