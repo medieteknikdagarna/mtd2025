@@ -68,8 +68,11 @@ export default function ContactUs({ className }) {
           <h4>{content[lang].addresses[2]}</h4>
           <p className="side-note">
             {lang == "sv"
-              ? "Kontakta Kristian innan leverans av gods, tack!"
-              : "Contact Kristian before delivering any goods, thank you!"}
+              ? "Kontakta Isak innan leverans av gods, tack!"
+              : "Contact Isak before delivering any goods, thank you!"}
+          </p>
+          <p>
+            +46 705 13 47 32
           </p>
           <p>
             Täppan, Campus Norrköping
