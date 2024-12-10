@@ -68,8 +68,8 @@ export default function ContactUs({ className }) {
           <h4>{content[lang].addresses[2]}</h4>
           <p className="side-note">
             {lang == "sv"
-              ? "Kontakta Molly innan leverans av gods, tack!"
-              : "Contact Molly before delivering any goods, thank you!"}
+              ? "Kontakta Kristian innan leverans av gods, tack!"
+              : "Contact Kristian before delivering any goods, thank you!"}
           </p>
           <p>
             Täppan, Campus Norrköping
