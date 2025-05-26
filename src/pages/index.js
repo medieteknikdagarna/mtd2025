@@ -31,7 +31,7 @@ export default function LandingPage() {
   return (
     <>
       <NextSeo
-        title="Medieteknikdagen 2024"
+        title="Medieteknikdagen 2025"
         description="Medieteknikdagen är medieteknikstudenternas årliga arbetsmarknadsdag på Linköpings Universitet, Campus Norrköping. Säkra er plats genom att lämna en intresseanmälan!"
         canonical="https://www.medieteknikdagen.se/"
       />
@@ -51,7 +51,7 @@ export default function LandingPage() {
                   <h1>MTD</h1>
                   <div className="date-landing">
                     <span>
-                      {lang === "sv" ? "11:e December" : "December 11th"} 2024
+                      {lang === "sv" ? "11:e December" : "December 11th"} 2025
                     </span>
                   </div>
                   <div className="welcome">
