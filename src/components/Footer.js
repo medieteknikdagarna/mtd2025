@@ -85,7 +85,7 @@ export default function Footer(props) {
             <h4>Open Source</h4>
             <p>{content[lang].opensource.body}</p>
             <a
-              href="https://github.com/medieteknikdagarna/mtd2023-nextjs"
+              href="https://github.com/medieteknikdagarna/mtd2025"
               target="_blank"
               rel="noreferrer"
             >

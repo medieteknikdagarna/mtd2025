@@ -99,7 +99,7 @@ export default function LandingPage() {
                   <div className="landing-fair-info-row-container">
                     <div className="landing-fair-info--row">
                       <FontAwesomeIcon size="2x" icon={faCalendar} />
-                      <span>{lang === "sv" ? "11:e Dec" : "Dec 11th"} 2024</span>
+                      <span>{lang === "sv" ? "11:e Dec" : "Dec 11th"} 2025</span>
                     </div>
                     <div className="landing-fair-info--row">
                       <FontAwesomeIcon
