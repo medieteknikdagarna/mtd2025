@@ -15,32 +15,32 @@ export default function ContactUs({ className }) {
         <ContactCard
           title={content[lang].small_titles[0]}
           body={content[lang].bodys[0]}
-          textToCopy="isak.karlsson@medieteknikdagen.se"
+          textToCopy="emil.alsbjer@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[1]}
           body={content[lang].bodys[1]}
-          textToCopy="tove.tangring@medieteknikdagen.se" 
+          textToCopy="linus.palm@medieteknikdagen.se" 
         />
         <ContactCard
           title={content[lang].small_titles[1]}
           body={content[lang].bodys[1]}
-          textToCopy="simon.henriksson@medieteknikdagen.se"
+          textToCopy="eric.ahlen@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[2]}
           body={content[lang].bodys[2]}
-          textToCopy="max.wiklundh@medieteknikdagen.se"
+          textToCopy="sofia.lundstrom@medieteknikdagen.se"
         />
         <ContactCard
-          title={content[lang].small_titles[3]}
-          body={content[lang].bodys[3]}
-          textToCopy="albin.kjellberg@medieteknikdagen.se"
+          title={content[lang].small_titles[2]}
+          body={content[lang].bodys[2]}
+          textToCopy="victor.strom@medieteknikdagen.se"
         />
         <ContactCard
           title={content[lang].small_titles[4]}
           body={content[lang].bodys[4]}
-          textToCopy="kristian.houe.gustafsson@medieteknikdagen.se"
+          textToCopy="johanna.eklundh@medieteknikdagen.se"
         />
       </div>
 
@@ -68,11 +68,11 @@ export default function ContactUs({ className }) {
           <h4>{content[lang].addresses[2]}</h4>
           <p className="side-note">
             {lang == "sv"
-              ? "Kontakta Isak innan leverans av gods, tack!"
-              : "Contact Isak before delivering any goods, thank you!"}
+              ? "Kontakta Emil innan leverans av gods, tack!"
+              : "Contact Emil before delivering any goods, thank you!"}
           </p>
           <p>
-            +46 705 13 47 32
+            +46 708 27 64 64
           </p>
           <p>
             Täppan, Campus Norrköping
