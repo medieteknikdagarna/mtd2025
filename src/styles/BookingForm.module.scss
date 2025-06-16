@@ -8,6 +8,7 @@ $MTDdarkblue: #13283c;
 $SPONSBronze: #804a00;
 $SPONSSilver: #c0c0c0;
 $SPONSGold: #b3a34d;
+$SPONSStartup: #4a4a4a;
 
 $anim-duration: 2; // in seconds
 $anim-speed: 0.85; // in seconds
@@ -27,12 +28,14 @@ $anim-speed: 0.85; // in seconds
 
 .container {
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   flex-shrink: 0;
   align-items: center;
-  padding-top: 20vh;
+  padding-top: 200px;
   width: 100%;
+  min-height: 100vh;
   flex-wrap: wrap;
+  position: relative;
   h3,
   h2,
   p,
@@ -117,8 +120,13 @@ $anim-speed: 0.85; // in seconds
   .floorContainer {
     min-width: 30rem;
     margin-right: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
     @media screen and (max-width: 400px) {
       margin-top: 4rem;
+      min-width: 100%;
     }
   }
   .paket {

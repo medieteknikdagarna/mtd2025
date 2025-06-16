@@ -104,22 +104,33 @@ export default function BookingFormV4() {
   const onSubmit = async (formValues) => {
     setLoading(true);
 
-    // no seat has been selected
-    if(selectedSeat.length == 0) {
-      //setBookFailed(true);
+    // no seat has been selected for non-Bronze and non-Startup sponsors
+    if(selectedSeat.length == 0 && type !== "Brons" && type !== "Startup") {
       setLoading(false);
       alert(lang === "sv" ? "Vänligen välj en plats!" : "Please choose a seat!");
       document.body.scrollTop = document.documentElement.scrollTop = 0;
       return;
     }
 
+    // Check for required logo files
+    if (!formValues.logotypFarg || !formValues.logotypFarg[0]) {
+      alert(lang === "sv" ? "Vänligen ladda upp en färgad logotyp (SVG)" : "Please upload a colored logo (SVG)");
+      setLoading(false);
+      return;
+    }
+    if (!formValues.logotypSvart || !formValues.logotypSvart[0]) {
+      alert(lang === "sv" ? "Vänligen ladda upp en svart logotyp (SVG)" : "Please upload a black logo (SVG)");
+      setLoading(false);
+      return;
+    }
+
     const formData = new FormData();
 
-    console.log(formValues);
+    console.log("Form values:", formValues);
+    console.log("Selected seat:", selectedSeat);
+    console.log("Type:", type);
 
-
-
-    formData.append("data", JSON.stringify({   
+    const dataToSend = {   
       TV: formValues.TV,
       antalpåmässa: formValues.antalpåmässa,
       bankettbiljetter: formValues.bankettbiljetter,
@@ -135,7 +146,7 @@ export default function BookingFormV4() {
       fakturering: formValues.fakturering,
       firmatecknare: formValues.firmateknare,
       floor: formValues.floor,
-      seatID: type ==="Brons" ? 0 : selectedSeat.seatID,
+      seatID: (type === "Brons" || type === "Startup") ? 0 : selectedSeat.seatID,
       mässkost: formValues.mässkost,
       persontransport: formValues.persontransport,
       sponsor: type,
@@ -146,20 +157,20 @@ export default function BookingFormV4() {
       organisationsnummer: formValues.organisationsnummer,
       annaninformation: formValues.annaninformation,
       signed: false,
-  }));
+    };
+
+    console.log("Data being sent to Pocketbase:", dataToSend);
+
+    formData.append("data", JSON.stringify(dataToSend));
     
-    formData.append("logotyp_farg", formValues.logotypFarg[0]);
-    formData.append("logotyp_svart", formValues.logotypSvart[0]);
-    // console.log("floor", formValues.floor);
     formData.append("floor", formValues.floor);
-    // console.log("seatID", selectedSeat.seatID);
-    formData.append("seatID", type ==="Brons" ? 0 : selectedSeat.seatID);
+    formData.append("seatID", (type === "Brons" || type === "Startup") ? 0 : selectedSeat.seatID);
     formData.append("type", type);
 
-    console.log("formData", formData);
-
-    //const createdRecord = await pb.collection('Companies').create(formData);
-    //console.log(createdRecord);
+    console.log("Final formData entries:");
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
 
     if(!pb.authStore.isValid){
       pb.authStore.clear()
@@ -167,14 +178,20 @@ export default function BookingFormV4() {
     }
 
     try { 
+      console.log("Attempting to create record with formData");
       const createdRecord = await pb.collection('Companies').create(formData);
-      console.log(createdRecord);
+      console.log("Successfully created record:", createdRecord);
       
       successMessage();
-      //emailMessage();
     } catch (error) {
+      console.error("Error during form submission:", error);
+      console.error("Error details:", error.data);
       setBookFailed(true);
-      alert("Valda platsen är redan tagen!");
+      if (type !== "Brons" && type !== "Startup") {
+        alert(lang === "sv" ? "Valda platsen är redan tagen!" : "The chosen spot is already taken!");
+      } else {
+        alert(lang === "sv" ? "Ett fel uppstod vid registreringen. Försök igen." : "An error occurred during registration. Please try again.");
+      }
     } 
     setLoading(false);
   };
@@ -262,11 +279,12 @@ export default function BookingFormV4() {
 
     pb.autoCancellation(false);
 
-    const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
-    //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
+
+    // använd den övre vid deployment med vercel, den nedre vid localhost
+    //const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS);
+    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!');
 
     // console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_ADMIN)
-
     // console.log("n", process.env.NEXT_PUBLIC_POCKETHOST_PASS)
 
     console.log("auth", authData);
@@ -301,79 +319,95 @@ export default function BookingFormV4() {
 
   return (
     <div className={styles.container}>
-      <SplitScreen>
-        <div>
-          <h2 style={{ fontSize: "4rem", color: "white" }} id="topOfPage">
-            {lang === "sv" ? "Plan" : "Floor"} {activeFloor}
-          </h2>
-          <div className={styles.floorContainer}>
-            <selectedContext.Provider value={[selectedSeat, setSelected]}>
-              <SeatMap
-                type={type}
-                setType={setType}
-                key={activeFloor}
-                activeFloor={activeFloor}
-                seats={activeSeats}
-                reservations={activeFloor == 5 ? floor5_res : floor4_res}
-                selected={selectedSeat}
-                loading={dataLoading}
-              />
-            </selectedContext.Provider>
-          </div>
+      {dataLoading ? (
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          minHeight: '50vh',
+          width: '100%'
+        }}>
+          <p style={{ color: 'white', fontSize: '1.5rem' }}>
+            {lang === "sv" ? "Laddar..." : "Loading..."}
+          </p>
         </div>
-        <Sponsor
-          currentSponsor={type}
-          changeFloor={changeFloor}
-          register={register}
-          type={type}
-          setType={setType}
-          watch={watch}
-        />
-      </SplitScreen>
-      <div style={{ display: "flex", marginLeft: "5rem", marginRight: "5rem" }}>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <ContactInfo register={register} lang={lang} errors={errors} />
-          <Additions
-            lang={lang}
-            register={register}
-            changeNumber={changeNumber}
-            watch={watch}
-            mässField={mässField}
-            errors={errors}
-          />
-          <Bankett
-            lang={lang}
-            watch={watch}
-            register={register}
-            changeNumber={changeNumber}
-            bankettField={bankettField}
-            errors={errors}
-          />
-          <Other lang={lang} register={register} errors={errors} />
-          <div>
-            <button type="submit" className={styles.submitButton}>
-              {loading && <p>{lang === "sv" ? "Laddar" : "Loading"}</p>}
-              {!loading && <p>{lang === "sv" ? "Boka" : "Book"}</p>}
-            </button>
+      ) : (
+        <>
+          <SplitScreen>
+            <div>
+              <h2 style={{ fontSize: "4rem", color: "white" }} id="topOfPage">
+                {lang === "sv" ? "Plan" : "Floor"} {activeFloor}
+              </h2>
+              <div className={styles.floorContainer}>
+                <selectedContext.Provider value={[selectedSeat, setSelected]}>
+                  <SeatMap
+                    type={type}
+                    setType={setType}
+                    key={activeFloor}
+                    activeFloor={activeFloor}
+                    seats={activeSeats}
+                    reservations={activeFloor == 5 ? floor5_res : floor4_res}
+                    selected={selectedSeat}
+                    loading={dataLoading}
+                  />
+                </selectedContext.Provider>
+              </div>
+            </div>
+            <Sponsor
+              currentSponsor={type}
+              changeFloor={changeFloor}
+              register={register}
+              type={type}
+              setType={setType}
+              watch={watch}
+            />
+          </SplitScreen>
+          <div style={{ display: "flex", marginLeft: "5rem", marginRight: "5rem" }}>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+              <ContactInfo register={register} lang={lang} errors={errors} />
+              <Additions
+                lang={lang}
+                register={register}
+                changeNumber={changeNumber}
+                watch={watch}
+                mässField={mässField}
+                errors={errors}
+              />
+              <Bankett
+                lang={lang}
+                watch={watch}
+                register={register}
+                changeNumber={changeNumber}
+                bankettField={bankettField}
+                errors={errors}
+              />
+              <Other lang={lang} register={register} errors={errors} />
+              <div>
+                <button type="submit" className={styles.submitButton}>
+                  {loading && <p>{lang === "sv" ? "Laddar" : "Loading"}</p>}
+                  {!loading && <p>{lang === "sv" ? "Boka" : "Book"}</p>}
+                </button>
+              </div>
+              {bookSuccess && (
+                <p style={{ marginTop: "2rem" }}>
+                  {lang === "sv" ? "Bookning skickad!" : "Registration sent!"}
+                </p>
+              )}
+              {bookFailed && (
+                <p style={{ marginTop: "2rem" }}>
+                  {lang === "sv" ? "Bookning misslyckad! Var vänlig och försök igen" : "Registration failed! Please try again"}
+                </p>
+              )}
+              <span className={styles.a}>
+                {formContent[lang].accept}
+                <Link href="/policy" legacyBehavior style={{ color: "#ec6610" }}>
+                  {formContent[lang].link}
+                </Link>
+              </span>
+            </form>
           </div>
-          {bookSuccess && (
-            <p style={{ marginTop: "2rem" }}>
-              {lang === "sv" ? "Bookning skickad!" : "Registration sent!"}
-            </p>
-          )}
-          {bookFailed && (
-            <p style={{ marginTop: "2rem" }}>
-              {lang === "sv" ? "Bookning misslyckad! Var vänlig och försök igen" : "Registration failed! Please try again"}
-            </p>
-          )}
-          <span className={styles.a}>
-            {formContent[lang].accept}
-            <Link href="/policy" legacyBehavior style={{ color: "#ec6610" }}>
-              {formContent[lang].link}
-            </Link>
-          </span>
-        </form>
-      </div>
+        </>
+      )}
     </div>
   );
 }

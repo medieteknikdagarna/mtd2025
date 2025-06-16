@@ -101,6 +101,8 @@ const CompanyCard = ( companyData ) => {
                       ? "#c0c0c0"
                       : companyData.type === "gold"
                       ? "#b3a34d"
+                      : companyData.type === "startup"
+                      ? "#4a4a4a"
                       : "white",
                 }}
               >

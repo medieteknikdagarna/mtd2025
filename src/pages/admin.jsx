@@ -11,6 +11,7 @@ export default function AdminPage() {
   const [totalNumberOfGoldCompanies, setNumberGold] = useState(0);
   const [totalNumberOfSilverCompanies, setNumberSilver] = useState(0);
   const [totalNumberOfBronzeCompanies, setNumberBronze] = useState(0);
+  const [totalNumberOfStartupCompanies, setNumberStartup] = useState(0);
 
   const [logedIn, setlogedIn] = useState(false);
   const { register, handleSubmit } = useForm({
@@ -90,7 +91,7 @@ export default function AdminPage() {
             <h1 style={{ fontSize: "5rem" }}>MTD 2024</h1>
             <div style={{ display: "flex", alignItems: "baseline" }}>
               <h2>Antal företag - </h2>
-              <span>{totalNumberOfGoldCompanies + totalNumberOfSilverCompanies + totalNumberOfBronzeCompanies}</span>
+              <span>{totalNumberOfGoldCompanies + totalNumberOfSilverCompanies + totalNumberOfBronzeCompanies + totalNumberOfStartupCompanies}</span>
             </div>
           </div>
           <div className="admin_container">
@@ -99,6 +100,7 @@ export default function AdminPage() {
             <SponsorType sponsor="Guld" setTotal={setNumberGold} maxAmount={3} />
             <SponsorType sponsor="Silver" setTotal={setNumberSilver} maxAmount={5} />
             <SponsorType sponsor="Brons" setTotal={setNumberBronze} maxAmount={16} />
+            <SponsorType sponsor="Startup" setTotal={setNumberStartup} maxAmount={10} />
           </div>
           <div>
             <h1 style={{ fontSize: "5rem" }}>Generell info:</h1>

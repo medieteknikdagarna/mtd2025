@@ -27,13 +27,13 @@ export default function PressAndMedia() {
       </div>
 
       <MemberCard
-        name="Ebba Johansson"
+        name="Placeholder"
         post="PR"
-        email="ebba.johansson@medieteknikdagen.se"
-        phone="+46 723 18 52 03"
-        src={'/images/members/ebba.jpg'}
+        email=""
+        phone=""
+        src={'/images/placeholder.png'}
         linkedin={""} 
-        alt={lang === "sv" ? "En bild på Ebba Johansson" : "An image of Ebba Johansson"}
+        alt={lang === "sv" ? "En bild på ..." : "An image of ..."}
       />
     </div>
   );

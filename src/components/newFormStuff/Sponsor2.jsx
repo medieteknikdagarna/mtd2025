@@ -46,7 +46,9 @@ export default function Sponsor({
                     ? "#c0c0c0"
                     : currentSponsor === "Guld"
                       ? "#b3a34d"
-                      : "white",
+                      : currentSponsor === "Startup"
+                        ? "#4a4a4a"
+                        : "white",
             }}
           >
             {currentSponsor}
@@ -55,68 +57,58 @@ export default function Sponsor({
             {currentSponsor === "Brons"
               ? "7 999:-"
               : currentSponsor === "Silver"
-                ? "24 999:-"
+                ? "19 999:-"
                 : currentSponsor === "Guld"
-                  ? "34 999:-"
-                  : ""}
+                  ? "29 999:-"
+                  : currentSponsor === "Startup"
+                    ? "1 999:-"
+                    : ""}
           </h1>
         </div>
 
         <div className={styles.floorInfo}>
-
           <Indicator
             color={"#89E17B"}
             text={lang === "sv" ? "Ledig" : "Available"}
           />
-          {type !== "Brons" && 
-            <Indicator
-              color={"#FFF068"}
-              text={lang === "sv" ? "Vald" : "Chosen"}
-            />
-          }
-          {type === "Brons" && 
-            <Indicator
-              color={"#FFF068"}
-              text={lang === "sv" ? "Tilldelas" : "Assigned"}
-            />
-          }
-          
-          {/* <Indicator
-            color={"#345f80"}
-            text={lang === "sv" ? "Tilldelas" : "Assigns"}
-          /> */}
-
+          <Indicator
+            color={"#FFF068"}
+            text={lang === "sv" ? (type === "Brons" || type === "Startup" ? "Tilldelas" : "Vald") : (type === "Brons" || type === "Startup" ? "Assigned" : "Chosen")}
+          />
           <Indicator
             color={"#E07979"}
             text={lang === "sv" ? "Reserverad" : "Reserved"}
           />
-
         </div>
-        <div className={styles.floorText} style={{ marginTop: "1rem" }}>
-
+        <div className={styles.floorText} style={{ marginTop: "1rem", minHeight: "3rem" }}>
           {type === "Brons" ? (
             <>
-              <span style={{ color: "white" }}> {lang === "sv" ? ("Bronssponsorer får") : ("Bronze sponsors do")} </span>
-              <span style={{ color: "red" }}>{lang === "sv" ? ("inte välja en plats") : ("not get to choose a seat")} </span>
+              <span style={{ color: "white" }}> {lang === "sv" ? "Bronssponsorer får" : "Bronze sponsors do"} </span>
+              &nbsp;
+              <span style={{ color: "red" }}>{lang === "sv" ? "inte välja en plats" : "not get to choose a seat"} </span>
               <span style={{ color: "white" }}>
-              {lang === "sv" ? ("utan blir tilldelad en av de gula platserna.") : ("but will be allocated one of the yellow seats.")}
+              {lang === "sv" ? "utan blir tilldelad en av de gula platserna." : "but will be allocated one of the yellow seats."}
+              </span>
+            </>
+          ) : type === "Startup" ? (
+            <>
+              <span style={{ color: "white" }}> {lang === "sv" ? "Startupsponsorer får" : "Startup sponsors do"} </span>
+              &nbsp;
+              <span style={{ color: "red" }}>{lang === "sv" ? "inte välja en plats" : "not get to choose a seat"} </span>
+              <span style={{ color: "white" }}>
+              {lang === "sv" ? "utan blir tilldelad en plats i ett gemensamt klassrum med resten av startupsponsorerna." : "but will be allocated a seat in a shared classroom with the other startup sponsors."}
               </span>
             </>
           ) : (
             <span style={{ color: "white" }}>
-              {lang === "sv" ? ("Klicka på en ledig ruta för att välja plats.") : ("Click on an empty box to select a location.")}
+              {lang === "sv" ? "Klicka på en ledig ruta för att välja plats." : "Click on an empty box to select a location."}
             </span>
           )}
-
-          
-
-          
-
         </div>
         <p className="seat-information-p">
           {lang === "sv"
-            ? "Mässan äger rum på våning 5 i Täppan, Campus Norrköping. " + (type === "Brons" ? "" : "Ni bokar genom att välja en plats i vår platskarta.")
-            : "The fair will take place on floor 5 in Täppan at Campus Norrköping. " + (type === "Brons" ? "" : "Book your spot by choosing a seat in the figure.")}    
+            ? "Mässan äger rum på våning 5 i Täppan, Campus Norrköping. " + ((type === "Brons" || type === "Startup") ? "" : "Ni bokar genom att välja en plats i vår platskarta.")
+            : "The fair will take place on floor 5 in Täppan at Campus Norrköping. " + ((type === "Brons" || type === "Startup") ? "" : "Book your spot by choosing a seat in the figure.")}    
         </p>
 
         
@@ -148,17 +140,16 @@ export default function Sponsor({
           </h2>
         </div>
         <div className={styles.sponsor}>
-          <div className={styles.bronze}>
+          <div className={styles.gold}>
             <input
               type="radio"
-              id="sponsor-op1"
-              value="Brons"
+              id="sponsor-op3"
+              value="Guld"
               name="type"
-              onClick={() => setType("Brons")}
-
+              onClick={() => setType("Guld")}
             />
-            <label htmlFor="sponsor-op1">
-              {lang === "sv" ? "Brons" : "Bronze"}
+            <label htmlFor="sponsor-op3">
+              {lang === "sv" ? "Guld" : "Gold"}
             </label>
           </div>
 
@@ -169,25 +160,36 @@ export default function Sponsor({
               value="Silver"
               name="type"
               onClick={() => setType("Silver")}
-
             />
             <label htmlFor="sponsor-op2">
               {lang === "sv" ? "Silver" : "Silver"}
             </label>
           </div>
-          <div className={styles.gold}>
+
+          <div className={styles.bronze}>
             <input
               type="radio"
-              id="sponsor-op3"
-              value="Guld"
+              id="sponsor-op1"
+              value="Brons"
               name="type"
-              onClick={() => setType("Guld")}
-
+              onClick={() => setType("Brons")}
             />
-            <label htmlFor="sponsor-op3">
-              {lang === "sv" ? "Guld" : "Gold"}
+            <label htmlFor="sponsor-op1">
+              {lang === "sv" ? "Brons" : "Bronze"}
             </label>
+          </div>
 
+          <div className={styles.startup}>
+            <input
+              type="radio"
+              id="sponsor-op4"
+              value="Startup"
+              name="type"
+              onClick={() => setType("Startup")}
+            />
+            <label htmlFor="sponsor-op4">
+              {lang === "sv" ? "Startup" : "Startup"}
+            </label>
           </div>
         </div>
         <span>

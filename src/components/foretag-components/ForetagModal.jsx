@@ -86,7 +86,9 @@ const Modal = ({ handleClose, data, imageLink, isLoaded }) => {
                       ? "#c0c0c0"
                       : data.type === "gold"
                         ? "#b3a34d"
-                        : "white",
+                        : data.type === "startup"
+                          ? "#4a4a4a"
+                          : "white",
               }}
             >
               {data.type.toUpperCase() + "SPONSOR"}
