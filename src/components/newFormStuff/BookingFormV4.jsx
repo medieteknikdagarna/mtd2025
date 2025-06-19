@@ -166,6 +166,9 @@ export default function BookingFormV4() {
     formData.append("floor", formValues.floor);
     formData.append("seatID", (type === "Brons" || type === "Startup") ? 0 : selectedSeat.seatID);
     formData.append("type", type);
+    // Add logotype files to FormData
+    formData.append("logotyp_farg", formValues.logotypFarg[0]);
+    formData.append("logotyp_svart", formValues.logotypSvart[0]);
 
     console.log("Final formData entries:");
     for (let pair of formData.entries()) {
