@@ -27,13 +27,13 @@ export default function PressAndMedia() {
       </div>
 
       <MemberCard
-        name="Placeholder"
+        name="Victor Ström"
         post="PR"
-        email=""
-        phone=""
-        src={'/images/placeholder.png'}
-        linkedin={""} 
-        alt={lang === "sv" ? "En bild på ..." : "An image of ..."}
+        email="victor.strom@medieteknikdagen.se"
+        phone="+46 709 54 31 21"
+        src={'/images/members/Victor.png'}
+        linkedin={"https://www.linkedin.com/in/victorstrom/"} 
+        alt={lang === "sv" ? "En bild på Victor Ström" : "An image of Victor Ström"}
       />
     </div>
   );
