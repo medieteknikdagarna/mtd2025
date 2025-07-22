@@ -215,7 +215,7 @@ export default function ForetagV2() {
       />
 
       <div className="container">
-        {lang === "sv" ? <h1>Företag Medieteknikdagen 2024</h1> : <h1>Companies Medieteknikdagen 2024</h1>}
+        {lang === "sv" ? <h1>Företag Medieteknikdagen 2025</h1> : <h1>Companies Medieteknikdagen 2025</h1>}
         {/* <h1>Företag Medieteknikdagen 2024</h1> */}
         {lang === "sv" ? <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3> : <h3>Below are all the companies participating in Medieteknikdagen this year.</h3>}
         {/* <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3> */}
@@ -226,7 +226,7 @@ export default function ForetagV2() {
           fontSize: "2rem",
           marginTop: "15rem",
           marginBottom: "5rem",
-        }}>Här kommer snart alla företag på MTD 2024 att synas</h1>
+        }}>Här kommer snart alla företag på MTD 2025 att synas</h1>
         : null}
         {lang === "en" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && doneLoading ? 
         <h1 style={{
@@ -234,7 +234,7 @@ export default function ForetagV2() {
           fontSize: "2rem",
           marginTop: "15rem",
           marginBottom: "5rem",
-        }}>All companies at MTD 2024 will soon be visible here</h1>
+        }}>All companies at MTD 2025 will soon be visible here</h1>
         : null}
 
         {doneLoading ? (

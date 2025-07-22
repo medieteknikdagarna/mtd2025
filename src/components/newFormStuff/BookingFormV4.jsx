@@ -88,8 +88,8 @@ export default function BookingFormV4() {
     var mailOptions = {
       from: process.env.NEXT_PUBLIC_EMAIL_USER,
       to: formValues.email,
-      subject: 'MTD2024 Anmälan',
-      text: 'Hej, tack för din anmälan till Medieteknikdagarna 2024! Vi kommer att kontakta dig inom kort för att bekräfta din anmälan och hantera underskrift. Med vänliga hälsningar, Medieteknikdagarna 2024'
+      subject: 'MTD2025 Anmälan',
+      text: 'Hej, tack för din anmälan till Medieteknikdagarna 2025! Vi kommer att kontakta dig inom kort för att bekräfta din anmälan och hantera underskrift. Med vänliga hälsningar, Medieteknikdagarna 2025'
     };
 
     transporter.sendMail(mailOptions, function(error, info){
@@ -284,8 +284,8 @@ export default function BookingFormV4() {
 
 
     // använd den övre vid deployment med vercel, den nedre vid localhost
-    // const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS); //övre
-    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!'); //nedre
+    const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS); //övre
+    // const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!'); //nedre
 
 
 
