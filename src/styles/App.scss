@@ -93,7 +93,7 @@ h4 {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 div {
   /*  border: 1px solid red; */
@@ -101,8 +101,8 @@ div {
 html {
   background: linear-gradient(
     -45deg,
-    rgba(29, 46, 55, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
+    rgb(255, 255, 255) 0%,
+    rgb(182, 182, 183) 100%
   );
   background-size: cover;
   background-repeat: no-repeat;
