@@ -8,8 +8,8 @@ export default function Other({ register, lang, errors }) {
       <div style={{ display: "flex", flexFlow: "column" }}>
         <span>
           {lang === "sv"
-            ? "Infoga logotyp med färgad eller svart text för app och webb (.eps eller .svg)"
-            : "Attach logo with colored or black text for usage in the app or on the website (.eps or .svg)"}
+            ? "Infoga logotyp med färgad eller svart text för app och webb (helst .svg men .eps går också)"
+            : "Attach logo with colored or black text for usage in the app or on the website (preferably .svg but .eps also works)"}
         </span>
         <label htmlFor="logotypFarg" />
         <input
@@ -30,8 +30,8 @@ export default function Other({ register, lang, errors }) {
       <div style={{ display: "flex", flexFlow: "column" }}>
         <span>
           {lang === "sv"
-            ? "Infoga logotyp med vit text för app och webb (.eps eller .svg)"
-            : "Attach logo with white text for usage in the app or on the website (.eps or .svg)"}
+            ? "Infoga logotyp med vit text för app och webb (helst .svg men .eps går också)"
+            : "Attach logo with white text for usage in the app or on the website (preferably .svg but .eps also works)"}
         </span>
         <label htmlFor="logotypSvart" />
         <input
