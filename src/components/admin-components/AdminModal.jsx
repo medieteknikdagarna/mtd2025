@@ -148,6 +148,11 @@ export default function AdminModal({ currentComp, handleClose }) {
               <p>{currentComp.data.description}</p>
             </div>
 
+            <div style={{ width: "50rem", marginTop: "1rem" }}>
+              <p>Annan information</p>
+              <p>{currentComp.data.annaninformation}</p>
+            </div>
+
             {/*
                 <span id="admin_listitem" style={{ fontSize: "0.8rem" }}>
                   <h4>Beskrivning</h4>

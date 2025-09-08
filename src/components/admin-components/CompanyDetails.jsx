@@ -114,6 +114,10 @@ export default function CompanyDetails({ currentComp }) {
                 <h4>Beskrivning</h4>
                 {data.data.description}
               </span>
+              <span id="admin_listitem" style={{ fontSize: "0.8rem" }}>
+                <h4>Annan information</h4>
+                {data.data.annaninformation}
+              </span>
             </div>
           );
         })}
