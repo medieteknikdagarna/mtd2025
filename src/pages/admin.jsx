@@ -88,7 +88,7 @@ export default function AdminPage() {
       ) : (
         <>
           <div className="admin_title">
-            <h1 style={{ fontSize: "5rem" }}>MTD 2024</h1>
+            <h1 style={{ fontSize: "5rem" }}>MTD 2025</h1>
             <div style={{ display: "flex", alignItems: "baseline" }}>
               <h2>Antal företag - </h2>
               <span>{totalNumberOfGoldCompanies + totalNumberOfSilverCompanies + totalNumberOfBronzeCompanies + totalNumberOfStartupCompanies}</span>
@@ -104,9 +104,9 @@ export default function AdminPage() {
           </div>
           <div>
             <h1 style={{ fontSize: "5rem" }}>Generell info:</h1>
-            <p id="Total" style={{ fontSize: "2rem" }}>MTD 2024</p>
-            <p id="Largest" style={{ fontSize: "2rem" }}>MTD 2024</p>
-            <p id="Smallest" style={{ fontSize: "2rem" }}>MTD 2024</p>
+            <p id="Total" style={{ fontSize: "2rem" }}>MTD 2025</p>
+            <p id="Largest" style={{ fontSize: "2rem" }}>MTD 2025</p>
+            <p id="Smallest" style={{ fontSize: "2rem" }}>MTD 2025</p>
           </div>
         </>
         
