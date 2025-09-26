@@ -39,6 +39,8 @@ const CompanyCard = ( companyData ) => {
   let imgSize = "";
   if (companyData.type === "gold") {
     imgSize = "20rem";
+  } else if (companyData.type === "startup") {
+    imgSize = "14rem";
   } else {
     imgSize = "18rem";
   }
@@ -106,7 +108,7 @@ const CompanyCard = ( companyData ) => {
                       : "white",
                 }}
               >
-                {companyData.type.toUpperCase() + "SPONSOR"}
+                {companyData.type === "startup" ? "STARTUP" : companyData.type.toUpperCase() + "SPONSOR"}
               </h3>
               {companyData.type === "gold" && (
                 <div>
@@ -149,6 +151,7 @@ export default function ForetagV2() {
   const [goldCompanies, setGoldCompanies] = useState([]);
   const [silverCompanies, setSilverCompanies] = useState([]);
   const [bronsCompanies, setBronsCompanies] = useState([]);
+  const [startupCompanies, setStartupCompanies] = useState([]);
   const [doneLoading, setDoneLoading] = useState(false);
   const [lang, setLang] = useContext(languageContext);
 
@@ -190,7 +193,10 @@ export default function ForetagV2() {
       filter: pb.filter("type = {:type}", { type: "Brons" })
     });
     setBronsCompanies(companyInformationBrons);
-
+    const companyInformationStartup = await pb.collection('Companies').getFullList({
+      filter: pb.filter("type = {:type}", { type: "Startup" })
+    });
+    setStartupCompanies(companyInformationStartup);
 
     console.log(companyInformationGuld);
     console.log(companyInformationSilver);
@@ -220,7 +226,7 @@ export default function ForetagV2() {
         {lang === "sv" ? <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3> : <h3>Below are all the companies participating in Medieteknikdagen this year.</h3>}
         {/* <h3>Nedan listas alla företag som deltar på Medieteknikdagen i år.</h3> */}
         {console.log(goldCompanies.length)}
-        {lang === "sv" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && doneLoading ? 
+        {lang === "sv" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && startupCompanies.length == 0 && doneLoading ? 
         <h1 style={{
           textAlign: "center",
           fontSize: "2rem",
@@ -228,7 +234,7 @@ export default function ForetagV2() {
           marginBottom: "5rem",
         }}>Här kommer snart alla företag på MTD 2025 att synas</h1>
         : null}
-        {lang === "en" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && doneLoading ? 
+        {lang === "en" && bronsCompanies.length == 0 && silverCompanies.length == 0 && goldCompanies.length == 0 && startupCompanies.length == 0 && doneLoading ? 
         <h1 style={{
           textAlign: "center",
           fontSize: "2rem",
@@ -275,6 +281,17 @@ export default function ForetagV2() {
                   type="bronze"
                   width="20vw"
                   height="20rem"
+                />
+              ))}
+            </div>
+            <div className="card_div_silver startup_grid">
+              {startupCompanies.map((företag, index) => (
+                <CompanyCard
+                  key={företag.id}
+                  companyInformation={företag}
+                  type="startup"
+                  width="15vw"
+                  height="15rem"
                 />
               ))}
             </div>

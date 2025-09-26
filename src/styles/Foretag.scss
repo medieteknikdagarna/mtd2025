@@ -37,6 +37,20 @@
   }
 }
 
+// Startup companies grid - smaller cards
+.card_div_silver.startup_grid {
+  grid-template-columns: repeat(4, 1fr);
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .card_container {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.035);
@@ -49,6 +63,20 @@
 
 .bronze {
   min-height: 45vh;
+}
+
+.startup {
+  min-height: 35vh;
+  
+  .card_info {
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2vh;
+    }
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
 }
 .card_content {
   display: flex;
