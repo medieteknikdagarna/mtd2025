@@ -67,7 +67,7 @@ export default function Header({
         </Link>
         <div className="nav-items">
           <Link href="/" legacyBehavior>
-            <h2 styles={barlow.styles}>MTD</h2>
+            <h2 className={barlow.className}>MTD</h2>
           </Link>
           <div className="icons">
             <LanguageFlag />
