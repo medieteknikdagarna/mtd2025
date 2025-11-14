@@ -23,7 +23,7 @@ export default function Sponsor({
                 currentSponsor === "Brons"
                   ? "#804a00"
                   : currentSponsor === "Silver"
-                  ? "#c0c0c0"
+                  ? "white"
                   : currentSponsor === "Guld"
                   ? "#b3a34d"
                   : "white",
@@ -71,7 +71,7 @@ export default function Sponsor({
               </span>
             </>
           ) : (
-            <span style={{ color: "white" }}>
+            <span style={{ color: "gray" }}>
               Klicka på en ledig ruta för att välja plats.
             </span>
           )}

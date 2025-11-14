@@ -1,5 +1,5 @@
 .footer {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.175);
   margin-top: 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -113,14 +113,18 @@
 .footer--icon-link {
   cursor: pointer;
   transition: 0.1s;
-  fill: var(--color-light);
+  fill: var(--color-dark);
 }
 .footer--icon-link:hover {
   filter: brightness(80%);
   transition: 0.1s;
 }
 .footer--icon-link path {
-  fill: var(--color-light);
+  fill: #ffffff !important;
+}
+
+.footer .brand-icons path {
+  fill: #ffffff !important;
 }
 
 .footer a {

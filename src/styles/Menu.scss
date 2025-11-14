@@ -58,7 +58,7 @@
 }
 .sub-menu-link a {
   font-size: 1.6rem !important;
-  color: rgba(255, 255, 255, 0.39);
+  color: #000000;
   margin: 0;
   font-weight: 300 !important;
 
@@ -157,7 +157,7 @@
 }
 .icons-menu--links {
   path {
-    fill: var(--color-light) !important;
+    fill: var(--color-dark) !important;
   }
   display: flex;
   justify-content: center;
@@ -170,7 +170,7 @@
 .menu a {
   text-decoration: none;
   font-weight: 600;
-  color: var(--color-light);
+  color: #000000;
   fill: var(--color-light);
   transition: 0.2s;
 }
@@ -240,11 +240,26 @@
 .menu-chevron {
   &--active svg {
     transform: rotate(90deg);
+    path {
+      fill: #000000 !important;
+    }
     transition: transform 0.2s;
   }
   &--inactive svg {
+    path {
+      fill: #000000 !important;
+    }
     transition: transform 0.2s;
     transform: rotate(0deg);
+  }
+}
+
+// Ensure FontAwesome chevron icon is always black
+.menu-chevron svg {
+  color: #000000 !important;
+  
+  path {
+    fill: #000000 !important;
   }
 }
 

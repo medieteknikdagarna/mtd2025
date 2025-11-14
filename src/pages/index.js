@@ -41,7 +41,7 @@ export default function LandingPage() {
           <div className="video-container">
             <video id="background-video" autoPlay loop muted playsInline>
               <source
-                src={require("public/images/renders/BOLL-VID2-fixed.mp4")}
+                src={require("public/images/renders/BOLL-2025.mp4")}
                 type="video/mp4"
               />
             </video>

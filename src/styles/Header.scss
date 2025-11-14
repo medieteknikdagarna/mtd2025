@@ -8,7 +8,7 @@
   grid-column: -2 / -1;
   gap: 0.5rem;
   path {
-    fill: var(--color-light);
+    fill: #000000;
   }
 }
 .menu-icon {
@@ -24,6 +24,10 @@
   width: 2.75rem;
   height: auto;
   justify-self: end;
+  
+  path {
+    fill: #000000;
+  }
 }
 
 .header h2,
@@ -32,11 +36,11 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 2.75rem;
   align-self: center;
-  color: var(--color-light);
+  color: #000000;
   font-weight: bold;
 }
 .header-light h2 {
-  color: var(--color-light);
+  color: #000000;
 }
 
 .nav-items {
@@ -79,7 +83,7 @@
   display: grid;
   width: 100%;
   grid-template-columns: var(--grid-layout);
-
+  background-color: transparent;
   align-items: center;
   top: 0;
   z-index: 999;
@@ -90,7 +94,7 @@
   -webkit-box-shadow: 0px 5px 24px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 5px 24px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 5px 24px -15px rgba(0, 0, 0, 0.75);
-  background-color: black;
+  background-color: #e4e4e4 !important;
   transition: 0.2s;
 }
 .brand-icons {
@@ -110,36 +114,43 @@
   transition: 0.2s;
 }
 .header-light {
+  background-color: transparent;
   .icon-link {
-    fill: var(--color-light);
-    transition: 0.2s;
+    fill: #000000;
   }
   .menu-icon path {
-    fill: var(--color-light);
+    fill: #000000;
+  }
+  h2 {
+    color: #000000;
   }
 }
 
 .header-scroll {
   h2 {
-    color: var(--color-light);
+    color: #000000;
   }
 
   .icon-link {
-    fill: var(--color-light) !important;
+    fill: #000000 !important;
     transition: 0.2s;
   }
   .menu-icon rect {
-    fill: var(--color-light) !important;
+    fill: #000000 !important;
   }
 }
 .header {
+  background-color: transparent;
   color: var(--color-dark);
   .icon-link {
-    fill: var(--color-light);
+    fill: #000000;
     transition: 0.2s;
   }
   .menu-icon rect {
-    fill: var(--color-dark);
+    fill: #000000;
+  }
+  h2 {
+    color: #000000;
   }
 }
 
@@ -158,7 +169,7 @@
   width: 100%;
   &--icon {
     rect {
-      fill: var(--color-light);
+      fill: #000000;
     }
   }
 }
@@ -169,7 +180,7 @@
   height: 1.5em;
   width: 2px;
   margin: 0 0.5em;
-  background-color: var(--color-light);
+  background-color: #000000;
 }
 .logo-container {
   display: flex;

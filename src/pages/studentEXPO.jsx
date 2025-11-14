@@ -35,7 +35,6 @@ const StudentEXPO = () => {
   return (
     <>
       <Header
-        style={{ backgroundColor: "black" }}
         lightContrast
         changeOnScroll
       />

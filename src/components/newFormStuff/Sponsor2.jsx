@@ -43,7 +43,7 @@ export default function Sponsor({
                 currentSponsor === "Brons"
                   ? "#804a00"
                   : currentSponsor === "Silver"
-                    ? "#c0c0c0"
+                    ? "white"
                     : currentSponsor === "Guld"
                       ? "#b3a34d"
                       : currentSponsor === "Startup"
@@ -83,24 +83,24 @@ export default function Sponsor({
         <div className={styles.floorText} style={{ marginTop: "1rem", minHeight: "3rem" }}>
           {type === "Brons" ? (
             <>
-              <span style={{ color: "white" }}> {lang === "sv" ? "Bronssponsorer får" : "Bronze sponsors do"} </span>
+              <span style={{ color: "gray" }}> {lang === "sv" ? "Bronssponsorer får" : "Bronze sponsors do"} </span>
               &nbsp;
               <span style={{ color: "red" }}>{lang === "sv" ? "inte välja en plats" : "not get to choose a seat"} </span>
-              <span style={{ color: "white" }}>
+              <span style={{ color: "gray" }}>
               {lang === "sv" ? "utan blir tilldelad en av de gula platserna." : "but will be allocated one of the yellow seats."}
               </span>
             </>
           ) : type === "Startup" ? (
             <>
-              <span style={{ color: "white" }}> {lang === "sv" ? "Startupsponsorer får" : "Startup sponsors do"} </span>
+              <span style={{ color: "gray" }}> {lang === "sv" ? "Startupsponsorer får" : "Startup sponsors do"} </span>
               &nbsp;
               <span style={{ color: "red" }}>{lang === "sv" ? "inte välja en plats" : "not get to choose a seat"} </span>
-              <span style={{ color: "white" }}>
+              <span style={{ color: "gray" }}>
               {lang === "sv" ? "utan blir tilldelad en plats i ett gemensamt klassrum med resten av startupsponsorerna." : "but will be allocated a seat in a shared classroom with the other startup sponsors."}
               </span>
             </>
           ) : (
-            <span style={{ color: "white" }}>
+            <span style={{ color: "gray" }}>
               {lang === "sv" ? "Klicka på en ledig ruta för att välja plats." : "Click on an empty box to select a location."}
             </span>
           )}

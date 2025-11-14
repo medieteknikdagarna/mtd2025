@@ -31,7 +31,7 @@ export default function PressAndMedia() {
         post="PR"
         email="victor.strom@medieteknikdagen.se"
         phone="+46 709 54 31 21"
-        src={'/images/members/Victor.png'}
+        src={'/images/members/Victor2.png'}
         linkedin={"https://www.linkedin.com/in/victorstrom/"} 
         alt={lang === "sv" ? "En bild på Victor Ström" : "An image of Victor Ström"}
       />
