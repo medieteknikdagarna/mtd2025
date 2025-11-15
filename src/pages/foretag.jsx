@@ -215,7 +215,6 @@ export default function ForetagV2() {
         canonical="https://www.medieteknikdagen.se/foretag"
       />
       <Header
-        style={{ backgroundColor: "black" }}
         lightContrast
         changeOnScroll
       />
