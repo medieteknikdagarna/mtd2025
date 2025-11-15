@@ -13,7 +13,7 @@ export default function Other({ register, lang, errors }) {
         </span>
         <label htmlFor="logotypFarg" />
         <input
-          style={{ color: "#fff" }}
+          style={{ color: "#000000" }}
           type="file"
           id="logotypFarg"
           {...register("logotypFarg", {
@@ -35,7 +35,7 @@ export default function Other({ register, lang, errors }) {
         </span>
         <label htmlFor="logotypSvart" />
         <input
-          style={{ color: "#fff" }}
+          style={{ color: "#000000" }}
           type="file"
           id="logotypSvart"
           {...register("logotypSvart", {
@@ -51,7 +51,7 @@ export default function Other({ register, lang, errors }) {
       </div>
 
       <div style={{ display: "flex", flexFlow: "column" }}>
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv" ? "Fakturerinsuppgifter" : "Billing information"}
         </h3>
         <span>
@@ -82,7 +82,7 @@ export default function Other({ register, lang, errors }) {
           <p className={styles.error}>{errors.fakturering?.message}</p>
         </div>
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv"
             ? "Eventuell Firmatecknare"
             : "Eventual Company Signatory"}
@@ -110,7 +110,7 @@ export default function Other({ register, lang, errors }) {
           <p className={styles.error}>{errors.firmateknare?.message}</p>
         </div>
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv" ? "Organisationsnummer" : "Organization number"}
         </h3>
         <span>
@@ -136,7 +136,7 @@ export default function Other({ register, lang, errors }) {
           <p className={styles.error}>{errors.organisationsnummer?.message}</p>
         </div>
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv" ? "Övrig information" : "Other information"}
         </h3>
         <span>

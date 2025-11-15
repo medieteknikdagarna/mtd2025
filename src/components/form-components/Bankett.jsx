@@ -11,11 +11,11 @@ export default function Bankett({
   errors,
 }) {
   return (
-    <div style={{ color: "white" }}>
+    <div style={{ color: "#000000" }}>
       <h2 id={styles.underLine}>{lang === "sv" ? "Bankett" : "Banquet"}</h2>
       <div>
         <div>
-          <h3 style={{ color: "white" }}>
+          <h3 style={{ color: "#000000" }}>
             {lang === "sv" ? "Bankettbiljetter" : "Banquest Tickets"}
           </h3>
           <span>
@@ -31,7 +31,7 @@ export default function Bankett({
           />
           {watch("bankettbiljetter") > 0 && (
             <div>
-              <h3 style={{ color: "white" }}>Specialkost</h3>
+              <h3 style={{ color: "#000000" }}>Specialkost</h3>
               <div>
                 {bankettField.map((kost, index) => {
                   return (

@@ -48,7 +48,7 @@ export default function Sponsor({
                       ? "#b3a34d"
                       : currentSponsor === "Startup"
                         ? "#4a4a4a"
-                        : "white",
+                        : "#000000",
             }}
           >
             {currentSponsor}

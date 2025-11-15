@@ -12,10 +12,11 @@
     font-weight: 600;
     font-size: 1.7rem;
     margin-bottom: 0.7rem;
+    color: #000000;
   }
   p {
     margin-bottom: 1rem;
-    color: rgb(255, 255, 255);
+    color: #000000;
   }
 
   @media screen and (min-width: 900px) {
@@ -45,6 +46,15 @@
       background-color: transparent;
       color: #000000 !important;
     }
+  }
+}
+
+// Contact card clipboard button should have black text
+.contact-card .clipboard-button input {
+  color: #000000 !important;
+  
+  &:focus {
+    color: #000000 !important;
   }
 }
 

@@ -284,8 +284,8 @@ export default function BookingFormV4() {
 
 
     // använd den övre vid deployment med vercel, den nedre vid localhost
-    // const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS); //övre
-    const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!'); //nedre
+    const authData = await pb.admins.authWithPassword(process.env.NEXT_PUBLIC_POCKETHOST_ADMIN, process.env.NEXT_PUBLIC_POCKETHOST_PASS); //övre
+    //const authData = await pb.admins.authWithPassword('webb@medieteknikdagarna.se', 'mtdWEBB2024!'); //nedre
 
 
 
@@ -341,7 +341,7 @@ export default function BookingFormV4() {
         <>
           <SplitScreen>
             <div>
-              <h2 style={{ fontSize: "4rem", color: "white" }} id="topOfPage">
+              <h2 style={{ fontSize: "4rem", color: "#000000" }} id="topOfPage">
                 {lang === "sv" ? "Plan" : "Floor"} {activeFloor}
               </h2>
               <div className={styles.floorContainer}>

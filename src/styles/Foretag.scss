@@ -7,7 +7,7 @@
   h1,
   h2,
   h3 {
-    color: white;
+    color: #000000;
     margin-top: 0;
   }
 }
@@ -53,7 +53,7 @@
 
 .card_container {
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.175);
   box-shadow: inset 0px 0px 20px 10px rgba(255, 255, 255, 0.01);
   min-height: 70vh;
 }
@@ -105,6 +105,7 @@
   h2 {
     font-size: 2rem;
     margin-top: 4vh;
+    color: white;
   }
   span {
     font-size: 1rem;
@@ -113,11 +114,6 @@
   h3 {
     margin-top: 0;
     margin-bottom: 1vh;
-    text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.5),
-      0 0 20px rgba(255, 255, 255, 0.3),
-      0 0 30px rgba(255, 255, 255, 0.2);
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
   }
   @media (max-width: 1000px) {
     padding-left: 4vw;
@@ -136,6 +132,7 @@
     padding-left: 1vw;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    color: #ffffff;
   }
   .offer_circle {
     display: flex;
@@ -165,11 +162,7 @@
   width: clamp(50%, 900px, 90%);
   max-width: 90%;
   //height: min(50%, 300px);
-  background: linear-gradient(
-    -45deg,
-    rgba(29, 46, 55, 1) 0%,
-    rgb(28, 42, 49) 0%
-  );
+  background: rgb(130, 133, 137);
   box-shadow: inset 0px 0px 20px 10px rgba(255, 255, 255, 0.01);
 
   margin: auto;

@@ -78,7 +78,7 @@ export default function ContactInfo({ register, lang, errors }) {
         />
         */}
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv"
             ? "Kontaktperson"
             : "Name"}
@@ -116,7 +116,7 @@ export default function ContactInfo({ register, lang, errors }) {
         />
         */}
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv"
             ? "Företag"
             : "Company name"}
@@ -152,7 +152,7 @@ export default function ContactInfo({ register, lang, errors }) {
           text={lang === "sv" ? "Företagsadress" : "Company adress"}
         /> */}
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv"
             ? "Företagsadress"
             : "Company adress"}
@@ -184,7 +184,7 @@ export default function ContactInfo({ register, lang, errors }) {
           text={"Email"}
         /> */}
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv" ? "Email" : "Email"}
         </h3>
 
@@ -219,7 +219,7 @@ export default function ContactInfo({ register, lang, errors }) {
           text={"Tel"}
         /> */}
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv" ? "Tel" : "Tel"}
         </h3>
 
@@ -253,7 +253,7 @@ export default function ContactInfo({ register, lang, errors }) {
           }
         /> */}
 
-        <h3 style={{ color: "white" }}>
+        <h3 style={{ color: "#000000" }}>
           {lang === "sv" ? "Beskrivning av företag för app och hemsida"
               : "Description of company for app and websire"}
         </h3>

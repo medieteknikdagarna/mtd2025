@@ -63,9 +63,9 @@ export default function Sponsor({
         <div className={styles.floorText} style={{ marginTop: "1rem" }}>
           {watch("sponsor") === "Brons" ? (
             <>
-              <span style={{ color: "white" }}> Bronssponsorer får </span>
+              <span style={{ color: "#000000" }}> Bronssponsorer får </span>
               <span style={{ color: "red" }}>inte välja en plats </span>
-              <span style={{ color: "white" }}>
+              <span style={{ color: "#000000" }}>
                 utan blir tilldelad en av de blå platserna. Det finns få
                 bronsplatser kvar!
               </span>

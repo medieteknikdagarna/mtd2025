@@ -58,7 +58,7 @@ const StudentEXPO = () => {
   
             <h1 style={{
               fontSize: "2rem",
-              color: "white",
+              color: "#000000",
               textAlign: "center",
               margin: "2rem",
             }}>{lang === "sv" ? "Här kommer snart alla utställare på studentEXPO visas" : "All the exhibitors at studentEXPO will soon be shown here"}</h1>

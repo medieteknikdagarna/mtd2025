@@ -23,7 +23,7 @@ export default function Wing() {
         height="10"
         preserveascpectratio="null"
       /> */}
-      <h1 style={{ color: "white" }}>
+      <h1 style={{ color: "#000000" }}>
         {lang === "sv" ? "Anmälan" : "Registration"}
       </h1>
       {/*  <WingLeft

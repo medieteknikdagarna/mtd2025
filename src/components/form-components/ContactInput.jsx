@@ -23,7 +23,7 @@ export default function ContactInput({
         })}
       />
       <label htmlFor={id}>
-        <div style={{ display: "flex", color: "white" }}>
+        <div style={{ display: "flex", color: "#000000" }}>
           {text}
           <p className={styles.error}>{errors && errors.message}</p>
         </div>

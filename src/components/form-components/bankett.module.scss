@@ -1,7 +1,7 @@
 $MTDorange: #ec6610;
 #underLine {
   text-decoration: underline;
-  color: white;
+  color: #000000;
 }
 .fairfood {
   input {
@@ -10,9 +10,9 @@ $MTDorange: #ec6610;
     padding-left: 1rem;
     height: 3rem;
     width: 50%;
-    color: #fff;
+    color: #000000;
     border-bottom: 1px solid#fff;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(245, 245, 245);
     border-radius: 5px 5px 0 0;
     transition: border-color 0.15s ease-out, background-color 0.15s ease-out;
     &:hover {
@@ -27,7 +27,7 @@ $MTDorange: #ec6610;
 }
 .textinput {
   input {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(245, 245, 245);
     position: relative;
     margin-top: 1rem;
     padding-left: 1rem;

@@ -13,7 +13,7 @@ $MTDorange: #ec6610;
   padding-top: 5vh;
   h2,
   h3 {
-    color: white;
+    color: #000000;
   }
   .numberattend {
     display: flex;
@@ -27,7 +27,7 @@ $MTDorange: #ec6610;
     padding-left: 1rem;
     height: 3rem;
     width: 50%;
-    color: #fff;
+    color: #000000;
     border-bottom: 1px solid#fff;
     border-radius: 5px 5px 0 0;
     background-color: rgba(0, 0, 0, 0.2);
@@ -76,7 +76,7 @@ $MTDorange: #ec6610;
     color: $MTDorange;
   }
   label {
-    color: #fff;
+    color: #000000;
   }
 }
 #TV {
@@ -86,7 +86,7 @@ $MTDorange: #ec6610;
 }
 .textinput {
   input {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(245, 245, 245);
     position: relative;
     margin-top: 1rem;
     padding-left: 1rem;
