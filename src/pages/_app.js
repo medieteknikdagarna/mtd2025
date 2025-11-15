@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 import AcceptPolicy from "../components/AcceptPolicy";
-import { Lato, Barlow } from "next/font/google";
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["200"],
-});
 
 // ALL SCSS IMPORTS
 

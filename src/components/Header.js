@@ -10,14 +10,7 @@ import Menu from "./Menu";
 import Link from "next/link";
 import LanguageFlag from "./LanguageFlag";
 import Image from "next/image";
-import { Lato, Barlow } from "next/font/google";
-
 export const menuActiveContext = React.createContext();
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["200"],
-});
 
 export default function Header({
   shadow = false,
@@ -67,7 +60,7 @@ export default function Header({
         </Link>
         <div className="nav-items">
           <Link href="/" legacyBehavior>
-            <h2 className={barlow.className}>MTD</h2>
+            <h2>MTD</h2>
           </Link>
           <div className="icons">
             <LanguageFlag />
